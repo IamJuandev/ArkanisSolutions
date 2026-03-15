@@ -1,0 +1,77 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="arkanis-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+                <defs>
+                    <!-- Filtro de Sombra 3D -->
+                    <filter id="shadow3d" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.15"/>
+                    </filter>
+
+                    <!-- Sombra para el Swoosh central -->
+                    <filter id="swooshShadow" x="-10%" y="-10%" width="120%" height="120%">
+                        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+                    </filter>
+
+                    <!-- Degradado Pierna Izquierda (Azul a Verde) -->
+                    <linearGradient id="gradLeftLeg" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#0b3a82"/>
+                        <stop offset="50%" stop-color="#0f7eb8"/>
+                        <stop offset="100%" stop-color="#27c96a"/>
+                    </linearGradient>
+
+                    <!-- Degradado Pierna Derecha (Verde a Azul Oscuro) -->
+                    <linearGradient id="gradRightLeg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#27c96a"/>
+                        <stop offset="50%" stop-color="#0d5d8a"/>
+                        <stop offset="100%" stop-color="#051024"/>
+                    </linearGradient>
+
+                    <!-- Degradado Swoosh Superior (Plata/Blanco) -->
+                    <linearGradient id="gradSwooshLight" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="50%" stop-color="#e2e8f0"/>
+                        <stop offset="100%" stop-color="#94a3b8"/>
+                    </linearGradient>
+
+                    <!-- Degradado Swoosh Inferior (Gris Oscuro/Sombra) -->
+                    <linearGradient id="gradSwooshDark" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#64748b"/>
+                        <stop offset="100%" stop-color="#1e293b"/>
+                    </linearGradient>
+
+                    <!-- Degradado Esfera Superior (Verde) -->
+                    <radialGradient id="gradTopSphere" cx="35%" cy="30%" r="60%">
+                        <stop offset="0%" stop-color="#a7f3d0"/>
+                        <stop offset="45%" stop-color="#22c55e"/>
+                        <stop offset="100%" stop-color="#14532d"/>
+                    </radialGradient>
+
+                    <!-- Degradado Esfera Inferior Izquierda (Azul) -->
+                    <radialGradient id="gradBotSphere" cx="35%" cy="30%" r="60%">
+                        <stop offset="0%" stop-color="#93c5fd"/>
+                        <stop offset="45%" stop-color="#2563eb"/>
+                        <stop offset="100%" stop-color="#1e3a8a"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- GRUPO PRINCIPAL DEL LOGO -->
+                <g filter="url(#shadow3d)">
+
+                    <!-- 1. Pierna Derecha (Fondo) -->
+                    <polygon points="360,180 440,180 580,450 490,430" fill="url(#gradRightLeg)"/>
+
+                    <!-- 2. Pierna Izquierda (Fondo) -->
+                    <polygon points="360,180 440,180 300,440 220,440" fill="url(#gradLeftLeg)"/>
+
+                    <!-- 3. Swoosh Inferior / Sombra de la carretera (Medio) -->
+                    <path d="M 290 440 C 400 380, 510 350, 610 330 C 520 365, 420 410, 320 465 Z" fill="url(#gradSwooshDark)"/>
+
+                    <!-- 4. Swoosh Superior / Carretera Plateada (Frente) -->
+                    <path d="M 250 420 C 330 350, 450 290, 610 330 C 510 350, 400 380, 290 440 Z" fill="url(#gradSwooshLight)" filter="url(#swooshShadow)"/>
+
+                    <!-- 5. Esfera Superior (Verde) -->
+                    <circle cx="400" cy="180" r="46" fill="url(#gradTopSphere)"/>
+
+                    <!-- 6. Esfera Inferior Izquierda (Azul) -->
+                    <circle cx="260" cy="440" r="46" fill="url(#gradBotSphere)"/>
+
+                </g>
+            </svg>

@@ -1,0 +1,6 @@
+node_modules
+dist
+server/contacts.db
+.git
+.gitignore
+*.md
