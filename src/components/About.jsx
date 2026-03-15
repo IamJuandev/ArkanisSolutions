@@ -57,8 +57,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right — Stats + Logo */}
-        <div className="flex flex-col items-center gap-8">
+        {/* Right — Logo */}
+        <div className="flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -66,11 +66,11 @@ export default function About() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="relative"
           >
-            <div className="w-64 h-64 rounded-3xl glass border border-[#40E0FF]/20 flex items-center justify-center glow-cyan">
+            <div className="w-80 h-80 rounded-3xl glass border border-[#40E0FF]/20 flex items-center justify-center glow-cyan">
               <img
                 src="/Arkanis_logo_sinletras.svg"
                 alt="Arkanis icon"
-                className="w-40 h-40 object-contain"
+                className="w-56 h-56 object-contain"
               />
             </div>
             {/* Floating badges */}
@@ -89,20 +89,6 @@ export default function About() {
               n8n + Python
             </motion.div>
           </motion.div>
-
-          {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
-            {tr.stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                {...fadeInView(0.4 + i * 0.1)}
-                className="glass rounded-xl p-5 text-center border border-white/5"
-              >
-                <div className="text-3xl font-extrabold text-gradient mb-1">{stat.value}</div>
-                <div className="text-xs text-[#94A3B8]">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
