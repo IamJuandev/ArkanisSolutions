@@ -7,7 +7,7 @@ import { insertContact, getAllContacts } from './db.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
 const PORT = process.env.PORT || 3001
-const N8N_WEBHOOK = 'https://n8n.arkanis.site/webhook-test/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
+const N8N_WEBHOOK = 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
 
 app.use(cors())
 app.use(express.json())
