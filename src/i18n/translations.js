@@ -187,6 +187,7 @@ export const t = {
       },
       info: [
         { icon: 'message-circle', label: 'WhatsApp', value: '+57 313 875 1753' },
+        { icon: 'message-circle', label: 'WhatsApp', value: '+57 318 877 2752' },
         { icon: 'map-pin', label: 'Ubicación', value: 'Remoto · Colombia' },
       ],
     },
@@ -392,6 +393,7 @@ export const t = {
       },
       info: [
         { icon: 'message-circle', label: 'WhatsApp', value: '+57 313 875 1753' },
+        { icon: 'message-circle', label: 'WhatsApp', value: '+57 318 877 2752' },
         { icon: 'map-pin', label: 'Location', value: 'Remote · Colombia' },
       ],
     },
