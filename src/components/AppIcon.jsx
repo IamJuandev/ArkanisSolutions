@@ -7,6 +7,7 @@ import {
   Target, ScanSearch, Handshake,
   Mail, MessageCircle, MapPin,
   CalendarCheck, ScanLine, Receipt,
+  TrendingUp, ArrowUpRight,
 } from 'lucide-react'
 
 const icons = {
@@ -24,6 +25,8 @@ const icons = {
   'calendar-check': CalendarCheck,
   'scan-line': ScanLine,
   receipt: Receipt,
+  'trending-up': TrendingUp,
+  'arrow-up-right': ArrowUpRight,
 }
 
 export default function AppIcon({ name, size = 20, strokeWidth = 1.5, className = '' }) {
