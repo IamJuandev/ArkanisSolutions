@@ -8,6 +8,7 @@ export default function Navbar() {
   const tr = t[lang].nav
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -28,97 +29,119 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-strong shadow-lg' : 'bg-transparent'
-      }`}
+      className="fixed top-4 left-4 right-4 z-50 flex justify-center pointer-events-none"
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3 shrink-0">
-          <img
-            src="/Arkanis_logo.svg"
-            alt="Arkanis Solutions"
-            className="h-9 w-auto"
-          />
-        </a>
-
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
-          {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-[#94A3B8] hover:text-[#40E0FF] transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        {/* Right side */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={toggle}
-            className="px-3 py-1.5 text-xs font-semibold rounded-full border border-white/10 text-[#94A3B8] hover:text-[#40E0FF] hover:border-[#40E0FF]/40 transition-all"
-          >
-            {lang === 'es' ? 'EN' : 'ES'}
-          </button>
-          <a
-            href="#contact"
-            className="px-4 py-2 text-sm font-semibold rounded-lg bg-[#40E0FF] text-dark hover:bg-[#0BB8D4] transition-all glow-cyan"
-          >
-            {tr.cta}
+      <div
+        className={`pointer-events-auto w-full max-w-5xl rounded-2xl border transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#151A21]/85 border-[#40E0FF]/15 shadow-[0_8px_32px_rgba(11,13,16,0.6)] backdrop-blur-xl'
+            : 'bg-[#151A21]/60 border-white/10 backdrop-blur-lg'
+        }`}
+      >
+        <nav
+          className={`px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ${
+            scrolled ? 'h-12' : 'h-14'
+          }`}
+        >
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 shrink-0 group">
+            <motion.img
+              whileHover={{ rotate: -6, scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              src="/Arkanis_logo.svg"
+              alt="Arkanis Solutions"
+              className={`w-auto transition-all duration-300 ${scrolled ? 'h-7' : 'h-8'}`}
+            />
           </a>
-        </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden flex items-center gap-3">
-          <button onClick={toggle} className="text-xs text-[#94A3B8] px-2 py-1 border border-white/10 rounded">
-            {lang === 'es' ? 'EN' : 'ES'}
-          </button>
-          <button
-            onClick={() => setOpen(v => !v)}
-            className="p-2 text-[#94A3B8] hover:text-white"
-            aria-label="Menu"
-          >
-            <div className="w-5 h-0.5 bg-current mb-1 transition-all" style={open ? {transform:'rotate(45deg) translate(3px,3px)'} : {}}/>
-            <div className="w-5 h-0.5 bg-current mb-1 transition-all" style={open ? {opacity:0} : {}}/>
-            <div className="w-5 h-0.5 bg-current transition-all" style={open ? {transform:'rotate(-45deg) translate(3px,-3px)'} : {}}/>
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-white/5"
-          >
-            <div className="px-4 py-4 flex flex-col gap-3">
-              {links.map(link => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm py-2 text-[#94A3B8] hover:text-[#40E0FF] transition-colors border-b border-white/5"
-                >
-                  {link.label}
-                </a>
-              ))}
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-6">
+            {links.map(link => (
               <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="mt-2 px-4 py-3 text-sm font-semibold rounded-lg bg-[#40E0FF] text-dark text-center"
+                key={link.href}
+                href={link.href}
+                onClick={() => setActive(link.href)}
+                className={`relative text-sm py-1 transition-colors duration-200 group/link ${
+                  active === link.href ? 'text-[#40E0FF]' : 'text-[#94A3B8] hover:text-[#40E0FF]'
+                }`}
               >
-                {tr.cta}
+                {link.label}
+                <span
+                  className={`absolute left-0 -bottom-0.5 w-full h-px bg-[#40E0FF] transition-transform duration-300 ease-out origin-left ${
+                    active === link.href ? 'scale-x-100' : 'scale-x-0 group-hover/link:scale-x-100'
+                  }`}
+                />
               </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+          </div>
+
+          {/* Right side */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggle}
+              className="px-3 py-1.5 text-xs font-semibold rounded-full border border-white/10 text-[#94A3B8] hover:text-[#40E0FF] hover:border-[#40E0FF]/40 transition-all active:scale-95"
+            >
+              {lang === 'es' ? 'EN' : 'ES'}
+            </button>
+            <motion.a
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.97 }}
+              href="#contact"
+              className="px-4 py-2 text-sm font-semibold rounded-xl bg-[#40E0FF] text-dark hover:bg-[#0BB8D4] transition-colors glow-cyan"
+            >
+              {tr.cta}
+            </motion.a>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center gap-3">
+            <button onClick={toggle} className="text-xs text-[#94A3B8] px-2 py-1 border border-white/10 rounded">
+              {lang === 'es' ? 'EN' : 'ES'}
+            </button>
+            <button
+              onClick={() => setOpen(v => !v)}
+              className="p-2 text-[#94A3B8] hover:text-white"
+              aria-label="Menu"
+            >
+              <div className="w-5 h-0.5 bg-current mb-1 transition-all" style={open ? {transform:'rotate(45deg) translate(3px,3px)'} : {}}/>
+              <div className="w-5 h-0.5 bg-current mb-1 transition-all" style={open ? {opacity:0} : {}}/>
+              <div className="w-5 h-0.5 bg-current transition-all" style={open ? {transform:'rotate(-45deg) translate(3px,-3px)'} : {}}/>
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-white/5 overflow-hidden"
+            >
+              <div className="px-4 py-4 flex flex-col gap-3">
+                {links.map(link => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => { setActive(link.href); setOpen(false) }}
+                    className="text-sm py-2 text-[#94A3B8] hover:text-[#40E0FF] transition-colors border-b border-white/5"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="mt-2 px-4 py-3 text-sm font-semibold rounded-xl bg-[#40E0FF] text-dark text-center"
+                >
+                  {tr.cta}
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.header>
   )
 }
