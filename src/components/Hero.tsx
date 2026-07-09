@@ -6,6 +6,12 @@ interface HeroProps {
   onStartAssessment: () => void;
 }
 
+// Shared percentage coordinate system (0-100) for the mini flow-scene,
+// so the SVG paths, node buttons, and simulated packets all scale together
+// at any panel width instead of drifting apart on narrow screens.
+const INPUT_POS = { x: 20, y: 80 };
+const COMPLETED_POS = { x: 68, y: 22 };
+
 export default function Hero({ onStartAssessment }: HeroProps) {
   const [activeNode, setActiveNode] = useState<'input' | 'completed' | 'vector' | null>(null);
   const [simulatedPackets, setSimulatedPackets] = useState<{ id: number; progress: number }[]>([]);
@@ -135,80 +141,90 @@ export default function Hero({ onStartAssessment }: HeroProps) {
                 className="absolute w-64 h-64 pointer-events-none select-none"
               />
 
-              {/* Data Flow Line (Blue Node at (100, 180) to Green Node at (220, 60)) */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                {/* Visualizing path corresponding to our packet coordinates */}
-                <path 
+              {/* Data Flow Line (Input Node to Completed Node), in a 0-100 percentage
+                  coordinate space shared with the node buttons and packets below,
+                  so everything scales together regardless of panel width. */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Flow line from NODO_INPUT to NODO_COMPLETED */}
+                <path
                   id="flow-path"
-                  d="M 120 185 L 210 75" 
-                  stroke="#17939F" 
-                  strokeWidth="1.5" 
-                  strokeDasharray="4 4" 
-                  fill="none" 
-                  className="opacity-40" 
+                  d={`M ${INPUT_POS.x} ${INPUT_POS.y} L ${COMPLETED_POS.x} ${COMPLETED_POS.y}`}
+                  stroke="#17939F"
+                  strokeWidth="1.5"
+                  strokeDasharray="4 4"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                  className="opacity-40"
                 />
-                
-                {/* Acceleration Curve */}
-                <path 
-                  d="M 90 175 Q 185 110 320 130" 
-                  stroke="#FAF8F5" 
-                  strokeWidth="1" 
-                  fill="none" 
-                  className="opacity-30" 
+
+                {/* Acceleration Curve, sweeping wider and lower than the flow line */}
+                <path
+                  d="M 12 78 Q 55 45 92 58"
+                  stroke="#FAF8F5"
+                  strokeWidth="1"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                  className="opacity-30"
                 />
               </svg>
 
               {/* Simulated Moving Packets */}
               {simulatedPackets.map((packet) => {
-                // Linear interpolation from Input coordinate (120, 185) to Output coordinate (210, 75)
-                const startX = 110;
-                const startY = 180;
-                const endX = 210;
-                const endY = 80;
+                // Linear interpolation from Input node to Completed node, in the same
+                // percentage space as the flow line and node anchors.
                 const ratio = packet.progress / 100;
-                const currentX = startX + (endX - startX) * ratio;
-                const currentY = startY + (endY - startY) * ratio;
+                const currentX = INPUT_POS.x + (COMPLETED_POS.x - INPUT_POS.x) * ratio;
+                const currentY = INPUT_POS.y + (COMPLETED_POS.y - INPUT_POS.y) * ratio;
 
                 return (
                   <div
                     key={packet.id}
                     className="absolute w-2 h-2 bg-brand-turquoise rounded-full shadow-md shadow-brand-turquoise"
                     style={{
-                      left: `${currentX}px`,
-                      top: `${currentY}px`,
+                      left: `${currentX}%`,
+                      top: `${currentY}%`,
                       transform: 'translate(-50%, -50%)',
                     }}
                   />
                 );
               })}
 
-              {/* Input Node (Blue - Bottom Left) */}
+              {/* Input Node (Blue - Bottom Left). The button box wraps only the icon so the
+                  translate(-50%,-50%) anchor lands exactly on the icon center — matching the
+                  flow-line endpoint above — regardless of the (absolutely positioned) label's size. */}
               <button
                 onMouseEnter={() => setActiveNode('input')}
                 onMouseLeave={() => setActiveNode(null)}
                 onClick={() => setActiveNode('input')}
-                className="absolute bottom-6 left-12 flex flex-col items-center group cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                className="absolute group cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                style={{ left: `${INPUT_POS.x}%`, top: `${INPUT_POS.y}%`, transform: 'translate(-50%, -50%)' }}
               >
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 via-brand-blue to-brand-darkBlue shadow-lg shadow-brand-blue/30 relative flex items-center justify-center transition-all group-hover:scale-110">
                   <span className="w-3 h-3 rounded-full bg-white animate-ping absolute"></span>
                   <Database size={12} className="text-white relative z-10" />
                 </div>
-                <span className="font-mono text-[8px] text-brand-lightBlue mt-2 group-hover:text-brand-turquoise transition-colors">
+                <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 font-mono text-[8px] text-brand-lightBlue group-hover:text-brand-turquoise transition-colors whitespace-nowrap">
                   NODO_INPUT (INICIO)
                 </span>
               </button>
 
-              {/* Completed Node (Green - Apex Top) */}
+              {/* Completed Node (Green - Apex Top). Same wrap-only-the-icon approach as the input node. */}
               <button
                 onMouseEnter={() => setActiveNode('completed')}
                 onMouseLeave={() => setActiveNode(null)}
                 onClick={() => setActiveNode('completed')}
-                className="absolute top-4 right-28 flex flex-col items-center group cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-green"
+                className="absolute group cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-green"
+                style={{ left: `${COMPLETED_POS.x}%`, top: `${COMPLETED_POS.y}%`, transform: 'translate(-50%, -50%)' }}
               >
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 via-brand-green to-emerald-950 shadow-lg shadow-brand-green/30 relative flex items-center justify-center transition-all group-hover:scale-110">
                   <CheckCircle size={12} className="text-white relative" />
                 </div>
-                <span className="font-mono text-[8px] text-brand-green mt-2 group-hover:text-white transition-colors">
+                <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 font-mono text-[8px] text-brand-green group-hover:text-white transition-colors whitespace-nowrap">
                   NODO_COMPLETED (MÉTODO)
                 </span>
               </button>

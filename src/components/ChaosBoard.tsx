@@ -134,23 +134,23 @@ export default function ChaosBoard() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-brand-bg/90 backdrop-blur-md z-50 flex items-center justify-center p-4"
+                className="fixed inset-0 bg-brand-bg/90 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto"
                 onClick={() => setSelectedCard(null)}
               >
-                <motion.div 
+                <motion.div
                   initial={{ scale: 0.95, y: 15 }}
                   animate={{ scale: 1, y: 0 }}
                   exit={{ scale: 0.95, y: 15 }}
                   transition={{ type: "spring", damping: 25 }}
-                  className="bg-brand-bg border border-brand-turquoise max-w-2xl w-full p-8 relative"
+                  className="bg-brand-bg border border-brand-turquoise max-w-2xl w-full p-8 relative my-auto max-h-[85vh] overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {/* Corners */}
                   <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-brand-turquoise"></div>
                   <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-brand-turquoise"></div>
-                  <button 
+                  <button
                     onClick={() => setSelectedCard(null)}
-                    className="absolute top-4 right-4 text-brand-lightBlue hover:text-brand-turquoise cursor-pointer"
+                    className="absolute top-4 right-4 text-brand-lightBlue hover:text-brand-turquoise cursor-pointer bg-brand-bg/80 rounded-full p-1 z-10"
                   >
                     <X size={18} />
                   </button>
