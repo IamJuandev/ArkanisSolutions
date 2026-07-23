@@ -1,5 +1,6 @@
 import AssessmentForm from './components/AssessmentForm';
 import AutomationFlow from './components/AutomationFlow';
+import ClientProcess from './components/ClientProcess';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Institutional from './components/Institutional';
@@ -53,6 +54,7 @@ export default function App() {
         <Hero onStartAssessment={handleStartAssessment} />
         <Institutional />
         <Pillars />
+        <ClientProcess />
         <AutomationFlow />
         <ProductionProjects />
         <AssessmentForm />

@@ -1,9 +1,10 @@
-import { Blocks, BriefcaseBusiness, Building2, Workflow } from 'lucide-react';
+import { Blocks, BriefcaseBusiness, Building2, Route, Workflow } from 'lucide-react';
 import { LimelightNav, type LimelightNavItem } from './ui/limelight-nav';
 
 const links: LimelightNavItem[] = [
   { href: '/#nosotros', sectionId: '#nosotros', label: 'Nosotros', icon: Building2 },
   { href: '/#pilares', sectionId: '#pilares', label: 'Qué hacemos', icon: Blocks },
+  { href: '/#proceso', sectionId: '#proceso', label: 'Cómo trabajamos', icon: Route },
   { href: '/#automatizacion', sectionId: '#automatizacion', label: 'Ver un flujo', icon: Workflow },
   { href: '/#proyectos', sectionId: '#proyectos', label: 'Proyectos', icon: BriefcaseBusiness },
 ];
