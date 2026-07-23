@@ -1,11 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
-interface HeroProps {
-  onStartAssessment: () => void;
-}
-
-export default function Hero({ onStartAssessment }: HeroProps) {
+export default function Hero() {
   const reduceMotion = useReducedMotion() ?? true;
 
   return (
@@ -70,9 +66,9 @@ export default function Hero({ onStartAssessment }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.28 }}
             className="mt-9 flex"
           >
-            <button onClick={onStartAssessment} className="brand-button brand-button-large liquid-glass-button">
+            <a href="/contacto" className="brand-button brand-button-large liquid-glass-button">
               Solicitar diagnóstico <ArrowRight size={17} />
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

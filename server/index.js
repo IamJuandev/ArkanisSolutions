@@ -26,6 +26,48 @@ const ROUTE_SEO = {
     image: `${SITE_URL}/arkanis-hero-poster.webp`,
     imageAlt: 'Arkanis Solutions transforma operaciones empresariales con tecnología.',
   },
+  '/nosotros': {
+    title: 'Nosotros | Arkanis Solutions',
+    description: 'Conocé la misión, visión y principios con los que Arkanis Solutions acompaña la modernización de las pymes del Eje Cafetero.',
+    canonical: `${SITE_URL}/nosotros`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Arkanis Solutions acompaña empresas del Eje Cafetero con tecnología útil.',
+  },
+  '/que-hacemos': {
+    title: 'Diseño web, automatización y software | Arkanis Solutions',
+    description: 'Diseño web a medida, automatización de operaciones y consultoría tecnológica para empresas de Armenia y el Eje Cafetero.',
+    canonical: `${SITE_URL}/que-hacemos`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Servicios digitales y de automatización de Arkanis Solutions.',
+  },
+  '/como-trabajamos': {
+    title: 'Cómo trabajamos | Arkanis Solutions',
+    description: 'Diagnóstico, priorización, diseño, construcción y evolución de sistemas digitales adaptados a cada empresa.',
+    canonical: `${SITE_URL}/como-trabajamos`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Proceso de trabajo de Arkanis Solutions.',
+  },
+  '/flujo': {
+    title: 'Diagnóstico y automatización de procesos | Arkanis Solutions',
+    description: 'Arkanis identifica el desorden operativo, define responsables y convierte tareas dispersas en procesos visibles y automatizables.',
+    canonical: `${SITE_URL}/flujo`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Comparación entre una operación dispersa y un proceso organizado por Arkanis.',
+  },
+  '/proyectos': {
+    title: 'Proyectos de software y automatización | Arkanis Solutions',
+    description: 'Casos reales y productos funcionales construidos por Arkanis Solutions para operaciones empresariales concretas.',
+    canonical: `${SITE_URL}/proyectos`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Proyectos destacados de Arkanis Solutions.',
+  },
+  '/contacto': {
+    title: 'Solicitar diagnóstico tecnológico | Arkanis Solutions',
+    description: 'Contanos dónde está la fricción en tu empresa y conversemos sobre una ruta tecnológica clara y realista.',
+    canonical: `${SITE_URL}/contacto`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Formulario de diagnóstico de Arkanis Solutions.',
+  },
   '/proyectos/directorio-terrario': {
     title: 'Directorio Terrario | Caso de estudio de Arkanis Solutions',
     description: 'Directorio mobile-first para huéspedes Airbnb, implementado por Arkanis Solutions en tres sedes de Armenia.',
@@ -142,11 +184,7 @@ if (process.env.NODE_ENV === 'production') {
   const htmlTemplate = readFileSync(join(distPath, 'index.html'), 'utf8')
 
   app.use(express.static(distPath, { index: false }))
-  app.get([
-    '/',
-    '/proyectos/directorio-terrario',
-    '/productos/sistema-gestion-restaurantes',
-  ], (req, res) => {
+  app.get(Object.keys(ROUTE_SEO), (req, res) => {
     const routePath = req.path.replace(/\/+$/, '') || '/'
 
     if (req.path !== routePath) {

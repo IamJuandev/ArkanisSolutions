@@ -1,9 +1,8 @@
 import type { LucideIcon } from 'lucide-react';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 export interface LimelightNavItem {
   href: string;
-  sectionId: `#${string}`;
   label: string;
   icon: LucideIcon;
 }
@@ -24,55 +23,13 @@ export function LimelightNav({
   ariaLabel = 'Navegación principal',
   className = '',
 }: LimelightNavProps) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [highlight, setHighlight] = useState<HighlightPosition | null>(null);
   const navRef = useRef<HTMLElement>(null);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-
-  useEffect(() => {
-    const syncHash = () => {
-      const hashIndex = items.findIndex((item) => item.sectionId === window.location.hash);
-      const hasTrackedSection = hashIndex >= 0 && document.querySelector(items[hashIndex].sectionId);
-      setActiveIndex(hasTrackedSection ? hashIndex : null);
-    };
-
-    syncHash();
-    window.addEventListener('hashchange', syncHash);
-
-    const visibleSections = new Map<Element, number>();
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) visibleSections.set(entry.target, entry.intersectionRatio);
-          else visibleSections.delete(entry.target);
-        });
-
-        let nextIndex = -1;
-        let highestRatio = -1;
-        items.forEach((item, index) => {
-          const section = document.querySelector(item.sectionId);
-          const ratio = section ? visibleSections.get(section) : undefined;
-          if (ratio !== undefined && ratio > highestRatio) {
-            nextIndex = index;
-            highestRatio = ratio;
-          }
-        });
-
-        setActiveIndex(nextIndex >= 0 ? nextIndex : null);
-      },
-      { rootMargin: '-18% 0px -58%', threshold: [0, 0.1, 0.25, 0.5, 0.75] },
-    );
-
-    items.forEach((item) => {
-      const section = document.querySelector(item.sectionId);
-      if (section) sectionObserver.observe(section);
-    });
-
-    return () => {
-      window.removeEventListener('hashchange', syncHash);
-      sectionObserver.disconnect();
-    };
-  }, [items]);
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const activeIndex = items.findIndex(
+    (item) => currentPath === item.href || currentPath.startsWith(`${item.href}/`),
+  );
 
   useLayoutEffect(() => {
     let animationFrame = 0;
@@ -81,7 +38,7 @@ export function LimelightNav({
       cancelAnimationFrame(animationFrame);
       animationFrame = requestAnimationFrame(() => {
         const nav = navRef.current;
-        const activeItem = activeIndex === null ? null : itemRefs.current[activeIndex];
+        const activeItem = activeIndex < 0 ? null : itemRefs.current[activeIndex];
         if (!nav || !activeItem) {
           setHighlight(null);
           return;
@@ -134,9 +91,8 @@ export function LimelightNav({
             key={item.href}
             ref={(node) => { itemRefs.current[index] = node; }}
             href={item.href}
-            aria-current={isActive ? 'location' : undefined}
+            aria-current={isActive ? 'page' : undefined}
             aria-label={item.label}
-            onClick={() => setActiveIndex(index)}
             className={`relative z-10 flex min-h-10 items-center justify-center gap-2 rounded-lg px-3 text-xs font-semibold transition-colors duration-200 motion-reduce:transition-none lg:px-4 ${
               isActive ? 'text-brand-sand' : 'text-brand-mist hover:text-brand-sand'
             }`}
