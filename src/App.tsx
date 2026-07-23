@@ -2,6 +2,7 @@ import AssessmentForm from './components/AssessmentForm';
 import AutomationFlow from './components/AutomationFlow';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import Institutional from './components/Institutional';
 import Navbar from './components/Navbar';
 import Pillars from './components/Pillars';
 import ProductionProjects from './components/ProductionProjects';
@@ -50,6 +51,7 @@ export default function App() {
       <Navbar />
       <main className="relative z-10">
         <Hero onStartAssessment={handleStartAssessment} />
+        <Institutional />
         <Pillars />
         <AutomationFlow />
         <ProductionProjects />
