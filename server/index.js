@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
@@ -8,12 +9,75 @@ const app = express()
 const PORT = process.env.PORT || 3001
 const N8N_WEBHOOK = 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
 const WEBHOOK_TIMEOUT_MS = 10_000
+const SITE_URL = 'https://arkanis.site'
 const FIELD_LIMITS = {
   name: 120,
   email: 254,
   company: 160,
   service: 120,
   message: 4_000,
+}
+
+const ROUTE_SEO = {
+  '/': {
+    title: 'Automatización y software en Armenia, Quindío | Arkanis',
+    description: 'Automatización de procesos, diseño web y software a medida para pymes de Armenia, Quindío y el Eje Cafetero.',
+    canonical: `${SITE_URL}/`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Arkanis Solutions transforma operaciones empresariales con tecnología.',
+  },
+  '/proyectos/directorio-terrario': {
+    title: 'Directorio Terrario | Caso de estudio de Arkanis Solutions',
+    description: 'Directorio mobile-first para huéspedes Airbnb, implementado por Arkanis Solutions en tres sedes de Armenia.',
+    canonical: `${SITE_URL}/proyectos/directorio-terrario`,
+    image: `${SITE_URL}/projects/terrario-home.png`,
+    imageAlt: 'Directorio Terrario muestra lugares útiles para huéspedes desde una experiencia móvil.',
+  },
+  '/productos/sistema-gestion-restaurantes': {
+    title: 'Sistema de gestión para restaurantes | Arkanis Solutions',
+    description: 'Aplicación web exclusiva y personalizable para administrar la operación completa de un restaurante.',
+    canonical: `${SITE_URL}/productos/sistema-gestion-restaurantes`,
+    image: `${SITE_URL}/capturas_thedukes/dashboard-escritorio.webp`,
+    imageAlt: 'Dashboard del sistema de gestión para restaurantes desarrollado por Arkanis Solutions.',
+  },
+}
+
+const replaceSeoTag = (html, key, replacement) => (
+  html.replace(new RegExp(`<[^>]+data-seo="${key}"[^>]*>`), replacement)
+)
+
+const renderSeoDocument = (template, {
+  title,
+  description,
+  canonical,
+  image,
+  imageAlt,
+  robots = 'index, follow',
+}) => {
+  let html = template.replace(
+    /<title data-seo="title">[^<]*<\/title>/,
+    `<title data-seo="title">${title}</title>`,
+  )
+  html = replaceSeoTag(html, 'robots', `<meta data-seo="robots" name="robots" content="${robots}" />`)
+  html = replaceSeoTag(html, 'description', `<meta data-seo="description" name="description" content="${description}" />`)
+  html = replaceSeoTag(html, 'og-title', `<meta data-seo="og-title" property="og:title" content="${title}" />`)
+  html = replaceSeoTag(html, 'og-description', `<meta data-seo="og-description" property="og:description" content="${description}" />`)
+  html = replaceSeoTag(html, 'og-image', `<meta data-seo="og-image" property="og:image" content="${image}" />`)
+  html = replaceSeoTag(html, 'og-image-alt', `<meta data-seo="og-image-alt" property="og:image:alt" content="${imageAlt}" />`)
+  html = replaceSeoTag(html, 'twitter-title', `<meta data-seo="twitter-title" name="twitter:title" content="${title}" />`)
+  html = replaceSeoTag(html, 'twitter-description', `<meta data-seo="twitter-description" name="twitter:description" content="${description}" />`)
+  html = replaceSeoTag(html, 'twitter-image', `<meta data-seo="twitter-image" name="twitter:image" content="${image}" />`)
+
+  if (canonical) {
+    html = replaceSeoTag(html, 'canonical', `<link data-seo="canonical" rel="canonical" href="${canonical}" />`)
+    html = replaceSeoTag(html, 'og-url', `<meta data-seo="og-url" property="og:url" content="${canonical}" />`)
+  } else {
+    html = html
+      .replace(/\s*<[^>]+data-seo="canonical"[^>]*>/, '')
+      .replace(/\s*<[^>]+data-seo="og-url"[^>]*>/, '')
+  }
+
+  return html
 }
 
 const normalizeField = (value, maxLength, required = false) => {
@@ -74,16 +138,34 @@ app.use('/api', (req, res) => {
 
 // Serve React build in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(join(__dirname, '../dist')))
+  const distPath = join(__dirname, '../dist')
+  const htmlTemplate = readFileSync(join(distPath, 'index.html'), 'utf8')
+
+  app.use(express.static(distPath, { index: false }))
   app.get([
     '/',
     '/proyectos/directorio-terrario',
     '/productos/sistema-gestion-restaurantes',
   ], (req, res) => {
-    res.sendFile(join(__dirname, '../dist/index.html'))
+    const routePath = req.path.replace(/\/+$/, '') || '/'
+
+    if (req.path !== routePath) {
+      const queryIndex = req.originalUrl.indexOf('?')
+      const query = queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : ''
+      return res.redirect(308, `${routePath}${query}`)
+    }
+
+    res.type('html').send(renderSeoDocument(htmlTemplate, ROUTE_SEO[routePath]))
   })
   app.get('*', (req, res) => {
-    res.status(404).sendFile(join(__dirname, '../dist/index.html'))
+    res.status(404).type('html').send(renderSeoDocument(htmlTemplate, {
+      title: 'Página no encontrada | Arkanis Solutions',
+      description: 'La página solicitada no existe o fue movida.',
+      canonical: null,
+      image: `${SITE_URL}/arkanis-hero-poster.webp`,
+      imageAlt: 'Arkanis Solutions transforma operaciones empresariales con tecnología.',
+      robots: 'noindex, follow',
+    }))
   })
 }
 

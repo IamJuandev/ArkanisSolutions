@@ -58,8 +58,8 @@ export default function Institutional() {
               Tecnología cercana para empresas que quieren avanzar.
             </h2>
             <p className="mt-8 max-w-3xl text-base leading-8 text-brand-mist sm:text-lg">
-              Arkanis Solutions nace en el Eje Cafetero para acompañar a pequeñas y medianas empresas en la
-              modernización de sus negocios. Diseñamos experiencias web, automatizamos procesos y orientamos
+              Arkanis Solutions acompaña a pequeñas y medianas empresas de Armenia, Quindío y el Eje Cafetero en
+              la modernización de sus negocios. Diseñamos experiencias web, automatizamos procesos y orientamos
               decisiones tecnológicas con sistemas adaptados a la realidad de cada empresa.
             </p>
           </div>

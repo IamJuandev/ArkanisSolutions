@@ -37,6 +37,14 @@ export default function Hero({ onStartAssessment }: HeroProps) {
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-6 pb-20 pt-32 sm:pt-36 lg:pb-24">
         <div className="hero-copy max-w-3xl">
+          <motion.p
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="eyebrow mb-7 text-brand-aqua"
+          >
+            Tecnología para pymes del Eje Cafetero
+          </motion.p>
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,10 +56,18 @@ export default function Hero({ onStartAssessment }: HeroProps) {
               Su sistema digital tampoco.
             </span>
           </motion.h1>
+          <motion.p
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            className="mt-7 max-w-2xl text-base leading-7 text-brand-sand/80 sm:text-lg"
+          >
+            Diseño web a medida, automatización de procesos y software para empresas de Armenia, Quindío y el Eje Cafetero.
+          </motion.p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
             className="mt-9 flex"
           >
             <button onClick={onStartAssessment} className="brand-button brand-button-large liquid-glass-button">
