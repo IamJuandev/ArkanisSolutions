@@ -1,41 +1,28 @@
-interface NavbarProps {
-  onStartAssessment: () => void;
-}
+import { Blocks, BriefcaseBusiness, Workflow } from 'lucide-react';
+import { LimelightNav, type LimelightNavItem } from './ui/limelight-nav';
 
-export default function Navbar({ onStartAssessment }: NavbarProps) {
+const links: LimelightNavItem[] = [
+  { href: '/#pilares', sectionId: '#pilares', label: 'Qué hacemos', icon: Blocks },
+  { href: '/#automatizacion', sectionId: '#automatizacion', label: 'Ver un flujo', icon: Workflow },
+  { href: '/#proyectos', sectionId: '#proyectos', label: 'Proyectos', icon: BriefcaseBusiness },
+];
+
+export default function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-blue/20 bg-brand-bg/95 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo Arkanis SVG */}
-        <a href="#" className="flex items-center space-x-3 group">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
+      <div className="brand-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 rounded-2xl border border-white/8 bg-brand-bg/72 px-3 shadow-2xl shadow-black/10 backdrop-blur-xl sm:px-5">
+        <a href="/#inicio" className="group flex shrink-0 items-center gap-3" aria-label="Arkanis Solutions, ir al inicio">
           <img
             src="/Arkanis_Logo_Icon.svg"
-            alt="Arkanis Solutions"
-            className="w-8 h-8 transition-transform group-hover:scale-105 duration-300"
+            alt=""
+            className="h-9 w-9 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105 motion-reduce:transition-none"
           />
-          <span className="font-mono text-lg font-bold tracking-wider text-brand-sand group-hover:text-brand-turquoise transition-colors">
-            ARKANIS<span className="font-normal text-brand-lightBlue/80"> SOLUTIONS</span>
+          <span className="hidden font-display text-sm font-semibold tracking-[0.16em] text-brand-sand sm:inline lg:text-base">
+            ARKANIS <span className="font-normal text-brand-mist">SOLUTIONS</span>
           </span>
         </a>
-        
-        {/* Navigation Menu */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 font-mono text-xs tracking-wider text-brand-lightBlue">
-          <a href="#problema" className="hover:text-brand-turquoise transition-colors duration-200">01. EL CAOS</a>
-          <a href="#solucion" className="hover:text-brand-turquoise transition-colors duration-200">02. ARQUITECTURA</a>
-          <a href="#servicios" className="hover:text-brand-turquoise transition-colors duration-200">03. SERVICIOS</a>
-          <a href="#calculadora" className="hover:text-brand-turquoise transition-colors duration-200">04. CALCULADORA ROI</a>
-          <a href="#casos" className="hover:text-brand-turquoise transition-colors duration-200">05. CASOS</a>
-          <a href="#proyectos" className="hover:text-brand-turquoise transition-colors duration-200">06. PROYECTOS</a>
-        </nav>
 
-        <div>
-          <button 
-            onClick={onStartAssessment}
-            className="border border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-brand-bg hover:shadow-lg hover:shadow-brand-turquoise/20 transition-all px-4 py-2 text-xs font-mono tracking-wider cursor-pointer font-bold"
-          >
-            EVALUACIÓN GRATUITA
-          </button>
-        </div>
+        <LimelightNav items={links} className="shrink-0" />
       </div>
     </header>
   );
