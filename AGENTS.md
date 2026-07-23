@@ -5,13 +5,13 @@ Guidance for agents working in this repo (Arkanis Solutions marketing site).
 ## Stack
 
 - React 19 + TypeScript + Vite 6 (ESM, `"type": "module"`), Tailwind 4 (`@tailwindcss/vite` plugin, no `tailwind.config.js` / no PostCSS — theme is defined via `@theme` in `src/index.css`), `motion` (Framer Motion successor), `lucide-react` icons.
-- Express 4 + `better-sqlite3` backend in `server/`.
-- Single-page site, no router. Sections composed in `src/App.tsx`.
+- Express 4 backend in `server/`; contact submissions are forwarded to n8n.
+- No router dependency. `src/App.tsx` dispatches the homepage and two detail pages from `window.location.pathname`.
 - UI copy is Spanish-only — there is no i18n system. Do not hardcode English user-facing copy; code identifiers, comments, and internal docs stay in English.
 
 ## Components (`src/components/`)
 
-`Navbar`, `Hero`, `ChaosBoard`, `SolutionMap`, `ServicesGrid`, `RoiCalculator`, `CaseStudies`, `ProductionProjects`, `AssessmentForm`, `Footer`. All are composed directly in `src/App.tsx` — no routing layer to update when adding a section.
+The homepage composes `Navbar`, `Hero`, `Pillars`, `AutomationFlow`, `ProductionProjects`, `AssessmentForm`, and `Footer`. `TerrarioCaseStudy` and `TheDukesProduct` render at `/proyectos/directorio-terrario` and `/productos/sistema-gestion-restaurantes`.
 
 ## Commands (npm, lockfile is `package-lock.json`)
 
@@ -24,22 +24,21 @@ Guidance for agents working in this repo (Arkanis Solutions marketing site).
 
 ## Backend
 
-- `server/index.js`: `POST /api/contact` validates name/email/message, inserts a row, and fires-and-forgets an n8n webhook (production URL is hardcoded in the file). `GET /api/contacts` reads them back.
-- `server/db.js`: opens `server/contacts.db` on import and creates the `contacts` table if missing. The DB file is gitignored and ignored by Docker.
-- In production (`NODE_ENV=production`) `server/index.js` serves `dist/` and a SPA fallback for `*`. In dev, the frontend is served by Vite and only `/api` is proxied.
+- `server/index.js`: `POST /api/contact` validates the submitted fields, waits up to 10 seconds for the hardcoded n8n webhook, and returns `502` if delivery fails. There is no local contact database or contacts read endpoint.
+- Unmatched `/api/*` requests return JSON `404`. In production, known page paths serve `dist/index.html`; unknown page paths render the client not-found UI with HTTP `404`.
 - Port defaults to `3001` (`PORT` env overrides).
-- Contact email shown in the UI (`AssessmentForm.tsx`) is `juan.gabrie.dev@gmail.com` — spelled without the trailing "l" in "gabrie". This is intentional, not a typo.
+- Contact email shown in the UI is `contacto@arkanis.site`.
 
 ## Docker
 
-- Multi-stage `Dockerfile`: builder runs `npm ci` + `npm run build`; runtime is `node:20-alpine` with `python3 make g++` installed (needed to rebuild `better-sqlite3`).
-- Runtime entry: `node server/index.js`, `EXPOSE 3001`, `VOLUME /app/server` for SQLite persistence.
+- Multi-stage `Dockerfile`: the builder runs `npm ci` + `npm run build`; the `node:20-alpine` runtime installs production dependencies only.
+- Runtime entry: `node server/index.js`; port `3001` is exposed. No persistent volume is required.
 
 ## Styling conventions
 
-- Tailwind 4, theme tokens declared with `@theme` in `src/index.css` (brand colors: `brand-bg`, `brand-sand`, `brand-blue`, `brand-darkBlue`, `brand-lightBlue`, `brand-turquoise`, `brand-green`, etc.). Use these `brand-*` utility names rather than hex literals.
-- Font: serif for headings (`font-serif`), mono for labels/technical copy (`font-mono`), sans for body.
-- Recurring visual motifs: dashed "blueprint" borders/corners, `font-mono` uppercase status labels, and small technical/telemetry-style copy fragments.
+- Tailwind 4 theme tokens live in `src/index.css`. Prefer `brand-ink`, `brand-bg`, `brand-surface`, `brand-depth`, `brand-sky`, `brand-aqua`, `brand-lime`, `brand-coral`, `brand-mist`, and `brand-sand` utilities over hex literals.
+- Fonts: Syne for display headings (`font-display`), Manrope for body (`font-sans`), and JetBrains Mono for labels (`font-mono`).
+- Recurring motifs include dark layered surfaces, fine grid texture, gradient accents, restrained glass effects, and uppercase mono labels.
 
 ## Conventions
 
@@ -49,6 +48,5 @@ Guidance for agents working in this repo (Arkanis Solutions marketing site).
 
 ## Gotchas
 
-- `better-sqlite3` is a native module — if you change Node versions or move between host and container, you may need `npm rebuild better-sqlite3`.
-- The n8n webhook URL in `server/index.js` is hardcoded; failures are logged but do not fail the request.
+- The n8n webhook URL in `server/index.js` is hardcoded; failures are logged and return `502`.
 - `npm run preview` will not have a working `/api` unless you also run `npm run server`.
