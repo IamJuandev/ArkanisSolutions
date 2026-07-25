@@ -1,5 +1,5 @@
 # ── Stage 1: Build React frontend ─────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 
 # ── Stage 2: Production runtime ───────────────────────────────────────────────
-FROM node:20-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -22,8 +22,14 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
 COPY server/ ./server/
 
+# The database lives outside the source tree so the volume never shadows the
+# server code, which the previous /app/server mount did.
+RUN mkdir -p /app/data
+VOLUME ["/app/data"]
+
 EXPOSE 3001
 
 ENV NODE_ENV=production
+ENV CONTACTS_DB_PATH=/app/data/contacts.db
 
 CMD ["node", "server/index.js"]

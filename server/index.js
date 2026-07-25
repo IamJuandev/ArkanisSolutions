@@ -3,6 +3,14 @@ import cors from 'cors'
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import {
+  closeDb,
+  markNotified,
+  pendingNotifications,
+  recordNotifyFailure,
+  recordSubmission,
+  stats,
+} from './db.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -12,6 +20,9 @@ const PORT = process.env.PORT || 3001
 const N8N_WEBHOOK = process.env.N8N_WEBHOOK_URL
   || 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
 const WEBHOOK_TIMEOUT_MS = 10_000
+const NOTIFY_MAX_ATTEMPTS = 8
+const NOTIFY_SWEEP_MS = Number(process.env.NOTIFY_SWEEP_MS || 60_000)
+const NOTIFY_SWEEP_BATCH = 20
 const SITE_URL = 'https://arkanis.site'
 const FIELD_LIMITS = {
   name: 120,
@@ -173,25 +184,65 @@ app.post('/api/contact', async (req, res) => {
   }
   const consentedAt = new Date().toISOString()
 
+  // Persist before answering. The local database is the source of truth, so a
+  // notification outage can never cost a lead: the row already exists and the
+  // sweep below will deliver it once the webhook recovers.
+  let id
+  try {
+    id = recordSubmission({ name, email, company, service, message, consentedAt })
+  } catch (err) {
+    console.error('failed to persist submission:', err instanceof Error ? err.message : err)
+    return res.status(500).json({ error: 'Could not store the request' })
+  }
+
+  res.json({ success: true })
+
+  // Fire and forget: the visitor already has their answer.
+  notify({ id, name, email, company, service, message, consented_at: consentedAt, notify_attempts: 0 })
+})
+
+const notify = async (row) => {
   try {
     const webhookRes = await fetch(N8N_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company, service, message, consentedAt }),
+      body: JSON.stringify({
+        submissionId: row.id,
+        name: row.name,
+        email: row.email,
+        company: row.company,
+        service: row.service,
+        message: row.message,
+        consentedAt: row.consented_at,
+      }),
       signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
     })
 
-    if (!webhookRes.ok) {
-      console.error(`n8n webhook failed with status ${webhookRes.status}`)
-      return res.status(502).json({ error: 'Contact service unavailable' })
-    }
+    if (!webhookRes.ok) throw new Error(`webhook responded ${webhookRes.status}`)
+    markNotified(row.id)
+    return true
   } catch (err) {
-    console.error('n8n webhook request failed:', err instanceof Error ? err.message : err)
-    return res.status(502).json({ error: 'Contact service unavailable' })
+    const reason = err instanceof Error ? err.message : String(err)
+    console.error(`notification failed for submission ${row.id}: ${reason}`)
+    recordNotifyFailure(row.id, row.notify_attempts, reason)
+    return false
   }
+}
 
-  res.json({ success: true })
-})
+let sweeping = false
+const sweepPendingNotifications = async () => {
+  if (sweeping) return
+  sweeping = true
+  try {
+    const pending = pendingNotifications(NOTIFY_MAX_ATTEMPTS, NOTIFY_SWEEP_BATCH)
+    for (const row of pending) await notify(row)
+    if (pending.length) console.log(`retried ${pending.length} pending notification(s)`)
+  } catch (err) {
+    console.error('notification sweep failed:', err instanceof Error ? err.message : err)
+  } finally {
+    sweeping = false
+  }
+}
 
 app.use('/api', (req, res) => {
   res.status(404).json({ error: 'API route not found' })
@@ -226,6 +277,22 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
+  const { total, pending } = stats()
   console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`submissions stored: ${total}, pending notification: ${pending ?? 0}`)
 })
+
+const sweepTimer = setInterval(sweepPendingNotifications, NOTIFY_SWEEP_MS)
+sweepTimer.unref()
+sweepPendingNotifications()
+
+const shutdown = () => {
+  clearInterval(sweepTimer)
+  server.close(() => {
+    closeDb()
+    process.exit(0)
+  })
+}
+process.on('SIGTERM', shutdown)
+process.on('SIGINT', shutdown)
