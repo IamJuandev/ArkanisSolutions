@@ -1,28 +1,58 @@
 import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Hero() {
   const reduceMotion = useReducedMotion() ?? true;
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  // Decoding a full-viewport video that nobody can see is wasted GPU work, so
+  // the hero film only runs while the section is actually on screen.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || reduceMotion) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          void video.play().catch(() => undefined);
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.01 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [reduceMotion]);
 
   return (
     <section id="inicio" className="hero-cinematic relative min-h-[100svh] overflow-hidden">
       <div className="hero-cinematic-background" aria-hidden="true">
-        {reduceMotion ? (
-          <img
-            src="/arkanis-hero-poster.webp"
-            alt=""
-            className="hero-cinematic-media"
-          />
-        ) : (
+        <img
+          src="/arkanis-hero-poster.webp"
+          alt=""
+          className="hero-cinematic-media"
+        />
+        {!reduceMotion && (
           <video
-            className="hero-cinematic-media"
-            autoPlay
+            ref={videoRef}
+            className="hero-cinematic-media hero-cinematic-film"
+            data-ready={videoReady ? 'true' : 'false'}
             loop
             muted
             playsInline
-            preload="metadata"
-            poster="/arkanis-hero-poster.webp"
+            preload="auto"
             tabIndex={-1}
+            // Wait for canplaythrough, not canplay: on a slow connection the
+            // decoder outruns the download and the element freezes on its last
+            // frame. Until the browser guarantees uninterrupted playback the
+            // poster underneath stays visible, and a stall never shows.
+            onCanPlayThrough={() => setVideoReady(true)}
+            onError={() => setVideoReady(false)}
+            onStalled={() => setVideoReady(false)}
           >
             <source src="/arkanis-hero-film.mp4" type="video/mp4" />
           </video>

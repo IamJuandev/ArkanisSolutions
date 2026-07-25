@@ -221,15 +221,32 @@ textarea:focus-visible {
 .hero-cinematic-background { z-index: -1; overflow: hidden; }
 
 .hero-cinematic-media {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 58% center;
-  filter: saturate(.88) contrast(1.08) brightness(.82) hue-rotate(-4deg);
+  /* The colour grade is baked into arkanis-hero-film.mp4 and its poster. A CSS
+     filter here would take the video off the compositor fast path and force a
+     full-frame offscreen pass on every one of its 24 frames per second. */
   /* Light overscan lets the brand mark sit to the right without competing
      with the foreground message on the left. */
   transform: translateX(6vw) scale(1.12);
+}
+
+/* The film layers over the poster and only fades in once playback is
+   guaranteed, so a buffering stall never surfaces as a frozen frame. */
+.hero-cinematic-film {
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.hero-cinematic-film[data-ready='true'] { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic-film { transition: none; }
 }
 
 .hero-cinematic-grade {
