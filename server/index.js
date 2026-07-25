@@ -21,6 +21,12 @@ const PORT = process.env.PORT || 3001
 // without creating real leads in production n8n.
 const N8N_WEBHOOK = process.env.N8N_WEBHOOK_URL
   || 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
+// Shared secret proving a request came from this server. The workflow sends
+// arbitrary HTML from the company address, so an unauthenticated webhook is an
+// open relay for anyone who reads the repository. The URL itself is not a
+// secret and stays in source; this value must only ever come from the
+// environment.
+const N8N_WEBHOOK_SECRET = process.env.N8N_WEBHOOK_SECRET || ''
 const WEBHOOK_TIMEOUT_MS = 10_000
 const NOTIFY_MAX_ATTEMPTS = 8
 const NOTIFY_SWEEP_MS = Number(process.env.NOTIFY_SWEEP_MS || 60_000)
@@ -228,7 +234,10 @@ const notify = async (row) => {
 
     const webhookRes = await fetch(N8N_WEBHOOK, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        ...(N8N_WEBHOOK_SECRET ? { 'x-arkanis-signature': N8N_WEBHOOK_SECRET } : {}),
+      },
       body: JSON.stringify({
         submissionId: row.id,
         name: row.name,
@@ -306,6 +315,9 @@ const server = app.listen(PORT, () => {
   const { total, pending } = stats()
   console.log(`Server running on http://localhost:${PORT}`)
   console.log(`submissions stored: ${total}, pending notification: ${pending ?? 0}`)
+  if (!N8N_WEBHOOK_SECRET) {
+    console.warn('WARNING: N8N_WEBHOOK_SECRET is unset — notifications will be sent unsigned')
+  }
 })
 
 const sweepTimer = setInterval(sweepPendingNotifications, NOTIFY_SWEEP_MS)
