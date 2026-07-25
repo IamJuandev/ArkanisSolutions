@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.55 }}
             className="eyebrow mb-7 text-brand-aqua"
           >
-            Tecnología para pymes del Eje Cafetero
+            Software, automatización y diseño web en Armenia, Quindío
           </motion.p>
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 22 }}
@@ -79,7 +79,7 @@ export default function Hero() {
           >
             Tu negocio no es genérico.
             <span className="mt-2 block bg-gradient-to-r from-brand-sky via-brand-aqua to-brand-lime bg-clip-text text-transparent">
-              Su sistema digital tampoco.
+              Tu sistema digital tampoco.
             </span>
           </motion.h1>
           <motion.p
