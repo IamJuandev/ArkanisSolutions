@@ -3,3 +3,7 @@ dist
 server/contacts.db
 .env
 .DS_Store
+
+# Generated from emails/ by npm run build:emails
+server/emails.mjs
+.react-email

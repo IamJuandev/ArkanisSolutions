@@ -18,9 +18,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-# Copy built frontend and server source
+# Copy built frontend and server source. The server comes from the builder
+# stage because npm run build generates server/emails.mjs from emails/, and
+# that file is not in the repository.
 COPY --from=builder /app/dist ./dist
-COPY server/ ./server/
+COPY --from=builder /app/server ./server
 
 # The database lives outside the source tree so the volume never shadows the
 # server code, which the previous /app/server mount did.

@@ -11,6 +11,8 @@ import {
   recordSubmission,
   stats,
 } from './db.js'
+// Generated from emails/ by `npm run build:emails`.
+import { internalAlert, leadConfirmation } from './emails.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -203,6 +205,27 @@ app.post('/api/contact', async (req, res) => {
 
 const notify = async (row) => {
   try {
+    // The templates live in emails/ and are rendered here rather than written
+    // as HTML inside n8n, so the design is versioned with the code and can be
+    // previewed locally. n8n only delivers what it is handed.
+    const [confirmation, internal] = await Promise.all([
+      leadConfirmation({
+        name: row.name,
+        company: row.company,
+        service: row.service,
+        message: row.message,
+      }),
+      internalAlert({
+        submissionId: row.id,
+        name: row.name,
+        email: row.email,
+        company: row.company,
+        service: row.service,
+        message: row.message,
+        consentedAt: row.consented_at,
+      }),
+    ])
+
     const webhookRes = await fetch(N8N_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -214,6 +237,8 @@ const notify = async (row) => {
         service: row.service,
         message: row.message,
         consentedAt: row.consented_at,
+        confirmation,
+        internal,
       }),
       signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
     })
