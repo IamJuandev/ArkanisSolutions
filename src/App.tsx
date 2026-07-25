@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import Institutional from './components/Institutional';
 import Navbar from './components/Navbar';
 import Pillars from './components/Pillars';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import ProductionProjects from './components/ProductionProjects';
 import TerrarioCaseStudy from './components/TerrarioCaseStudy';
 import TheDukesProduct from './components/TheDukesProduct';
@@ -19,6 +20,7 @@ const sectionViews: Record<string, ReactNode> = {
   '/flujo': <AutomationFlow />,
   '/proyectos': <ProductionProjects />,
   '/contacto': <AssessmentForm />,
+  '/privacidad': <PrivacyPolicy />,
 };
 
 function SectionView({ children }: { children: ReactNode }) {

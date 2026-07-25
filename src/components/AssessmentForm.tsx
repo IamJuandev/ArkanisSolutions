@@ -9,6 +9,7 @@ const initialInputs: AssessmentInput = {
   businessName: '',
   primaryPain: 'Diseño web a medida',
   customDescription: '',
+  dataConsent: false,
 };
 
 export default function AssessmentForm() {
@@ -37,6 +38,9 @@ export default function AssessmentForm() {
           company: inputs.businessName,
           service: inputs.primaryPain,
           message: inputs.customDescription,
+          // Ley 1581 de 2012 requires proof of authorization, so the consent
+          // travels with the submission and is stored alongside it.
+          dataConsent: inputs.dataConsent,
         }),
       });
 
@@ -140,9 +144,26 @@ export default function AssessmentForm() {
                     <textarea required rows={5} value={inputs.customDescription} onChange={(event) => setInputs({ ...inputs, customDescription: event.target.value })} placeholder="Contanos cómo funciona hoy, dónde se traba y qué te gustaría cambiar." />
                   </label>
 
+                  <label className="consent-field">
+                    <input
+                      required
+                      type="checkbox"
+                      checked={inputs.dataConsent}
+                      onChange={(event) => setInputs({ ...inputs, dataConsent: event.target.checked })}
+                    />
+                    <span>
+                      Autorizo a Arkanis Solutions a tratar mis datos personales para atender esta
+                      solicitud, conforme a la{' '}
+                      <a href="/privacidad" target="_blank" rel="noopener noreferrer">
+                        política de tratamiento de datos
+                      </a>
+                      .
+                    </span>
+                  </label>
+
                   <button
                     type="submit"
-                    disabled={status === 'submitting'}
+                    disabled={status === 'submitting' || !inputs.dataConsent}
                     className={`brand-button brand-button-large liquid-glass-button w-full justify-center sm:w-auto ${status === 'submitting' ? '' : 'liquid-glass-button-pulse'}`}
                   >
                     {status === 'submitting' ? <><LoaderCircle className={reduceMotion ? '' : 'animate-spin'} size={17} /> Enviando solicitud</> : <>Enviar diagnóstico <ArrowRight size={17} /></>}

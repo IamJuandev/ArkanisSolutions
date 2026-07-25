@@ -16,6 +16,7 @@ export interface AssessmentInput {
   businessName: string;
   primaryPain: string;
   customDescription: string;
+  dataConsent: boolean;
 }
 
 export interface BlueprintStep {

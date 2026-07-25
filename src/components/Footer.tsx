@@ -11,7 +11,10 @@ export default function Footer() {
         </a>
         <div className="text-left text-xs leading-5 text-brand-mist sm:text-right">
           <a href="mailto:contacto@arkanis.site" className="transition-colors hover:text-brand-aqua">contacto@arkanis.site</a>
-          <p>© 2026 Arkanis Solutions</p>
+          <p className="mt-1">
+            <a href="/privacidad" className="transition-colors hover:text-brand-aqua">Política de tratamiento de datos</a>
+          </p>
+          <p className="mt-1">© 2026 Arkanis Solutions</p>
         </div>
       </div>
     </footer>

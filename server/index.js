@@ -7,7 +7,10 @@ import { dirname, join } from 'path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
 const PORT = process.env.PORT || 3001
-const N8N_WEBHOOK = 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
+// Overridable so the contact flow can be exercised against a local webhook
+// without creating real leads in production n8n.
+const N8N_WEBHOOK = process.env.N8N_WEBHOOK_URL
+  || 'https://n8n.arkanis.site/webhook/fd0b0e50-2248-4803-9c5b-0f1b8acffa8c'
 const WEBHOOK_TIMEOUT_MS = 10_000
 const SITE_URL = 'https://arkanis.site'
 const FIELD_LIMITS = {
@@ -67,6 +70,13 @@ const ROUTE_SEO = {
     canonical: `${SITE_URL}/contacto`,
     image: `${SITE_URL}/arkanis-hero-poster.webp`,
     imageAlt: 'Formulario de diagnóstico de Arkanis Solutions.',
+  },
+  '/privacidad': {
+    title: 'Política de tratamiento de datos personales | Arkanis Solutions',
+    description: 'Qué datos personales recoge Arkanis Solutions, con qué finalidad los trata y cómo ejercer tus derechos según la Ley 1581 de 2012.',
+    canonical: `${SITE_URL}/privacidad`,
+    image: `${SITE_URL}/arkanis-hero-poster.webp`,
+    imageAlt: 'Política de tratamiento de datos personales de Arkanis Solutions.',
   },
   '/proyectos/directorio-terrario': {
     title: 'Directorio Terrario | Caso de estudio de Arkanis Solutions',
@@ -154,11 +164,20 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: 'Invalid email address' })
   }
 
+  // Ley 1581 de 2012 requires prior, express and informed authorization before
+  // personal data is processed. A checkbox that only lives in the browser
+  // proves nothing, so the server refuses submissions without it and records
+  // when the authorization was given.
+  if (req.body.dataConsent !== true) {
+    return res.status(400).json({ error: 'Data processing authorization is required' })
+  }
+  const consentedAt = new Date().toISOString()
+
   try {
     const webhookRes = await fetch(N8N_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company, service, message }),
+      body: JSON.stringify({ name, email, company, service, message, consentedAt }),
       signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
     })
 
