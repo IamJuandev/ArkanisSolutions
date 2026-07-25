@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Pillars from './components/Pillars';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ProductionProjects from './components/ProductionProjects';
+import SectionCta from './components/SectionCta';
 import TerrarioCaseStudy from './components/TerrarioCaseStudy';
 import TheDukesProduct from './components/TheDukesProduct';
 
@@ -23,7 +24,7 @@ const sectionViews: Record<string, ReactNode> = {
   '/privacidad': <PrivacyPolicy />,
 };
 
-function SectionView({ children }: { children: ReactNode }) {
+function SectionView({ children, path, showCta = true }: { children: ReactNode; path: string; showCta?: boolean }) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-brand-bg font-sans text-brand-sand antialiased selection:bg-brand-aqua selection:text-brand-ink">
       <div className="site-texture" aria-hidden="true" />
@@ -31,11 +32,12 @@ function SectionView({ children }: { children: ReactNode }) {
       <main className="section-view-main relative z-10">
         <div className="mx-auto max-w-7xl px-6">
           <a href="/" className="section-back-link">
-            <ArrowLeft size={16} aria-hidden="true" />
+            <ArrowLeft size={17} aria-hidden="true" />
             Volver al inicio
           </a>
         </div>
         {children}
+        {showCta && <SectionCta path={path} />}
       </main>
       <Footer />
     </div>
@@ -87,7 +89,12 @@ export default function App() {
 
   const sectionView = sectionViews[currentPath];
   if (sectionView) {
-    return <SectionView>{sectionView}</SectionView>;
+    // The contact page already is the call to action, so it does not repeat it.
+    return (
+      <SectionView path={currentPath} showCta={currentPath !== '/contacto'}>
+        {sectionView}
+      </SectionView>
+    );
   }
 
   return <NotFoundView />;

@@ -72,7 +72,7 @@ export default function AssessmentForm() {
                 Un buen sistema empieza con un diagnóstico honesto.
               </h2>
               <p className="mt-6 max-w-lg text-base leading-7 text-brand-mist">
-                Contanos dónde está la fricción. Revisaremos el caso y te contactaremos para conversar sobre una ruta clara, sin venderte una solución antes de entender el problema.
+                Hablemos de dónde está la fricción. Revisaremos el caso y te contactaremos para conversar sobre una ruta clara, sin venderte una solución antes de entender el problema.
               </p>
               <div className="mt-10 space-y-4 border-t border-white/10 pt-7 text-sm text-brand-mist">
                 <p className="flex items-start gap-3"><ShieldCheck className="mt-0.5 shrink-0 text-brand-lime" size={18} /> Tu información se usa únicamente para revisar la solicitud.</p>
@@ -141,7 +141,7 @@ export default function AssessmentForm() {
 
                   <label className="form-field">
                     <span>¿Qué querés resolver?</span>
-                    <textarea required rows={5} value={inputs.customDescription} onChange={(event) => setInputs({ ...inputs, customDescription: event.target.value })} placeholder="Contanos cómo funciona hoy, dónde se traba y qué te gustaría cambiar." />
+                    <textarea required rows={5} value={inputs.customDescription} onChange={(event) => setInputs({ ...inputs, customDescription: event.target.value })} placeholder="Cómo funciona hoy, dónde aparece la fricción y qué te gustaría cambiar." />
                   </label>
 
                   <label className="consent-field">

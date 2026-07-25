@@ -129,7 +129,7 @@ export default function TheDukesProduct() {
           <div className="relative mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
               <a
-                href="/#proyectos"
+                href="/proyectos"
                 className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua"
               >
                 <ArrowLeft size={14} aria-hidden="true" />
@@ -154,7 +154,7 @@ export default function TheDukesProduct() {
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="/#contacto" className="brand-button brand-button-large">
+                <a href="/contacto" className="brand-button brand-button-large">
                   Solicitar demostración
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
@@ -512,7 +512,7 @@ export default function TheDukesProduct() {
                     La demostración es asistida para que puedas recorrer los módulos y hablar sobre las particularidades de tu restaurante.
                   </p>
                 </div>
-                <a href="/#contacto" className="brand-button brand-button-large">
+                <a href="/contacto" className="brand-button brand-button-large">
                   Solicitar demostración
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>

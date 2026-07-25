@@ -98,8 +98,32 @@ textarea:focus-visible {
 
 .section-view-main { padding-top: 6rem; }
 .section-view-main > section { padding-top: 4rem; }
-.section-back-link { display: inline-flex; min-height: 2.6rem; align-items: center; gap: .55rem; margin-top: 1.75rem; border-bottom: 1px solid rgba(94,217,208,.35); color: #a7b6c5; font-family: "JetBrains Mono", monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; transition: color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-medium) var(--ease-brand); }
-.section-back-link:hover { transform: translateX(-.25rem); border-color: #5ed9d0; color: #f4f1ea; }
+/* Reads as a real control rather than a caption: visitors were missing the
+   old 0.6rem underlined label. */
+.section-back-link {
+  display: inline-flex;
+  min-height: 2.9rem;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.75rem;
+  padding: .6rem 1.1rem;
+  border: 1px solid rgba(94,217,208,.32);
+  border-radius: 999px;
+  background: rgba(35,182,181,.06);
+  color: #cfd9e2;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .68rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  transition: color var(--motion-fast), border-color var(--motion-fast), background var(--motion-fast), transform var(--motion-medium) var(--ease-brand);
+}
+.section-back-link:hover {
+  transform: translateX(-.25rem);
+  border-color: #5ed9d0;
+  background: rgba(35,182,181,.12);
+  color: #f4f1ea;
+}
+.section-back-link:focus-visible { outline: 2px solid #5ed9d0; outline-offset: 3px; }
 
 .brand-button,
 .ghost-button,
@@ -207,6 +231,50 @@ textarea:focus-visible {
 .icon-button { justify-content: center; height: 2.6rem; width: 2.6rem; border: 1px solid rgba(255,255,255,.1); border-radius: .7rem; background: rgba(255,255,255,.035); color: #f4f1ea; }
 
 .section-space { padding-block: clamp(5.5rem, 10vw, 9rem); }
+
+.section-cta-band {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.section-cta-shell {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.1rem;
+  background:
+    radial-gradient(circle at 88% 22%, rgba(35,182,181,.12), transparent 52%),
+    rgba(9,18,26,.6);
+}
+
+@media (min-width: 768px) {
+  .section-cta-shell { grid-template-columns: 1.35fr auto; gap: 2.5rem; }
+}
+
+.section-cta-headline {
+  margin-top: 1rem;
+  max-width: 34rem;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.03em;
+  color: #f4f1ea;
+}
+
+.section-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .85rem;
+}
+
+@media (max-width: 479px) {
+  .section-cta-actions { flex-direction: column; align-items: stretch; }
+  .section-cta-actions > * { justify-content: center; }
+}
 .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #64d8d1; }
 
 .hero-cinematic { background: #02070c; isolation: isolate; }

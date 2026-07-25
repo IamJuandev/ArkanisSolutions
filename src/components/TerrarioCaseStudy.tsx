@@ -81,7 +81,7 @@ export default function TerrarioCaseStudy() {
           <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_70%_18%,rgba(35,182,181,0.14),transparent_32%),radial-gradient(circle_at_18%_32%,rgba(59,130,246,0.1),transparent_28%)]" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
-              <a href="/#proyectos" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
+              <a href="/proyectos" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
                 <ArrowLeft size={14} aria-hidden="true" />
                 Volver a proyectos
               </a>
@@ -113,7 +113,7 @@ export default function TerrarioCaseStudy() {
                   Abrir Directorio Terrario
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
-                <a href="/#contacto" className="ghost-button">
+                <a href="/contacto" className="ghost-button">
                   Hablemos de tu proyecto
                 </a>
               </div>
@@ -317,7 +317,7 @@ export default function TerrarioCaseStudy() {
                 <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.045em] text-brand-sand sm:text-5xl">
                   Si tu operación necesita una herramienta propia, empecemos por entender el problema.
                 </h2>
-                <a href="/#contacto" className="brand-button brand-button-large">
+                <a href="/contacto" className="brand-button brand-button-large">
                   Cuéntanos tu proyecto
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
