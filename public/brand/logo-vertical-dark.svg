@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190">
+
+  <g transform="translate(70,6)">
+    <path d="M50,22 L17,86" stroke="#061A2E" stroke-width="13" fill="none"></path>
+    <path d="M50,22 L83,86" stroke="#061A2E" stroke-width="13" fill="none"></path>
+    <path d="M6,80 C38,63 68,51 97,47 L97,55 C71,59 43,74 13,93 Z" fill="none"></path>
+    <circle cx="50" cy="18" r="12.5" fill="#061A2E"></circle>
+    <circle cx="16" cy="83" r="11.5" fill="#061A2E"></circle>
+  </g>
+  <text x="120" y="145" text-anchor="middle" font-family="Space Grotesk, Helvetica, Arial, sans-serif" font-weight="600" font-size="34" fill="#061A2E">ARKANIS</text>
+  <text x="122" y="172" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" letter-spacing="5" fill="#061A2E">SOLUTIONS</text>
+</svg>

@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="brand-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 rounded-2xl border border-white/8 bg-brand-bg/72 px-3 shadow-2xl shadow-black/10 backdrop-blur-xl sm:px-5">
         <a href="/" className="group flex shrink-0 items-center gap-3" aria-label="Arkanis Solutions, ir al inicio">
           <img
-            src="/Arkanis_Logo_Icon.svg"
+            src="/brand/symbol-color.svg"
             alt=""
             className="h-9 w-9 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105 motion-reduce:transition-none"
           />

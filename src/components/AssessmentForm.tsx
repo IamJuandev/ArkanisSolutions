@@ -65,7 +65,7 @@ export default function AssessmentForm() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="diagnostic-shell grid overflow-hidden lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative border-b border-white/10 p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
-            <img src="/Arkanis_Logo_Icon.svg" alt="" className="absolute -right-12 -top-12 h-56 w-56 opacity-[0.08]" />
+            <img src="/brand/symbol-white.svg" alt="" className="absolute -right-12 -top-12 h-56 w-56 opacity-[0.08]" />
             <div className="relative">
               <p className="eyebrow">Empecemos por entender</p>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-[-0.045em] text-brand-sand sm:text-5xl">
