@@ -1,8 +1,16 @@
 node_modules
 dist
 server/contacts.db
+# SQLite write-ahead log and shared memory, recreated on every run
+server/contacts.db-shm
+server/contacts.db-wal
 .env
 .DS_Store
+
+# Machine-local tooling caches: the CodeGraph index is bound to this checkout's
+# exact bytes and must never be shared across clones or worktrees.
+.codegraph/
+.atl/
 
 # Generated from emails/ by npm run build:emails
 server/emails.mjs
