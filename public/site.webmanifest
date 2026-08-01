@@ -1,0 +1,30 @@
+{
+  "name": "Arkanis Solutions",
+  "short_name": "Arkanis",
+  "description": "Automatización de procesos, diseño web y software a medida para pymes de Armenia, Quindío y el Eje Cafetero.",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050b12",
+  "theme_color": "#02070c",
+  "icons": [
+    {
+      "src": "/app-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
