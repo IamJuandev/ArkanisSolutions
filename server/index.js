@@ -42,6 +42,7 @@ const FIELD_LIMITS = {
 
 const ROUTE_SEO = {
   '/': {
+    heading: 'Tu negocio no es genérico. Tu sistema digital tampoco.',
     title: 'Automatización y software en Armenia, Quindío | Arkanis',
     description: 'Automatización de procesos, diseño web y software a medida para pymes de Armenia, Quindío y el Eje Cafetero.',
     canonical: `${SITE_URL}/`,
@@ -117,7 +118,19 @@ const replaceSeoTag = (html, key, replacement) => (
   html.replace(new RegExp(`<[^>]+data-seo="${key}"[^>]*>`), replacement)
 )
 
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+
+// Rewrites the text inside an element, keeping its attributes untouched.
+const replaceSeoText = (html, tag, key, text) => html.replace(
+  new RegExp(`(<${tag} data-seo="${key}"[^>]*>)[\\s\\S]*?(</${tag}>)`),
+  `$1${escapeHtml(text)}$2`,
+)
+
 const renderSeoDocument = (template, {
+  heading,
   title,
   description,
   canonical,
@@ -138,6 +151,11 @@ const renderSeoDocument = (template, {
   html = replaceSeoTag(html, 'twitter-title', `<meta data-seo="twitter-title" name="twitter:title" content="${title}" />`)
   html = replaceSeoTag(html, 'twitter-description', `<meta data-seo="twitter-description" name="twitter:description" content="${description}" />`)
   html = replaceSeoTag(html, 'twitter-image', `<meta data-seo="twitter-image" name="twitter:image" content="${image}" />`)
+
+  // Pre-mount fallback inside #root: crawlers that do not run JavaScript read
+  // this, so each route needs its own H1 rather than the home page one.
+  html = replaceSeoText(html, 'h1', 'fallback-heading', heading ?? title.split('|')[0].trim())
+  html = replaceSeoText(html, 'p', 'fallback-lead', description)
 
   if (canonical) {
     html = replaceSeoTag(html, 'canonical', `<link data-seo="canonical" rel="canonical" href="${canonical}" />`)
