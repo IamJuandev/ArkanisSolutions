@@ -9,10 +9,12 @@ import Institutional from './components/Institutional';
 import Navbar from './components/Navbar';
 import Pillars from './components/Pillars';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import RouteLanding from './components/RouteLanding';
 import ProductionProjects from './components/ProductionProjects';
 import SectionCta from './components/SectionCta';
 import TerrarioCaseStudy from './components/TerrarioCaseStudy';
 import TheDukesProduct from './components/TheDukesProduct';
+import { routeLandingByPath } from './content/landings';
 
 const sectionViews: Record<string, ReactNode> = {
   '/nosotros': <Institutional />,
@@ -73,6 +75,11 @@ export default function App() {
 
   if (currentPath === '/productos/sistema-gestion-restaurantes') {
     return <TheDukesProduct />;
+  }
+
+  const routeLanding = routeLandingByPath[currentPath];
+  if (routeLanding) {
+    return <RouteLanding content={routeLanding} />;
   }
 
   if (currentPath === '/') {

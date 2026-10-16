@@ -1,0 +1,264 @@
+[
+  {
+    "path": "/desarrollo-web-armenia",
+    "title": "Desarrollo web en Armenia y software a la medida | Arkanis",
+    "description": "Desarrollo web en Armenia, Quindío: diseño de páginas web, landing pages y software a la medida para empresas del Eje Cafetero. Pedí tu diagnóstico.",
+    "heading": "Desarrollo web y software a la medida en Armenia",
+    "lead": "En Arkanis Solutions hacemos desarrollo web en Armenia y software a la medida. Partimos de cómo trabaja tu negocio hoy para definir qué construir primero, qué puede esperar y cómo darle continuidad.",
+    "areaLine": "Atendemos Armenia, Quindío y el Eje Cafetero, en persona y a distancia.",
+    "stagesTitle": "La ruta de un proyecto, de la primera conversación a la evolución",
+    "stages": [
+      {
+        "id": "conversacion",
+        "number": "01",
+        "name": "Conversación",
+        "title": "Entendemos tu negocio antes de proponer",
+        "description": "Contanos qué hace tu negocio y qué te está quitando tiempo. Revisamos cómo trabajás con tus herramientas actuales y qué querés resolver.",
+        "deliverables": [
+          "Resumen de necesidades",
+          "Objetivo inicial del proyecto",
+          "Lista de información para el diagnóstico"
+        ]
+      },
+      {
+        "id": "diagnostico",
+        "number": "02",
+        "name": "Diagnóstico",
+        "title": "Separamos lo urgente de lo que puede esperar",
+        "description": "Revisamos tus procesos para distinguir lo urgente de lo que puede esperar. Definimos el alcance antes de hablar de construcción.",
+        "deliverables": [
+          "Diagnóstico de necesidades",
+          "Alcance propuesto por prioridades",
+          "Propuesta de inversión y tiempos"
+        ]
+      },
+      {
+        "id": "diseno",
+        "number": "03",
+        "name": "Diseño",
+        "title": "Cada pantalla con una función clara",
+        "description": "Organizamos el contenido y los recorridos para que cada pantalla tenga una función clara. El diseño de páginas web parte de lo que tus visitantes necesitan encontrar y hacer.",
+        "deliverables": [
+          "Estructura de páginas o pantallas",
+          "Propuesta visual",
+          "Recorrido de las acciones principales"
+        ],
+        "proof": {
+          "name": "Taller online de Eneagrama",
+          "text": "Diseñamos y desarrollamos la landing de venta del taller de Carolina Castellanos.",
+          "status": "live",
+          "href": "https://carolina-castellanos.com/eneagrama",
+          "linkLabel": "Ver la landing"
+        }
+      },
+      {
+        "id": "construccion",
+        "number": "04",
+        "name": "Construcción",
+        "title": "Del alcance acordado a una herramienta que funciona",
+        "description": "Convertimos el diseño y el alcance acordado en un sitio o una herramienta funcional. Revisamos los flujos principales y ajustamos los detalles antes de publicar.",
+        "deliverables": [
+          "Versión funcional para revisar",
+          "Funcionalidades e integraciones acordadas",
+          "Proyecto publicado según el alcance"
+        ],
+        "proof": {
+          "name": "Komio",
+          "text": "Nuestra aplicación de gestión para restaurantes: mesas, pedidos, cocina, inventario y caja en un solo sistema.",
+          "status": "live",
+          "href": "https://demo.arkanis.site",
+          "linkLabel": "Probar la demo"
+        }
+      },
+      {
+        "id": "evolucion",
+        "number": "05",
+        "name": "Evolución",
+        "title": "Tu sistema crece con tu negocio",
+        "description": "Después de publicar, las necesidades de tu negocio siguen cambiando. Acordamos qué mantener, qué ajustar y qué incorporar en una siguiente etapa.",
+        "deliverables": [
+          "Plan de mantenimiento según tus necesidades",
+          "Lista priorizada de mejoras",
+          "Alcance de la próxima etapa"
+        ],
+        "proof": {
+          "name": "Directorio Terrario",
+          "text": "Mantenemos y ampliamos esta guía mobile-first para huéspedes de Airbnb en tres sedes de Armenia.",
+          "status": "live",
+          "href": "/proyectos/directorio-terrario",
+          "linkLabel": "Ver el caso"
+        }
+      }
+    ],
+    "servicesTitle": "Qué construimos",
+    "services": [
+      {
+        "name": "Sitios web y landing pages",
+        "description": "Diseñamos y construimos páginas para presentar tu negocio, explicar tus servicios y facilitar el contacto. Organizamos el contenido para que tus visitantes encuentren lo importante desde el celular."
+      },
+      {
+        "name": "Software a la medida",
+        "description": "Construimos herramientas alrededor de tus procesos, no al revés. Si Excel y WhatsApp ya no te alcanzan, revisamos qué conviene centralizar y qué tareas necesitan una solución propia."
+      },
+      {
+        "name": "Integraciones y automatización",
+        "description": "Conectamos plataformas y automatizamos pasos repetitivos de tu operación. Partimos de tareas concretas, como trasladar información entre herramientas o consolidarla en un panel de seguimiento."
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Cuánto cuesta un proyecto para mi negocio?",
+        "answer": "El costo se define después del diagnóstico y depende del alcance: páginas, funcionalidades, integraciones y contenido necesario. Si estás comparando empresas de desarrollo de software, revisá también qué incluye cada propuesta y cómo contempla la continuidad."
+      },
+      {
+        "question": "¿Cuánto tarda tener mi página o software?",
+        "answer": "Depende del alcance, de las integraciones y del contenido disponible. Una landing suele requerir menos trabajo que un sistema con varios procesos; después del diagnóstico definimos las etapas y los tiempos de tu proyecto."
+      },
+      {
+        "question": "¿Podemos reunirnos en Armenia o trabajar a distancia?",
+        "answer": "Estamos en el Quindío y atendemos en persona en Armenia y el Eje Cafetero, y también a distancia. Coordinamos los encuentros según las necesidades del proyecto; no tenemos oficina de atención al público."
+      },
+      {
+        "question": "¿Quién queda como dueño del código?",
+        "answer": "La titularidad del código, los accesos y las condiciones de entrega quedan por escrito en la propuesta o el contrato. También distinguimos el desarrollo propio de las herramientas y licencias de terceros."
+      },
+      {
+        "question": "¿Ofrecen mantenimiento después de publicar?",
+        "answer": "Sí, podemos acordar el mantenimiento y la evolución del proyecto. Definimos qué soporte, actualizaciones y ajustes necesitás, y separamos ese trabajo de las funcionalidades nuevas para que el alcance quede claro."
+      },
+      {
+        "question": "¿Qué preparo antes del diagnóstico?",
+        "answer": "Traé una descripción de tu negocio, el problema que querés resolver y ejemplos de cómo trabajás hoy. Si tenés una página, archivos de Excel o herramientas en uso, contanos cuáles son; no necesitás llegar con una solución definida."
+      }
+    ],
+    "cta": {
+      "heading": "Contanos qué necesitás resolver",
+      "text": "Revisemos cómo funciona tu negocio y qué vale la pena construir primero.",
+      "button": "Pedir diagnóstico"
+    }
+  },
+  {
+    "path": "/automatizacion-de-procesos",
+    "title": "Automatización de procesos en Armenia | Arkanis Solutions",
+    "description": "Automatización de procesos e integración de plataformas para empresas de Armenia y el Eje Cafetero. Automatización con IA próximamente. Pedí tu diagnóstico.",
+    "heading": "Automatización de procesos para empresas del Eje Cafetero",
+    "lead": "Conectamos tus herramientas y convertimos tareas repetitivas en flujos claros. En Arkanis Solutions automatizamos la operación de tu negocio con reglas e integraciones a la medida, y preparamos el terreno para la automatización con IA.",
+    "areaLine": "Atendemos Armenia, Quindío y el Eje Cafetero, en persona y a distancia.",
+    "stagesTitle": "Cómo automatizamos un proceso, paso a paso",
+    "stages": [
+      {
+        "id": "conversacion",
+        "number": "01",
+        "name": "Conversación",
+        "title": "Entendemos tu operación actual",
+        "description": "Nos reunimos en el Eje Cafetero o por videollamada para revisar cómo trabajás hoy y dónde se traban tus tareas diarias. Identificamos qué pasos manuales en hojas de cálculo o correos te consumen tiempo.",
+        "deliverables": [
+          "Diagnóstico inicial del flujo de trabajo",
+          "Identificación de los cuellos de botella"
+        ]
+      },
+      {
+        "id": "mapa",
+        "number": "02",
+        "name": "Mapa del proceso",
+        "title": "El flujo dibujado antes de tocar herramientas",
+        "description": "Traducimos tu forma de trabajar a un mapa claro del proceso. Definimos qué datos entran, qué reglas los transforman y a qué plataformas deben llegar.",
+        "deliverables": [
+          "Mapa del proceso de punta a punta",
+          "Plataformas y reglas a integrar"
+        ]
+      },
+      {
+        "id": "automatizacion",
+        "number": "03",
+        "name": "Automatización",
+        "title": "Construimos los flujos y las integraciones",
+        "description": "Configuramos las conexiones entre tus herramientas con n8n y software a la medida. Agregamos validaciones para que la información pase de un sistema a otro sin copiarla a mano.",
+        "deliverables": [
+          "Flujos de integración configurados y probados",
+          "Conexiones entre tus plataformas"
+        ],
+        "proof": {
+          "name": "App de control de gastos",
+          "text": "Lee los correos de notificación del banco en Gmail y registra gastos, ingresos, gastos fijos y préstamos de forma automática, con reglas y sin intervención manual.",
+          "status": "live"
+        }
+      },
+      {
+        "id": "puesta-en-marcha",
+        "number": "04",
+        "name": "Puesta en marcha",
+        "title": "Pruebas con datos reales y acompañamiento",
+        "description": "Ponemos en marcha las automatizaciones y validamos cada escenario con datos reales de tu negocio. Te acompañamos a vos y a tu equipo durante la adopción.",
+        "deliverables": [
+          "Automatizaciones activas y verificadas",
+          "Guía de uso para tu equipo"
+        ]
+      },
+      {
+        "id": "evolucion",
+        "number": "05",
+        "name": "Evolución",
+        "title": "Ajustes, soporte y el siguiente paso: IA",
+        "description": "Revisamos que los flujos sigan funcionando cuando cambian tus plataformas y ajustamos las reglas. Cuando tenga sentido para tu operación, sumamos automatización de procesos con IA.",
+        "deliverables": [
+          "Seguimiento de los flujos y sus errores",
+          "Hoja de ruta de mejoras"
+        ],
+        "proof": {
+          "name": "Komio AI",
+          "text": "El asistente de Komio, nuestro sistema para restaurantes, va a gestionar inventario y leer facturas de proveedores desde fotos o PDF.",
+          "status": "upcoming",
+          "href": "https://demo.arkanis.site",
+          "linkLabel": "Conocer Komio"
+        }
+      }
+    ],
+    "servicesTitle": "Qué automatizamos",
+    "services": [
+      {
+        "name": "Automatización de procesos",
+        "description": "Diseñamos flujos basados en reglas que quitan la carga repetitiva de tu operación. Conectamos tareas cotidianas con n8n y software a la medida para que los datos lleguen solos a donde se necesitan."
+      },
+      {
+        "name": "Integración de plataformas",
+        "description": "Unimos los sistemas que ya usás, como correo, formularios, hojas de cálculo, bases de datos o pasarelas de pago. Así dejás de copiar y pegar información entre herramientas."
+      },
+      {
+        "name": "Automatización con IA · Próximamente",
+        "description": "Estamos desarrollando asistentes con inteligencia artificial para tareas como leer facturas o apoyar la operación diaria, empezando por Komio AI. Si te interesa, contanos tu caso en el diagnóstico."
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Qué procesos se pueden automatizar en una pyme?",
+        "answer": "Registros de ventas, paso de formularios a hojas de cálculo, alertas internas o lectura de correos bancarios, por ejemplo. Cualquier tarea repetitiva con reglas claras entre las herramientas que ya usás es una buena candidata."
+      },
+      {
+        "question": "¿Tengo que cambiar las herramientas que uso hoy?",
+        "answer": "En la mayoría de los casos, no. Partimos de las herramientas que ya tenés, como el correo, las hojas de cálculo o tu sistema de facturación, y las conectamos. Si alguna no lo permite, te lo decimos en el diagnóstico."
+      },
+      {
+        "question": "¿Cuánto cuesta automatizar un proceso?",
+        "answer": "Depende del alcance y de cuántas herramientas haya que conectar. Te damos una propuesta concreta después del diagnóstico de tu proceso, no una tarifa genérica."
+      },
+      {
+        "question": "¿Qué pasa con mis datos y mis accesos?",
+        "answer": "Configuramos las integraciones con credenciales limitadas a lo que cada flujo necesita, y las cuentas y plataformas siguen siendo tuyas. Tratamos los datos según nuestra política de tratamiento de datos personales."
+      },
+      {
+        "question": "¿Cuándo van a estar disponibles las funciones con IA?",
+        "answer": "Komio AI está en desarrollo. Si querés aplicar IA en tu negocio, contanos tu caso en el diagnóstico y te explicamos qué es viable hoy y qué conviene esperar."
+      },
+      {
+        "question": "¿Qué preparo antes del diagnóstico?",
+        "answer": "Una lista de las tareas manuales que más tiempo te quitan y de las herramientas que usa tu equipo para hacerlas. Con eso armamos el mapa del proceso."
+      }
+    ],
+    "cta": {
+      "heading": "Automatizá lo que hoy hacés a mano",
+      "text": "Analicemos tus flujos actuales y definamos un plan de automatización concreto para tu empresa.",
+      "button": "Pedir diagnóstico"
+    }
+  }
+]

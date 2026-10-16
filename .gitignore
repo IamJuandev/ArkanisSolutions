@@ -16,3 +16,4 @@ server/contacts.db-wal
 server/emails.mjs
 .react-email
 .playwright-mcp/
+.impeccable/review/

@@ -13,6 +13,8 @@ import {
 } from './db.js'
 // Generated from emails/ by `npm run build:emails`.
 import { internalAlert, leadConfirmation } from './emails.mjs'
+// Shared with the React landings (src/content/landings.ts).
+import routeLandings from './content/landings.json' with { type: 'json' }
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -112,6 +114,17 @@ const ROUTE_SEO = {
     image: `${SITE_URL}/capturas_thedukes/dashboard-escritorio.webp`,
     imageAlt: 'Dashboard del sistema de gestión para restaurantes desarrollado por Arkanis Solutions.',
   },
+}
+
+for (const landing of routeLandings) {
+  ROUTE_SEO[landing.path] = {
+    heading: landing.heading,
+    title: landing.title,
+    description: landing.description,
+    canonical: `${SITE_URL}${landing.path}`,
+    image: `${SITE_URL}/og-image.jpg`,
+    imageAlt: landing.heading,
+  }
 }
 
 const replaceSeoTag = (html, key, replacement) => (

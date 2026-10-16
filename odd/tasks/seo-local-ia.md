@@ -17,9 +17,9 @@ Objective: rank arkanis.site for web development, custom software and AI automat
 
 | ID | Specs | Task | Route | Status | Evidence |
 |---|---|---|---|---|---|
-| T1 | S2, S7 | `ProfessionalService` JSON-LD with phone, areaServed, sameAs; keyword-aligned titles/descriptions in `ROUTE_SEO` | inline | pending | |
-| T2 | S2, S3, S5 | New landing `/desarrollo-web-armenia` (web + software a la medida, portfolio cases) + route, SEO entry, sitemap | inline | pending | |
-| T3 | S2, S3, S4, S5 | New landing `/automatizacion-con-ia` (process automation, expenses app case, Komio AI "Próximamente") + route, SEO entry, sitemap | inline | pending | |
+| T1 | S2, S7 | `ProfessionalService` JSON-LD with phone, areaServed, sameAs; keyword-aligned titles/descriptions in `ROUTE_SEO` | inline | done | aa0b11b; JSON-LD parses, typecheck+build ok, prod SSR curl shows new titles |
+| T2 | S2, S3, S5 | New landing `/desarrollo-web-armenia` (web + software a la medida, portfolio cases) + route, SEO entry, sitemap | inline | in review | see L8 |
+| T3 | S2, S3, S4, S5 | New landing `/automatizacion-de-procesos` (process automation, expenses app case, Komio AI "Próximamente") + route, SEO entry, sitemap | inline | in review | see L8 |
 | T4 | S3 | Portfolio: link Komio demo and Carolina landing from `/proyectos` | inline | pending | |
 | T5 | S8 | Server-rendered main content per route for non-JS crawlers | inline | pending | |
 | T6 | S2 | Internal links: navbar/footer/home link to new landings | inline | pending | |
@@ -32,4 +32,7 @@ Objective: rank arkanis.site for web development, custom software and AI automat
 - L4 (2026-10-15, user): portfolio and Komio AI statements quoted in S3–S6.
 - L5: Open product question for T4/TheDukesProduct — is the restaurant product page the same product as Komio? Ask before renaming anything.
 - L6: Engram mirror pending (mem_save fails: session ownership ambiguous "thedukes"); resync when available.
+- L7 (2026-10-15): T3 slug changed from `/automatizacion-con-ia` to `/automatizacion-de-procesos`: AI is not live (S4), and "automatizacion de procesos" has 590/mo vs 110. "Automatización con IA · Próximamente" stays as a service on the page. Copy drafted by gentle-shell (T2) and agy (T3); agy draft had unverifiable claims (Komio "en producción", "Totalmente" seguro, WhatsApp integration, "sin cobros imprevistos") removed before use.
+- L8 (2026-10-15): Impeccable: PRODUCT.md written (user confirmed client = pymes del Eje Cafetero); user chose structure "Ruta de construcción" (seed f14a8d10); direction contract in .impeccable/surfaces. Inspection found and fixed: rail line crossing stage numbers; sticky rail broken by root `overflow-x: hidden` (now `clip`). Detector: no findings in new code (3 pre-existing). Finish reviewer launched.
+- L9 (2026-10-15, user): delivery chain strategy = stacked-to-main ("PRs encadenados a main"). Slices: PR1 T1; PR2 T2+T3; PR3 T5; PR4 T4+T6.
 - Line forecast: ~600–900 authored lines (two landings + server content) → exceeds ~400; `ask-on-risk` asks for chain strategy before crossing it.

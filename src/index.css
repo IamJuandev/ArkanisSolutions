@@ -566,6 +566,252 @@ textarea:focus-visible {
   .project-row > :nth-child(3) { grid-column: 1 / -1; }
 }
 
+/* Route landing (/desarrollo-web-armenia, /automatizacion-de-procesos)
+   The rail is the page's spine: it sticks under the navbar while the stages
+   scroll past and lights the stage currently in view. */
+.route-hero { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+.route-hero-glow {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 40rem;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(35,182,181,.14), transparent 34%),
+    radial-gradient(circle at 12% 38%, rgba(59,130,246,.09), transparent 30%);
+  pointer-events: none;
+}
+
+.route-journey { position: relative; }
+.route-rail-wrap {
+  position: sticky;
+  top: 5.25rem;
+  z-index: 30;
+  padding-block: .85rem;
+  border-block: 1px solid rgba(255,255,255,.08);
+  background: rgba(5,11,18,.86);
+  backdrop-filter: blur(14px);
+}
+@media (min-width: 640px) { .route-rail-wrap { top: 5.5rem; } }
+.route-rail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .5rem;
+  list-style: none;
+  margin-block: 0;
+}
+.route-rail-item { position: relative; }
+/* The connecting line runs from each dot to the next one. */
+.route-rail-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: .55rem;
+  left: 1.35rem;
+  right: -.25rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(167,182,197,.35), rgba(167,182,197,.08));
+}
+.route-rail-link {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: .6rem;
+  row-gap: .3rem;
+  align-items: center;
+  border-radius: .5rem;
+  color: #a7b6c5;
+  text-decoration: none;
+  transition: color var(--motion-fast) var(--ease-brand);
+}
+.route-rail-link:hover { color: #f4f1ea; }
+.route-rail-link:focus-visible { outline: 2px solid #5ed9d0; outline-offset: 4px; }
+.route-rail-dot {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(167,182,197,.45);
+  background: #050b12;
+  transition: background-color var(--motion-medium) var(--ease-brand), border-color var(--motion-medium) var(--ease-brand), box-shadow var(--motion-medium) var(--ease-brand);
+}
+.route-rail-number {
+  /* Masks the connecting line so it reads as passing behind the label. */
+  justify-self: start;
+  padding-inline: .3rem;
+  margin-left: -.3rem;
+  background: #050b12;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  font-variant-numeric: tabular-nums;
+}
+.route-rail-name {
+  grid-column: 1 / -1;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.route-rail-link[data-active] { color: #f4f1ea; }
+.route-rail-link[data-active] .route-rail-dot {
+  border-color: #23b6b5;
+  background: #23b6b5;
+  box-shadow: 0 0 0 4px rgba(35,182,181,.18), 0 6px 18px rgba(35,182,181,.28);
+}
+@media (max-width: 639px) {
+  .route-rail-name { display: none; }
+  .route-rail-link[data-active] .route-rail-name { display: block; position: absolute; top: 1.55rem; left: 0; white-space: nowrap; color: #64d8d1; font-size: .7rem; }
+  .route-rail-wrap { padding-bottom: 1.6rem; }
+}
+
+.route-section-title {
+  max-width: 44rem;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+  color: #f4f1ea;
+}
+
+.route-stage {
+  display: grid;
+  gap: 1.25rem 2.5rem;
+  padding-block: clamp(2.5rem, 5vw, 3.75rem);
+  border-top: 1px solid rgba(255,255,255,.09);
+  scroll-margin-top: 10rem;
+}
+@media (min-width: 1024px) {
+  .route-stage { grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 22rem); align-items: start; }
+}
+.route-stage-number {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: .9;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(167,182,197,.28);
+  transition: color var(--motion-medium) var(--ease-brand);
+}
+.route-stage[data-active] .route-stage-number { color: #23b6b5; }
+.route-stage-name {
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #64d8d1;
+}
+.route-stage-title {
+  margin-top: .7rem;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  color: #f4f1ea;
+}
+.route-stage-description { margin-top: 1rem; max-width: 38rem; font-size: 1rem; line-height: 1.75; color: #a7b6c5; }
+.route-stage-receive {
+  margin-top: 1.6rem;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #f4f1ea;
+}
+.route-stage-deliverables { margin-top: .6rem; display: grid; gap: .45rem; list-style: none; padding: 0; }
+.route-stage-deliverables li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: #d5dde4;
+}
+.route-stage-deliverables li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: .45rem;
+  height: 1px;
+  background: #23b6b5;
+}
+
+.route-proof {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(53,199,122,.1), transparent 55%),
+    rgba(11,24,36,.72);
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+}
+.route-proof-status {
+  align-self: flex-start;
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.route-proof-status[data-status="live"] { border: 1px solid rgba(53,199,122,.35); background: rgba(53,199,122,.08); color: #6fe0a3; }
+.route-proof-status[data-status="upcoming"] { border: 1px solid rgba(255,139,130,.35); background: rgba(255,139,130,.08); color: #ffb0a9; }
+.route-proof:has([data-status="upcoming"]) { background: radial-gradient(circle at 100% 0%, rgba(255,139,130,.09), transparent 55%), rgba(11,24,36,.72); }
+.route-proof-name { font-family: "Syne", sans-serif; font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; color: #f4f1ea; }
+.route-proof-text { font-size: .92rem; line-height: 1.6; color: #a7b6c5; }
+.route-proof-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding-top: .5rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #64d8d1;
+  text-decoration: underline;
+  text-decoration-color: rgba(100,216,209,.35);
+  text-underline-offset: .3em;
+  transition: color var(--motion-fast) var(--ease-brand), text-decoration-color var(--motion-fast) var(--ease-brand);
+}
+.route-proof-link:hover { color: #f4f1ea; text-decoration-color: currentColor; }
+.route-proof-link:focus-visible { outline: 2px solid #5ed9d0; outline-offset: 3px; border-radius: .25rem; }
+
+.route-services { display: grid; }
+.route-service {
+  display: grid;
+  gap: .6rem 3rem;
+  padding-block: 1.75rem;
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+.route-service:last-child { border-bottom: 1px solid rgba(255,255,255,.09); }
+@media (min-width: 768px) { .route-service { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); } }
+.route-service-name { font-family: "Syne", sans-serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -.025em; color: #f4f1ea; }
+.route-service-description { margin: 0; max-width: 40rem; font-size: 1rem; line-height: 1.75; color: #a7b6c5; }
+
+.route-faq { border-top: 1px solid rgba(255,255,255,.09); }
+.route-faq-item { border-bottom: 1px solid rgba(255,255,255,.09); }
+.route-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.3rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f4f1ea;
+}
+.route-faq-question::-webkit-details-marker { display: none; }
+.route-faq-question:hover { color: #64d8d1; }
+.route-faq-question:focus-visible { outline: 2px solid #5ed9d0; outline-offset: 4px; border-radius: .25rem; }
+.route-faq-icon { flex-shrink: 0; color: #64d8d1; transition: transform var(--motion-medium) var(--ease-brand); }
+.route-faq-item[open] .route-faq-icon { transform: rotate(45deg); }
+.route-faq-answer { max-width: 44rem; padding-bottom: 1.4rem; font-size: 1rem; line-height: 1.75; color: #a7b6c5; }
+
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
