@@ -14,7 +14,10 @@ import type { RouteLandingContent } from '../content/landings';
  */
 export default function RouteLanding({ content }: { content: RouteLandingContent }) {
   const [activeStage, setActiveStage] = useState(content.stages[0]?.id ?? '');
+  const [isRailStuck, setIsRailStuck] = useState(false);
   const stageRefs = useRef<Record<string, HTMLElement | null>>({});
+  const railSentinelRef = useRef<HTMLDivElement | null>(null);
+  const activeIndex = content.stages.findIndex((stage) => stage.id === activeStage);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -45,6 +48,19 @@ export default function RouteLanding({ content }: { content: RouteLandingContent
     return () => observer.disconnect();
   }, [content.stages]);
 
+  useEffect(() => {
+    const sentinel = railSentinelRef.current;
+    if (!sentinel) return;
+    // The sentinel sits right above the rail: once it scrolls past the sticky
+    // offset, the rail is pinned and needs the band that closes the gap to the navbar.
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsRailStuck(!entry.isIntersecting && entry.boundingClientRect.top < 100),
+      { rootMargin: '-96px 0px 0px 0px' },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-brand-bg font-sans text-brand-sand antialiased selection:bg-brand-aqua selection:text-brand-ink">
       <div className="site-texture" aria-hidden="true" />
@@ -72,12 +88,13 @@ export default function RouteLanding({ content }: { content: RouteLandingContent
         </section>
 
         <div className="route-journey">
-          <nav id="ruta" aria-label="Etapas del proyecto" className="route-rail-wrap">
+          <div ref={railSentinelRef} aria-hidden="true" />
+          <nav id="ruta" aria-label="Etapas del proyecto" className="route-rail-wrap" data-stuck={isRailStuck || undefined}>
             <ol className="route-rail mx-auto max-w-7xl px-6">
-              {content.stages.map((stage) => {
+              {content.stages.map((stage, index) => {
                 const isActive = stage.id === activeStage;
                 return (
-                  <li key={stage.id} className="route-rail-item">
+                  <li key={stage.id} className="route-rail-item" data-done={index < activeIndex || undefined}>
                     <a
                       href={`#${stage.id}`}
                       className="route-rail-link"
@@ -115,7 +132,6 @@ export default function RouteLanding({ content }: { content: RouteLandingContent
                   </p>
 
                   <div className="route-stage-body">
-                    <p className="route-stage-name">{stage.name}</p>
                     <h3 className="route-stage-title">{stage.title}</h3>
                     <p className="route-stage-description">{stage.description}</p>
 

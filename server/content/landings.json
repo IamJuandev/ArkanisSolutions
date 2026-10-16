@@ -180,7 +180,7 @@
         ],
         "proof": {
           "name": "App de control de gastos",
-          "text": "Lee los correos de notificación del banco en Gmail y registra gastos, ingresos, gastos fijos y préstamos de forma automática, con reglas y sin intervención manual.",
+          "text": "Lee los correos de notificación del banco en Gmail y registra gastos, ingresos, gastos fijos y préstamos de forma automática, con reglas y sin intervención manual. Herramienta interna, sin demo pública.",
           "status": "live"
         }
       },
