@@ -212,12 +212,13 @@ const renderSeoDocument = (template, {
   html = replaceSeoText(html, 'h1', 'fallback-heading', heading ?? title.split('|')[0].trim())
   html = replaceSeoText(html, 'p', 'fallback-lead', description)
   if (content) {
-    html = html.replace('<div data-seo="fallback-content"></div>', `<div data-seo="fallback-content" class="boot-fallback-content">${content}</div>`)
+    // Replacer functions keep "$" sequences in the content from acting as replacement patterns.
+    html = html.replace('<div data-seo="fallback-content"></div>', () => `<div data-seo="fallback-content" class="boot-fallback-content">${content}</div>`)
   }
   if (jsonLd) {
     // Escape "<" so the payload can never close the script tag early.
     const payload = JSON.stringify(jsonLd).replace(/</g, '\\u003c')
-    html = html.replace('</head>', `<script type="application/ld+json">${payload}</script>\n  </head>`)
+    html = html.replace('</head>', () => `<script type="application/ld+json">${payload}</script>\n  </head>`)
   }
 
   if (canonical) {
