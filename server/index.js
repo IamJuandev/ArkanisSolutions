@@ -43,8 +43,8 @@ const FIELD_LIMITS = {
 const ROUTE_SEO = {
   '/': {
     heading: 'Tu negocio no es genérico. Tu sistema digital tampoco.',
-    title: 'Automatización y software en Armenia, Quindío | Arkanis',
-    description: 'Automatización de procesos, diseño web y software a medida para pymes de Armenia, Quindío y el Eje Cafetero.',
+    title: 'Desarrollo web y software a la medida en Armenia | Arkanis',
+    description: 'Desarrollo web, software a la medida y automatización de procesos para empresas de Armenia, Quindío y el Eje Cafetero.',
     canonical: `${SITE_URL}/`,
     image: `${SITE_URL}/og-image.jpg`,
     imageAlt: 'Arkanis Solutions transforma operaciones empresariales con tecnología.',
@@ -57,8 +57,8 @@ const ROUTE_SEO = {
     imageAlt: 'Arkanis Solutions acompaña empresas del Eje Cafetero con tecnología útil.',
   },
   '/que-hacemos': {
-    title: 'Diseño web, automatización y software | Arkanis Solutions',
-    description: 'Diseño web a medida, automatización de operaciones y consultoría tecnológica para empresas de Armenia y el Eje Cafetero.',
+    title: 'Desarrollo web, software y automatización | Arkanis Solutions',
+    description: 'Desarrollo web, software a la medida, automatización de procesos y consultoría tecnológica para empresas de Armenia y el Eje Cafetero.',
     canonical: `${SITE_URL}/que-hacemos`,
     image: `${SITE_URL}/og-image.jpg`,
     imageAlt: 'Servicios digitales y de automatización de Arkanis Solutions.',
@@ -78,7 +78,7 @@ const ROUTE_SEO = {
     imageAlt: 'Comparación entre una operación dispersa y un proceso organizado por Arkanis.',
   },
   '/proyectos': {
-    title: 'Proyectos de software y automatización | Arkanis Solutions',
+    title: 'Proyectos de desarrollo web y software | Arkanis Solutions',
     description: 'Casos reales y productos funcionales construidos por Arkanis Solutions para operaciones empresariales concretas.',
     canonical: `${SITE_URL}/proyectos`,
     image: `${SITE_URL}/og-image.jpg`,

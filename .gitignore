@@ -15,3 +15,4 @@ server/contacts.db-wal
 # Generated from emails/ by npm run build:emails
 server/emails.mjs
 .react-email
+.playwright-mcp/
