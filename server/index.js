@@ -116,16 +116,6 @@ const ROUTE_SEO = {
   },
 }
 
-for (const landing of routeLandings) {
-  ROUTE_SEO[landing.path] = {
-    heading: landing.heading,
-    title: landing.title,
-    description: landing.description,
-    canonical: `${SITE_URL}${landing.path}`,
-    image: `${SITE_URL}/og-image.jpg`,
-    imageAlt: landing.heading,
-  }
-}
 
 const replaceSeoTag = (html, key, replacement) => (
   html.replace(new RegExp(`<[^>]+data-seo="${key}"[^>]*>`), replacement)
@@ -135,6 +125,56 @@ const escapeHtml = (value) => String(value)
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
+
+// Server-side copy of a landing's main content. Crawlers that do not run
+// JavaScript (and AI answer engines) read this; React replaces it on mount.
+const renderLandingContent = (landing) => {
+  const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+  const stages = landing.stages.map((stage) => [
+    `<h3>${escapeHtml(`${stage.number} ${stage.name}: ${stage.title}`)}</h3>`,
+    `<p>${escapeHtml(stage.description)}</p>`,
+    `<p>Recibís:</p>${list(stage.deliverables)}`,
+    stage.proof ? `<p>${escapeHtml(`${stage.proof.name}: ${stage.proof.text}`)}</p>` : '',
+  ].join('')).join('')
+  const services = landing.services
+    .map((service) => `<h3>${escapeHtml(service.name)}</h3><p>${escapeHtml(service.description)}</p>`)
+    .join('')
+  const faq = landing.faq
+    .map((item) => `<h3>${escapeHtml(item.question)}</h3><p>${escapeHtml(item.answer)}</p>`)
+    .join('')
+
+  return [
+    `<p>${escapeHtml(landing.lead)}</p>`,
+    `<h2>${escapeHtml(landing.stagesTitle)}</h2>${stages}`,
+    `<h2>${escapeHtml(landing.servicesTitle)}</h2>${services}`,
+    `<h2>Preguntas frecuentes</h2>${faq}`,
+    `<h2>${escapeHtml(landing.cta.heading)}</h2><p>${escapeHtml(landing.cta.text)}</p>`,
+    `<p><a href="/contacto">${escapeHtml(landing.cta.button)}</a></p>`,
+  ].join('')
+}
+
+const faqJsonLd = (landing) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: landing.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+})
+
+for (const landing of routeLandings) {
+  ROUTE_SEO[landing.path] = {
+    heading: landing.heading,
+    title: landing.title,
+    description: landing.description,
+    canonical: `${SITE_URL}${landing.path}`,
+    image: `${SITE_URL}/og-image.jpg`,
+    imageAlt: landing.heading,
+    content: renderLandingContent(landing),
+    jsonLd: faqJsonLd(landing),
+  }
+}
 
 // Rewrites the text inside an element, keeping its attributes untouched.
 const replaceSeoText = (html, tag, key, text) => html.replace(
@@ -150,6 +190,8 @@ const renderSeoDocument = (template, {
   image,
   imageAlt,
   robots = 'index, follow',
+  content,
+  jsonLd,
 }) => {
   let html = template.replace(
     /<title data-seo="title">[^<]*<\/title>/,
@@ -169,6 +211,14 @@ const renderSeoDocument = (template, {
   // this, so each route needs its own H1 rather than the home page one.
   html = replaceSeoText(html, 'h1', 'fallback-heading', heading ?? title.split('|')[0].trim())
   html = replaceSeoText(html, 'p', 'fallback-lead', description)
+  if (content) {
+    html = html.replace('<div data-seo="fallback-content"></div>', `<div data-seo="fallback-content" class="boot-fallback-content">${content}</div>`)
+  }
+  if (jsonLd) {
+    // Escape "<" so the payload can never close the script tag early.
+    const payload = JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+    html = html.replace('</head>', `<script type="application/ld+json">${payload}</script>\n  </head>`)
+  }
 
   if (canonical) {
     html = replaceSeoTag(html, 'canonical', `<link data-seo="canonical" rel="canonical" href="${canonical}" />`)
