@@ -604,7 +604,8 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   top: .55rem;
-  left: 1.35rem;
+  /* Starts under the number's mask (dot + column gap) so no stub shows before it. */
+  left: 1.7rem;
   right: -.25rem;
   height: 1px;
   background: linear-gradient(90deg, rgba(167,182,197,.35), rgba(167,182,197,.08));
@@ -616,7 +617,7 @@ textarea:focus-visible {
 .route-rail-wrap[data-stuck]::before {
   content: "";
   position: absolute;
-  inset: -5.5rem 0 100%;
+  inset: calc(-5.5rem - 2px) 0 100%;
   /* Opaque: a backdrop-filter does not work inside the rail, which already has one. */
   background: #050b12;
 }

@@ -40,8 +40,8 @@ export default function RouteLanding({ content }: { content: RouteLandingContent
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible[0]) setActiveStage(visible[0].target.id);
       },
-      // A stage counts as current while it crosses the upper-middle band of the viewport.
-      { rootMargin: '-35% 0px -55% 0px' },
+      // A stage counts as current while it crosses the viewport's horizontal center line.
+      { rootMargin: '-50% 0px -49% 0px' },
     );
 
     Object.values(stageRefs.current).forEach((node) => node && observer.observe(node));
