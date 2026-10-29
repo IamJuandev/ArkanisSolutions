@@ -12,8 +12,15 @@ const initialInputs: AssessmentInput = {
   dataConsent: false,
 };
 
+// The homepage task chooser submits ?tarea=<task>, so the form opens with it.
+function initialFromQuery(): AssessmentInput {
+  const task = new URLSearchParams(window.location.search).get('tarea')?.trim().slice(0, 300);
+  if (!task) return initialInputs;
+  return { ...initialInputs, primaryPain: 'Automatización', customDescription: `Quiero dejar de: ${task}.` };
+}
+
 export default function AssessmentForm() {
-  const [inputs, setInputs] = useState<AssessmentInput>(initialInputs);
+  const [inputs, setInputs] = useState<AssessmentInput>(initialFromQuery);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
   const [submitError, setSubmitError] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
@@ -67,12 +74,11 @@ export default function AssessmentForm() {
           <div className="relative border-b border-white/10 p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
             <img src="/brand/symbol-white.svg" alt="" className="absolute -right-12 -top-12 h-56 w-56 opacity-[0.08]" />
             <div className="relative">
-              <p className="eyebrow">Empecemos por entender</p>
-              <h2 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-[-0.045em] text-brand-sand sm:text-5xl">
-                Un buen sistema empieza con un diagnóstico honesto.
+              <h2 className="font-display text-4xl font-semibold leading-tight tracking-[-0.03em] text-brand-sand sm:text-5xl">
+                ¿Y si lo que hoy hacés a mano se hiciera solo?
               </h2>
-              <p className="mt-6 max-w-lg text-base leading-7 text-brand-mist">
-                Hablemos de dónde está la fricción. Revisaremos el caso y te contactaremos para conversar sobre una ruta clara, sin venderte una solución antes de entender el problema.
+              <p className="mt-6 max-w-lg text-lg leading-8 text-brand-mist">
+                Pedí tu diagnóstico gratis. Te respondemos con una idea concreta para tu negocio, aunque después no trabajes con nosotros.
               </p>
               <div className="mt-10 space-y-4 border-t border-white/10 pt-7 text-sm text-brand-mist">
                 <p className="flex items-start gap-3"><ShieldCheck className="mt-0.5 shrink-0 text-brand-lime" size={18} /> Tu información se usa únicamente para revisar la solicitud.</p>
@@ -106,7 +112,7 @@ export default function AssessmentForm() {
                   className="space-y-5"
                 >
                   <div className="mb-7">
-                    <p className="font-display text-2xl font-semibold text-brand-sand">Solicitar diagnóstico</p>
+                    <p className="font-display text-2xl font-semibold text-brand-sand">Diagnóstico gratis</p>
                     <p className="mt-2 text-sm text-brand-mist">Todos los campos son necesarios para entender el contexto.</p>
                   </div>
 
@@ -164,9 +170,9 @@ export default function AssessmentForm() {
                   <button
                     type="submit"
                     disabled={status === 'submitting' || !inputs.dataConsent}
-                    className={`brand-button brand-button-large liquid-glass-button w-full justify-center sm:w-auto ${status === 'submitting' ? '' : 'liquid-glass-button-pulse'}`}
+                    className="ak-btn ak-btn-verde w-full justify-center disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                   >
-                    {status === 'submitting' ? <><LoaderCircle className={reduceMotion ? '' : 'animate-spin'} size={17} /> Enviando solicitud</> : <>Enviar diagnóstico <ArrowRight size={17} /></>}
+                    {status === 'submitting' ? <><LoaderCircle className={reduceMotion ? '' : 'animate-spin'} size={17} /> Enviando solicitud</> : <>Pedí tu diagnóstico gratis <ArrowRight size={17} /></>}
                   </button>
                 </motion.form>
               )}

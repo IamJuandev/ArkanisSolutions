@@ -1,107 +1,146 @@
-import { ArrowRight } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+
+const WHATSAPP = 'https://wa.me/573138751753?text=';
+
+const tasks = [
+  {
+    id: 'excel',
+    label: 'Pasar datos de Excel',
+    value: 'pasar datos de Excel a mano',
+    example: 'Las planillas se cargan una vez y el sistema las ordena, calcula y avisa. Vos solo revisás.',
+    whatsapp: 'Hola Arkanis, quiero dejar de pasar datos de Excel a mano',
+  },
+  {
+    id: 'pedidos',
+    label: 'Anotar pedidos de WhatsApp',
+    value: 'anotar a mano los pedidos que llegan por WhatsApp',
+    example: 'Los pedidos llegan de WhatsApp a un tablero, con estado y total, sin copiar nada a mano.',
+    whatsapp: 'Hola Arkanis, quiero dejar de anotar a mano los pedidos de WhatsApp',
+  },
+  {
+    id: 'clientes',
+    label: 'Seguir a cada cliente',
+    value: 'hacer seguimiento a cada cliente',
+    example: 'Cada cliente queda registrado y el sistema te recuerda a quién escribir y cuándo.',
+    whatsapp: 'Hola Arkanis, quiero organizar el seguimiento a mis clientes',
+  },
+];
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion() ?? true;
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
-
-  // Decoding a full-viewport video that nobody can see is wasted GPU work, so
-  // the hero film only runs while the section is actually on screen.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || reduceMotion) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          void video.play().catch(() => undefined);
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.01 },
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, [reduceMotion]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const task = tasks.find((item) => item.id === selected);
+  const whatsappText = task ? task.whatsapp : 'Hola Arkanis, quiero mi diagnóstico gratis';
 
   return (
-    <section id="inicio" className="hero-cinematic relative min-h-[100svh] overflow-hidden">
-      <div className="hero-cinematic-background" aria-hidden="true">
-        <img
-          src="/arkanis-hero-poster.webp"
-          alt=""
-          className="hero-cinematic-media"
-        />
-        {!reduceMotion && (
-          <video
-            ref={videoRef}
-            className="hero-cinematic-media hero-cinematic-film"
-            data-ready={videoReady ? 'true' : 'false'}
-            loop
-            muted
-            playsInline
-            preload="auto"
-            tabIndex={-1}
-            // Wait for canplaythrough, not canplay: on a slow connection the
-            // decoder outruns the download and the element freezes on its last
-            // frame. Until the browser guarantees uninterrupted playback the
-            // poster underneath stays visible, and a stall never shows.
-            onCanPlayThrough={() => setVideoReady(true)}
-            onError={() => setVideoReady(false)}
-            onStalled={() => setVideoReady(false)}
-          >
-            <source src="/arkanis-hero-film.mp4" type="video/mp4" />
-          </video>
-        )}
-        <div className="hero-cinematic-grade" />
-        <div className="hero-cinematic-texture" />
-      </div>
+    <div className="ak-hero ak-wrap">
+      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+        <defs>
+          <linearGradient id="ak-arc-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#0B5FE0" />
+            <stop offset=".5" stopColor="#0F86D8" />
+            <stop offset="1" stopColor="#17C46E" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-6 pb-20 pt-32 sm:pt-36 lg:pb-24">
-        <div className="hero-copy max-w-3xl">
-          <motion.p
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="eyebrow mb-7 text-brand-aqua"
-          >
-            Software, automatización y diseño web en Armenia, Quindío
-          </motion.p>
-          <motion.h1
-            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-[clamp(3rem,7vw,6.7rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-brand-sand"
-          >
-            Tu negocio no es genérico.
-            <span className="mt-2 block bg-gradient-to-r from-brand-sky via-brand-aqua to-brand-lime bg-clip-text text-transparent">
-              Tu sistema digital tampoco.
-            </span>
-          </motion.h1>
-          <motion.p
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-7 max-w-2xl text-base leading-7 text-brand-sand/80 sm:text-lg"
-          >
-            Diseño web a medida, automatización de procesos y software para empresas de Armenia, Quindío y el Eje Cafetero.
-          </motion.p>
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.28 }}
-            className="mt-9 flex"
-          >
-            <a href="/contacto" className="brand-button brand-button-large liquid-glass-button">
-              Solicitar diagnóstico <ArrowRight size={17} />
-            </a>
-          </motion.div>
+      <section className="ak-cover" aria-labelledby="home-title">
+        <div className="ak-cover-grid">
+          <div className="ak-cover-copy">
+            <h1 id="home-title">Desarrollo de software a la medida e integración de IA para pequeños negocios en Armenia</h1>
+            <p className="ak-bajada">
+              Si tu negocio todavía corre entre Excel y WhatsApp, te ayudamos a dar el siguiente paso con IA, sin quedarte atrás
+              y sin gastar de más. Empezamos por lo que más tiempo te quita.
+            </p>
+
+            <form className="ak-chooser" action="/contacto" method="get">
+              <fieldset>
+                <legend>¿Qué te gustaría dejar de hacer a mano?</legend>
+                <div className="ak-opts">
+                  {tasks.map((item) => (
+                    <span key={item.id}>
+                      <input
+                        type="radio"
+                        name="tarea"
+                        id={`tarea-${item.id}`}
+                        value={item.value}
+                        checked={selected === item.id}
+                        onChange={() => setSelected(item.id)}
+                      />
+                      <label htmlFor={`tarea-${item.id}`}>{item.label}</label>
+                    </span>
+                  ))}
+                </div>
+              </fieldset>
+
+              <div className="ak-bridge" aria-hidden="true">
+                <div className="ak-node ak-node-hoy">
+                  <i />
+                  <span>Hoy</span>
+                  <strong>Tu negocio</strong>
+                </div>
+                <svg className="ak-arc" viewBox="0 0 400 60" preserveAspectRatio="none" data-on={Boolean(task)}>
+                  <path className="ak-arc-base" d="M0,52 C120,8 280,2 400,30" />
+                  <path className="ak-arc-live" d="M0,52 C120,8 280,2 400,30" />
+                </svg>
+                <div className="ak-node ak-node-luego" data-on={Boolean(task)}>
+                  <i />
+                  <span>Con Arkanis</span>
+                  <strong>Tu sistema</strong>
+                </div>
+              </div>
+
+              <div className="ak-example" aria-live="polite">
+                {task ? (
+                  <p>
+                    {task.example}
+                    <small>Ejemplo ilustrativo · el diagnóstico lo ajusta a tu caso</small>
+                  </p>
+                ) : (
+                  <p className="ak-example-idle">Elegí una opción y mirá cómo podría resolverse.</p>
+                )}
+              </div>
+
+              <div className="ak-actions">
+                <button className="ak-btn ak-btn-verde" type="submit">
+                  Pedí tu diagnóstico gratis <ArrowRight aria-hidden="true" />
+                </button>
+                <a className="ak-wa" href={WHATSAPP + encodeURIComponent(whatsappText)}>
+                  <MessageCircle aria-hidden="true" />
+                  {task ? 'o contalo por WhatsApp' : 'o escribinos por WhatsApp'}
+                </a>
+              </div>
+            </form>
+          </div>
+          <div className="ak-cover-art">
+            <img src="/brand/render-3d.webp" alt="" width={900} height={900} fetchPriority="high" />
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div className="ak-titleblock">
+          <a className="ak-cell" href="/productos/sistema-gestion-restaurantes">
+            <span className="ak-label">Producto en vivo</span>
+            <strong>Komio</strong>
+            <p>Gestión para restaurantes · demo abierta</p>
+            <span className="ak-soon">Komio AI · próximamente</span>
+          </a>
+          <a className="ak-cell" href="/proyectos/directorio-terrario">
+            <span className="ak-label">Caso en producción</span>
+            <strong>Directorio Terrario</strong>
+            <p>3 sedes · 68 lugares</p>
+          </a>
+          <div className="ak-cell">
+            <span className="ak-label">Base</span>
+            <strong>Armenia, Quindío</strong>
+            <p>Eje Cafetero · presencial y remoto</p>
+          </div>
+          <div className="ak-cell">
+            <span className="ak-label">Para</span>
+            <strong>Negocios de 1 a 50 personas</strong>
+            <p>Restaurantes, turismo, comercio, servicios</p>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

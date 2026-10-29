@@ -74,11 +74,11 @@ export function LimelightNav({
       {highlight && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-1 top-1 rounded-lg border border-brand-aqua/20 bg-brand-aqua/8 shadow-[0_0_24px_rgba(35,182,181,0.08)] transition-[width,transform] duration-300 ease-out motion-reduce:transition-none"
+          className="pointer-events-none absolute bottom-1 top-1 rounded-lg border border-brand-aqua/20 bg-brand-aqua/8 shadow-[0_0_24px_rgba(23,196,110,0.08)] transition-[width,transform] duration-300 ease-out motion-reduce:transition-none"
           style={{ width: highlight.width, transform: `translate3d(${highlight.left}px, 0, 0)` }}
         >
-          <span className="absolute left-1/2 top-[-5px] h-px w-7 -translate-x-1/2 bg-gradient-to-r from-transparent via-brand-aqua to-transparent shadow-[0_0_10px_rgba(35,182,181,0.9)]" />
-          <span className="absolute left-1/2 top-0 h-6 w-12 -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(35,182,181,0.18),transparent_70%)]" />
+          <span className="absolute left-1/2 top-[-5px] h-px w-7 -translate-x-1/2 bg-gradient-to-r from-transparent via-brand-aqua to-transparent shadow-[0_0_10px_rgba(23,196,110,0.9)]" />
+          <span className="absolute left-1/2 top-0 h-6 w-12 -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(23,196,110,0.18),transparent_70%)]" />
         </div>
       )}
 

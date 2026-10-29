@@ -78,7 +78,7 @@ export default function TerrarioCaseStudy() {
 
       <main className="relative z-10">
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
-          <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_70%_18%,rgba(35,182,181,0.14),transparent_32%),radial-gradient(circle_at_18%_32%,rgba(59,130,246,0.1),transparent_28%)]" aria-hidden="true" />
+          <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_70%_18%,rgba(23,196,110,0.14),transparent_32%),radial-gradient(circle_at_18%_32%,rgba(59,130,246,0.1),transparent_28%)]" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
               <a href="/proyectos" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
@@ -311,7 +311,7 @@ export default function TerrarioCaseStudy() {
 
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_85%_20%,rgba(53,199,122,0.12),transparent_28%),linear-gradient(135deg,rgba(13,41,64,0.78),rgba(5,11,18,0.96))] p-8 sm:p-12">
+            <div className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_85%_20%,rgba(53,199,122,0.12),transparent_28%),linear-gradient(135deg,rgba(13,41,64,0.78),rgba(6,26,46,0.96))] p-8 sm:p-12">
               <p className="eyebrow">Construyamos sobre evidencia</p>
               <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
                 <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.045em] text-brand-sand sm:text-5xl">

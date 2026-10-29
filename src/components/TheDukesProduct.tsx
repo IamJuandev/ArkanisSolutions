@@ -122,7 +122,7 @@ export default function TheDukesProduct() {
       <main className="relative z-10">
         <section className="relative overflow-hidden pb-28 pt-36 sm:pt-44">
           <div
-            className="absolute inset-x-0 top-0 h-[48rem] bg-[radial-gradient(circle_at_76%_17%,rgba(255,139,130,0.12),transparent_30%),radial-gradient(circle_at_22%_34%,rgba(59,130,246,0.12),transparent_30%),radial-gradient(circle_at_55%_10%,rgba(35,182,181,0.08),transparent_26%)]"
+            className="absolute inset-x-0 top-0 h-[48rem] bg-[radial-gradient(circle_at_76%_17%,rgba(255,139,130,0.12),transparent_30%),radial-gradient(circle_at_22%_34%,rgba(59,130,246,0.12),transparent_30%),radial-gradient(circle_at_55%_10%,rgba(23,196,110,0.08),transparent_26%)]"
             aria-hidden="true"
           />
 
@@ -501,7 +501,7 @@ export default function TheDukesProduct() {
 
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_85%_20%,rgba(255,139,130,0.12),transparent_28%),radial-gradient(circle_at_20%_80%,rgba(35,182,181,0.1),transparent_30%),linear-gradient(135deg,rgba(13,41,64,0.78),rgba(5,11,18,0.96))] p-8 sm:p-12">
+            <div className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_85%_20%,rgba(255,139,130,0.12),transparent_28%),radial-gradient(circle_at_20%_80%,rgba(23,196,110,0.1),transparent_30%),linear-gradient(135deg,rgba(13,41,64,0.78),rgba(6,26,46,0.96))] p-8 sm:p-12">
               <p className="eyebrow">Tu restaurante no es genérico</p>
               <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div>

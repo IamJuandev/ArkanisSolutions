@@ -5,6 +5,7 @@ import AutomationFlow from './components/AutomationFlow';
 import ClientProcess from './components/ClientProcess';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import { HomeAutomation, HomeFaq, HomeProcess, HomeProjects, HomeSolutions, MobileCta } from './components/HomeSections';
 import Institutional from './components/Institutional';
 import Navbar from './components/Navbar';
 import Pillars from './components/Pillars';
@@ -84,12 +85,19 @@ export default function App() {
 
   if (currentPath === '/') {
     return (
-      <div className="min-h-screen overflow-x-hidden bg-brand-bg font-sans text-brand-sand antialiased selection:bg-brand-aqua selection:text-brand-ink">
-        <div className="site-texture" aria-hidden="true" />
+      <div className="min-h-screen overflow-x-hidden bg-brand-bg font-sans text-brand-sand antialiased">
         <Navbar />
-        <main className="relative z-10">
+        <main>
           <Hero />
+          <HomeProjects />
+          <HomeAutomation />
+          <HomeProcess />
+          <HomeSolutions />
+          <HomeFaq />
+          <AssessmentForm />
         </main>
+        <Footer />
+        <MobileCta />
       </div>
     );
   }

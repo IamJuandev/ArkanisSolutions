@@ -1,21 +1,32 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 py-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between">
-        <a href="/" className="flex items-center gap-3" aria-label="Arkanis Solutions, volver al inicio">
-          <img src="/brand/symbol-color.svg" alt="" className="h-10 w-10" />
+    <footer className="ak-footer">
+      <div className="ak-wrap">
+        <div className="ak-footer-grid">
           <div>
-            <p className="font-display text-sm font-semibold tracking-[0.14em] text-brand-sand">ARKANIS SOLUTIONS</p>
-            <p className="mt-1 text-xs text-brand-mist">Diseño con intención. Sistemas con propósito.</p>
+            <h3>Arkanis Solutions</h3>
+            <p>Desarrollo de software a la medida e integración de IA para pequeños negocios en Armenia, Quindío.</p>
           </div>
-        </a>
-        <div className="text-left text-xs leading-5 text-brand-mist sm:text-right">
-          <a href="mailto:contacto@arkanis.site" className="transition-colors hover:text-brand-aqua">contacto@arkanis.site</a>
-          <p className="mt-1">
-            <a href="/privacidad" className="transition-colors hover:text-brand-aqua">Política de tratamiento de datos</a>
-          </p>
-          <p className="mt-1">© 2026 Arkanis Solutions</p>
+          <div>
+            <h3>Contacto</h3>
+            <p>
+              <a href="mailto:contacto@arkanis.site">contacto@arkanis.site</a>
+              <br />
+              <a href="https://wa.me/573138751753">WhatsApp 313 875 1753</a>
+            </p>
+          </div>
+          <div>
+            <h3>Zona</h3>
+            <p>
+              Armenia · Pereira · Manizales
+              <br />
+              Eje Cafetero, Colombia
+            </p>
+          </div>
         </div>
+        <p className="ak-footer-legal">
+          © 2026 Arkanis Solutions · <a href="/privacidad">Política de tratamiento de datos</a>
+        </p>
       </div>
     </footer>
   );
