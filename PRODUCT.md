@@ -38,7 +38,7 @@ A local team in Armenia, Quindío that builds software fitted to how each busine
 
 ## Evidence on Hand
 
-- Komio — restaurant management app, live demo at https://demo.arkanis.site.
+- Komio — restaurant management app, live demo at https://demo.komio.site.
 - Directorio Terrario — https://directorioterrario.com/, case study at `/proyectos/directorio-terrario` with screenshots in `public/projects/`.
 - Carolina Castellanos, Eneagrama workshop landing — https://carolina-castellanos.com/eneagrama.
 - Personal finance app that reads bank emails and tracks expenses, fixed costs and loans (internal, no public URL).

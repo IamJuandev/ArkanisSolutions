@@ -62,7 +62,7 @@ export default function KomioProduct() {
                   para cómo trabaja tu restaurante.
                 </p>
                 <div className="ak-actions">
-                  <a className="ak-btn ak-btn-verde" href="https://demo.arkanis.site">
+                  <a className="ak-btn ak-btn-verde" href="https://demo.komio.site">
                     Entrá a la demo <ArrowRight aria-hidden="true" />
                   </a>
                   <a className="ak-wa" href={WHATSAPP}>

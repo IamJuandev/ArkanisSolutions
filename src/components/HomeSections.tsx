@@ -55,7 +55,7 @@ export function HomeProjects() {
               </div>
             </dl>
             <div className="ak-row">
-              <a className="ak-btn ak-btn-azul" href="https://demo.arkanis.site">
+              <a className="ak-btn ak-btn-azul" href="https://demo.komio.site">
                 Entrá a la demo <ArrowRight aria-hidden="true" />
               </a>
               <a className="ak-more" href="/productos/sistema-gestion-restaurantes">

@@ -9,7 +9,7 @@ related_targets: []
 
 Scope: SEO landing pages inside the established arkanis.site world. Visitor mode: Persuade.
 Audience: owners of Eje Cafetero SMBs searching "desarrollo web Armenia", "software a la medida". Job: decide whether Arkanis can build their system. Action: request a diagnosis (`/contacto`).
-Proof: Komio (demo.arkanis.site), Directorio Terrario (directorioterrario.com), Carolina Castellanos Eneagrama landing. No testimonials, prices or metrics exist; none may be invented. Komio AI is "Próximamente".
+Proof: Komio (demo.komio.site), Directorio Terrario (directorioterrario.com), Carolina Castellanos Eneagrama landing. No testimonials, prices or metrics exist; none may be invented. Komio AI is "Próximamente".
 Sibling: /automatizacion-de-procesos reuses the same route structure with the automation journey; expenses app as automation proof, Komio AI as "Próximamente".
 
 ## Direction contract
