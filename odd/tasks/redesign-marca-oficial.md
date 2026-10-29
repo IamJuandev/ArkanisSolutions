@@ -20,7 +20,7 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - [x] T2 S3,S4,S5,S7,S9 Homepage sections + contact form task prefill + sticky mobile CTA · inline · 0732071
 - [x] T3 S8 KomioProduct replaces TheDukesProduct (page, project card, server meta, sitemap) · inline · see next commit
 - [~] T4 S1 Inner pages inherit tokens/fonts; top spacing and back link fixed; full restyle of inner sections pending review
-- [ ] T5 S11 Polish (emil-design-eng, animate), impeccable finish review, DESIGN.md · reviewer/documenter subagents
+- [x] T5 S11 impeccable finish review (ship after 2 rounds, f5e3ff1) + DESIGN.md/.impeccable/design.json by documenter · subagents
 
 ## Log
 - L1 (2026-10-28, owner, verbatim): "no vuelve a desestimar este rediseño por favor y vuuelve a genrar unos diseños con impecable vale? esta pagina debe tener MUCHO SEO llamado al accion que el cliente le cuase curiosidad mostrar bien directorio terrario y komio si me entiendes?"
@@ -31,3 +31,4 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - L6 T1–T3 verified: typecheck + build pass; chooser interaction checked in browser (task, example, WhatsApp text); production server renders new titles/H1 for /, Komio route, /proyectos and 404 for unknown paths. Engram mirror saved under project arkanissolutions (owner: "los dos es lo mismo").
 - L7 (owner): Komio modules claim confirmed ("a"): DIAN e-invoicing, two-factor auth and Excel export all work in the demo today. Finish review round 1: disposition fix, 8 material fixes applied in one batch; verdict pass pending.
 - L8 Finish review: round 1 fix (8 fixes), round 2 fix (sticky CTA, mobile H1, Komio live status), final disposition ship. Sticky CTA uses a scroll listener because the automation tab is hidden; logic verified with a synthetic scroll.
+- L9 DESIGN.md + .impeccable/design.json written from the shipped build. Reported drift (not fixed): inner pages keep rounded cards, eyebrows, glass/gradient buttons and coral; "Sora" still named in .section-cta-headline/.legal-clause-title; AssessmentForm success state uses eyebrow + rounded icon + ghost button; Komio AI chip outlined in green. Next: T4 inner-page restyle.

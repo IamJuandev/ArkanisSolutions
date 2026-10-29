@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T04:03:07+00:00",
+  "title": "Design System: Arkanis Solutions",
+  "extensions": {
+    "colorMeta": {
+      "azul-noche": {
+        "role": "neutral",
+        "displayName": "Azul Noche",
+        "tonalRamp": [
+          "oklch(15% 0.05 250)",
+          "oklch(25% 0.05 250)",
+          "oklch(35% 0.05 250)",
+          "oklch(45% 0.05 250)",
+          "oklch(55% 0.05 250)",
+          "oklch(65% 0.05 250)",
+          "oklch(80% 0.05 250)",
+          "oklch(95% 0.05 250)"
+        ]
+      },
+      "noche-raised": {
+        "role": "neutral",
+        "displayName": "Noche Raised",
+        "tonalRamp": [
+          "oklch(15% 0.05 250)",
+          "oklch(25% 0.05 250)",
+          "oklch(35% 0.05 250)",
+          "oklch(45% 0.05 250)",
+          "oklch(55% 0.05 250)",
+          "oklch(65% 0.05 250)",
+          "oklch(80% 0.05 250)",
+          "oklch(95% 0.05 250)"
+        ]
+      },
+      "azul-arkanis": {
+        "role": "primary",
+        "displayName": "Azul Arkanis",
+        "tonalRamp": [
+          "oklch(15% 0.18 262)",
+          "oklch(25% 0.18 262)",
+          "oklch(35% 0.18 262)",
+          "oklch(45% 0.18 262)",
+          "oklch(55% 0.18 262)",
+          "oklch(65% 0.18 262)",
+          "oklch(80% 0.18 262)",
+          "oklch(95% 0.18 262)"
+        ]
+      },
+      "azul-arkanis-hover": {
+        "role": "primary",
+        "displayName": "Azul Arkanis Pressed",
+        "tonalRamp": [
+          "oklch(15% 0.18 262)",
+          "oklch(25% 0.18 262)",
+          "oklch(35% 0.18 262)",
+          "oklch(45% 0.18 262)",
+          "oklch(55% 0.18 262)",
+          "oklch(65% 0.18 262)",
+          "oklch(80% 0.18 262)",
+          "oklch(95% 0.18 262)"
+        ]
+      },
+      "verde-senal": {
+        "role": "secondary",
+        "displayName": "Verde Señal",
+        "tonalRamp": [
+          "oklch(15% 0.15 152)",
+          "oklch(25% 0.15 152)",
+          "oklch(35% 0.15 152)",
+          "oklch(45% 0.15 152)",
+          "oklch(55% 0.15 152)",
+          "oklch(65% 0.15 152)",
+          "oklch(80% 0.15 152)",
+          "oklch(95% 0.15 152)"
+        ]
+      },
+      "verde-senal-hover": {
+        "role": "secondary",
+        "displayName": "Verde Señal Bright",
+        "tonalRamp": [
+          "oklch(15% 0.15 152)",
+          "oklch(25% 0.15 152)",
+          "oklch(35% 0.15 152)",
+          "oklch(45% 0.15 152)",
+          "oklch(55% 0.15 152)",
+          "oklch(65% 0.15 152)",
+          "oklch(80% 0.15 152)",
+          "oklch(95% 0.15 152)"
+        ]
+      },
+      "verde-ink": {
+        "role": "secondary",
+        "displayName": "Verde Tinta",
+        "tonalRamp": [
+          "oklch(15% 0.15 152)",
+          "oklch(25% 0.15 152)",
+          "oklch(35% 0.15 152)",
+          "oklch(45% 0.15 152)",
+          "oklch(55% 0.15 152)",
+          "oklch(65% 0.15 152)",
+          "oklch(80% 0.15 152)",
+          "oklch(95% 0.15 152)"
+        ]
+      },
+      "gradient-mid": {
+        "role": "tertiary",
+        "displayName": "Gradient Cyan-Blue",
+        "tonalRamp": [
+          "oklch(15% 0.13 245)",
+          "oklch(25% 0.13 245)",
+          "oklch(35% 0.13 245)",
+          "oklch(45% 0.13 245)",
+          "oklch(55% 0.13 245)",
+          "oklch(65% 0.13 245)",
+          "oklch(80% 0.13 245)",
+          "oklch(95% 0.13 245)"
+        ]
+      },
+      "gradient-end": {
+        "role": "tertiary",
+        "displayName": "Gradient Deep Blue",
+        "tonalRamp": [
+          "oklch(15% 0.18 262)",
+          "oklch(25% 0.18 262)",
+          "oklch(35% 0.18 262)",
+          "oklch(45% 0.18 262)",
+          "oklch(55% 0.18 262)",
+          "oklch(65% 0.18 262)",
+          "oklch(80% 0.18 262)",
+          "oklch(95% 0.18 262)"
+        ]
+      },
+      "niebla": {
+        "role": "neutral",
+        "displayName": "Niebla",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      },
+      "gris-claro": {
+        "role": "neutral",
+        "displayName": "Gris Claro",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      },
+      "gris-medio": {
+        "role": "neutral",
+        "displayName": "Gris Medio",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      },
+      "gris-pizarra": {
+        "role": "neutral",
+        "displayName": "Gris Pizarra",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ],
+        "canonical": "rgba(200, 216, 230, 0.22)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single hero H1 inside the cover."
+      },
+      "display-mobile": {
+        "displayName": "Display Mobile",
+        "purpose": "Hero H1 at ≤600px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s in the two-column section head."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project panel H3s."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Chooser legend, FAQ questions, title-block values."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero lead paragraph, max 52ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Mono data labels: title block, spec terms, table headers, footer headings. Never an eyebrow."
+      }
+    },
+    "shadows": [
+      {
+        "name": "screenshot-lift",
+        "value": "0 18px 40px rgba(0, 0, 0, 0.35)",
+        "purpose": "Product screenshots on their Azul Noche stage."
+      },
+      {
+        "name": "node-glow-blue",
+        "value": "0 4px 18px rgba(11, 95, 224, 0.55)",
+        "purpose": "The 'today' arc node."
+      },
+      {
+        "name": "node-glow-green",
+        "value": "0 4px 18px rgba(23, 196, 110, 0.55)",
+        "purpose": "The lit 'your system' arc node."
+      },
+      {
+        "name": "floating-cta",
+        "value": "0 8px 24px rgba(0, 0, 0, 0.35)",
+        "purpose": "Sticky mobile CTA."
+      },
+      {
+        "name": "focus-field",
+        "value": "0 0 0 3px rgba(23, 196, 110, 0.08)",
+        "purpose": "Form field focus ring, with a 70% Verde Señal border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-brand",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Exponential ease-out for arc draw, node light, index-row shift, FAQ chevron, sticky CTA."
+      },
+      {
+        "name": "state-fast",
+        "value": "0.2s",
+        "purpose": "Color, border and background state changes."
+      },
+      {
+        "name": "arc-draw",
+        "value": "stroke-dashoffset 0.9s ease-brand",
+        "purpose": "Signature: the arc stroke drawing in when a task is chosen."
+      },
+      {
+        "name": "node-light",
+        "value": "0.5s ease-brand",
+        "purpose": "The second node turning green."
+      },
+      {
+        "name": "sticky-reveal",
+        "value": "transform/opacity 0.35s ease-brand",
+        "purpose": "Sticky CTA sliding in."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition: none",
+        "purpose": "All brand transitions are removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "420px"
+      },
+      {
+        "name": "titleblock-1col",
+        "value": "520px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "mobile-nav-cta",
+        "value": "760px"
+      },
+      {
+        "name": "md",
+        "value": "860px"
+      },
+      {
+        "name": "nav-collapse",
+        "value": "960px"
+      }
+    ],
+    "gradients": [
+      {
+        "name": "official",
+        "value": "linear-gradient(135deg, #17c46e 0%, #0f86d8 50%, #0b47c9 100%)",
+        "purpose": "3px strips and the lit arc stroke."
+      },
+      {
+        "name": "route",
+        "value": "linear-gradient(90deg, #0b5fe0, #0f86d8, #17c46e)",
+        "purpose": "Process-route line, blue to green (180deg when vertical)."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Verde Señal call to action; one per view.",
+      "html": "<button class=\"ds-btn-verde\">Pedí tu diagnóstico gratis <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-btn-verde{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font:600 16px/1 'IBM Plex Sans',sans-serif;padding:15px 22px;border:0;border-radius:0;cursor:pointer;background:var(--ak-verde);color:var(--ak-noche);transition:background-color .2s,transform .2s var(--ak-ease);} .ds-btn-verde svg{width:18px;height:18px;} .ds-btn-verde:hover{background:var(--ak-verde-hover);} .ds-btn-verde:active{transform:translateY(1px);} .ds-btn-verde:focus-visible{outline:2px solid #0f86d8;outline-offset:3px;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Azul Arkanis solid button for links out to live products.",
+      "html": "<a class=\"ds-btn-azul\" href=\"#\">Entrá a la demo <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-btn-azul{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 'IBM Plex Sans',sans-serif;padding:15px 22px;border-radius:0;text-decoration:none;background:var(--ak-azul);color:#fff;transition:background-color .2s,transform .2s var(--ak-ease);} .ds-btn-azul svg{width:18px;height:18px;} .ds-btn-azul:hover{background:#0a52c4;} .ds-btn-azul:active{transform:translateY(1px);} .ds-btn-azul:focus-visible{outline:2px solid #0f86d8;outline-offset:3px;}"
+    },
+    {
+      "name": "Chooser Option",
+      "kind": "chip",
+      "refersTo": "chip-option",
+      "description": "Square hairline option chips; selected state is the green 'on' state.",
+      "html": "<div class=\"ds-opts\"><input type=\"radio\" name=\"ds-t\" id=\"ds-a\" checked><label for=\"ds-a\">Tomar pedidos</label><input type=\"radio\" name=\"ds-t\" id=\"ds-b\"><label for=\"ds-b\">Hacer inventario</label></div>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-opts{display:flex;flex-wrap:wrap;gap:10px;background:var(--ak-noche);padding:16px;} .ds-opts input{position:absolute;opacity:0;} .ds-opts label{cursor:pointer;padding:10px 14px;border:1px solid var(--ak-hair);font:400 16px 'IBM Plex Sans',sans-serif;color:var(--ak-gris);transition:border-color .2s,color .2s,background-color .2s;} .ds-opts label:hover{border-color:var(--ak-gris);color:#fff;} .ds-opts input:checked+label{border-color:var(--ak-verde);color:#fff;background:rgba(23,196,110,.1);} .ds-opts input:focus-visible+label{outline:2px solid var(--ak-verde);outline-offset:3px;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Square Noche Raised field with a mono data label; green focus ring.",
+      "html": "<label class=\"ds-field\"><span>Nombre</span><input placeholder=\"Tu nombre\"></label>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-field{display:block;background:var(--ak-noche);padding:16px;} .ds-field span{display:block;margin-bottom:.55rem;font:500 .74rem 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-gris);} .ds-field input{width:100%;box-sizing:border-box;min-height:3.1rem;border:1px solid var(--ak-hair);border-radius:0;padding:.85rem 1rem;background:var(--ak-noche-2);color:var(--ak-niebla);font:400 1.02rem 'IBM Plex Sans',sans-serif;outline:none;transition:border-color .18s,box-shadow .18s;} .ds-field input::placeholder{color:var(--ak-gris-medio);} .ds-field input:focus{border-color:rgba(23,196,110,.7);box-shadow:0 0 0 3px rgba(23,196,110,.08);}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Fixed Azul Noche bar under a 3px gradient strip; green underline on the current page.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-strip\"></div><div class=\"ds-row\"><a class=\"ds-logo\" href=\"#\"><b>Arkanis</b></a><ul><li><a href=\"#\" aria-current=\"page\">Inicio</a></li><li><a href=\"#\">Komio</a></li><li><a href=\"#\">Contacto</a></li></ul></div></header>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-nav{background:rgba(6,26,46,.94);border-bottom:1px solid var(--ak-hair);backdrop-filter:blur(10px);} .ds-strip{height:3px;background:var(--ak-grad);} .ds-row{display:flex;align-items:center;gap:32px;min-height:72px;padding:0 24px;} .ds-logo{color:#fff;text-decoration:none;font:600 22px/1 'Space Grotesk',sans-serif;letter-spacing:-.01em;} .ds-nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;} .ds-nav ul a{display:block;padding:10px 14px;text-decoration:none;font:400 16px 'IBM Plex Sans',sans-serif;color:var(--ak-gris);transition:color .2s;} .ds-nav ul a:hover,.ds-nav ul a[aria-current='page']{color:#fff;} .ds-nav ul a[aria-current='page']{box-shadow:inset 0 -2px 0 var(--ak-verde);} .ds-nav ul a:focus-visible{outline:2px solid #0f86d8;outline-offset:3px;}"
+    },
+    {
+      "name": "Title Block",
+      "kind": "custom",
+      "refersTo": "titleblock-cell",
+      "description": "The drafting cajetín: hairline-divided data cells with mono labels.",
+      "html": "<div class=\"ds-tb\"><a class=\"ds-cell\" href=\"#\"><span>Producto en vivo</span><strong>Komio</strong><p>Sistema para restaurantes</p></a><div class=\"ds-cell\"><span>Base</span><strong>Armenia, Quindío</strong></div><div class=\"ds-cell\"><span>Para</span><strong>1 a 50 personas</strong></div></div>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-tb{display:grid;grid-template-columns:1.3fr 1fr 1fr;border:1px solid var(--ak-hair);background:var(--ak-noche);} .ds-cell{display:block;padding:20px 24px;border-right:1px solid var(--ak-hair);text-decoration:none;color:#fff;transition:background-color .2s;} .ds-cell:last-child{border-right:0;} .ds-cell span{display:block;margin-bottom:8px;font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ak-gris-medio);} .ds-cell strong{display:block;font:600 18px/1.25 'Space Grotesk',sans-serif;} .ds-cell p{margin:2px 0 0;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--ak-gris);} a.ds-cell:hover{background:var(--ak-noche-2);} a.ds-cell:hover strong{color:var(--ak-verde);} a.ds-cell:focus-visible{outline:2px solid #0f86d8;outline-offset:-2px;}"
+    },
+    {
+      "name": "Project Panel",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "White square panel on Niebla: Azul Noche screenshot stage under a 3px gradient border, info half with a mono spec sheet.",
+      "html": "<article class=\"ds-project\"><div class=\"ds-shot\"><div class=\"ds-img\"></div></div><div class=\"ds-info\"><h3>Komio, el sistema para restaurantes</h3><p>Pedidos, mesas e inventario en una pantalla.</p><dl class=\"ds-specs\"><div><dt>Funciona en</dt><dd>Celular, tablet y PC</dd></div></dl></div></article>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-project{display:grid;grid-template-columns:1.25fr 1fr;border:1px solid var(--ak-gris);background:#fff;color:var(--ak-noche);} .ds-shot{display:grid;place-items:center;padding:32px;background:var(--ak-noche);border-top:3px solid transparent;border-image:var(--ak-grad) 1;} .ds-img{width:100%;aspect-ratio:16/10;background:var(--ak-noche-2);border:1px solid var(--ak-hair);box-shadow:0 18px 40px rgba(0,0,0,.35);} .ds-info{padding:40px;} .ds-info h3{margin:0 0 12px;font:600 1.8rem/1.1 'Space Grotesk',sans-serif;letter-spacing:-.02em;} .ds-info p{margin:0;color:var(--ak-pizarra);font:400 16px/1.6 'IBM Plex Sans',sans-serif;} .ds-specs{margin:22px 0 0;border-top:1px solid var(--ak-gris);} .ds-specs div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--ak-gris);} .ds-specs dt{font:500 12px/1.5 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ak-pizarra);} .ds-specs dd{margin:0;font:400 16px 'IBM Plex Sans',sans-serif;}"
+    },
+    {
+      "name": "CTA Band",
+      "kind": "card",
+      "refersTo": "cta-band",
+      "description": "Unfilled hairline frame with a 3px gradient strip on top and a primary action.",
+      "html": "<div class=\"ds-band\"><div><h3>Contanos dónde se te enreda el día</h3><p>Diagnóstico gratis, sin compromiso.</p></div><button class=\"ds-b\">Pedí tu diagnóstico</button></div>",
+      "css": ":host{--ak-noche:#061a2e;--ak-noche-2:#0a2440;--ak-azul:#0b5fe0;--ak-verde:#17c46e;--ak-verde-hover:#1ed47c;--ak-niebla:#f2f7fb;--ak-gris:#c8d8e6;--ak-gris-medio:#7a93a8;--ak-pizarra:#3d5771;--ak-hair:rgba(200,216,230,0.22);--ak-grad:linear-gradient(135deg,#17c46e 0%,#0f86d8 50%,#0b47c9 100%);--ak-ease:cubic-bezier(0.16,1,0.3,1);} .ds-band{position:relative;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:36px 40px;border:1px solid var(--ak-hair);background:var(--ak-noche);color:#fff;} .ds-band::before{content:'';position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--ak-grad);} .ds-band h3{margin:0;font:600 1.7rem/1.15 'Space Grotesk',sans-serif;letter-spacing:-.02em;} .ds-band p{margin:6px 0 0;color:var(--ak-gris);font:400 16px 'IBM Plex Sans',sans-serif;} .ds-b{font:600 16px/1 'IBM Plex Sans',sans-serif;padding:15px 22px;border:0;border-radius:0;background:var(--ak-verde);color:var(--ak-noche);cursor:pointer;transition:background-color .2s;} .ds-b:hover{background:var(--ak-verde-hover);} .ds-b:focus-visible{outline:2px solid #0f86d8;outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Proposal Cover",
+    "overview": "Every surface reads like the cover and interior pages of an Arkanis commercial proposal: an Azul Noche ground, a hairline frame, a thin official gradient strip, and a drafting-style title block of data cells. The web makes that document interactive rather than decorating it. Depth comes from framing and tonal bands, not from glow or glass.\n\nThe world is owner-pinned from the official brand package v1.0 (palette, 135° gradient, Space Grotesk / IBM Plex Sans / IBM Plex Mono). Dark Azul Noche sections alternate with Niebla light bands that carry white project panels. Density is moderate: generous section padding, tight internal grids divided by 1px rules. Motion is short and exponential (ease-out), used to draw lines and light nodes, never to float cards.\n\nThe 3D render of the \"A\" appears only as a large hero piece on the web, masked into the ground. Everything small (nav mark, icons, favicons) uses the flat vector symbol.",
+    "keyCharacteristics": [
+      "Square corners everywhere except device screenshots and circular nodes.",
+      "1px hairline frames and dividers; 3px official-gradient strips as the only ornament.",
+      "Verde Señal only on actions and \"on\" states.",
+      "Space Grotesk headings, IBM Plex Sans body, IBM Plex Mono reserved for data labels and the title block.",
+      "Alternating Azul Noche and Niebla bands."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rule",
+        "body": "Verde Señal marks only what can be clicked to move forward or what is switched on. Never use it for decoration, section labels, or plain icons.",
+        "section": "colors"
+      },
+      {
+        "name": "The Strip Rule",
+        "body": "The official gradient appears as a 3px strip or a 2-3px line, never as a fill behind text or a button background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Drafting Hand Rule",
+        "body": "IBM Plex Mono is reserved for data: title-block labels, spec terms, table headers, status flags. It never sits above a heading as an eyebrow or kicker.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lit Signal Rule",
+        "body": "A glow means a node is lit. No card, button or panel glows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep every corner square except circular nodes and phone screenshots (18px).",
+      "**Do** frame with 1px hairlines (`hairline` on dark, Gris Claro on light) and divide grids with shared borders instead of gaps.",
+      "**Do** use the official 135° gradient only as a 3px strip or a 2-3px line.",
+      "**Do** reserve Verde Señal for actions and \"on\" states; use `verde-ink` for green text on light surfaces.",
+      "**Do** use the flat vector symbol for anything under 200px and the 3D render only as a large hero piece.",
+      "**Do** alternate Azul Noche and Niebla bands to pace a page.",
+      "**Do** keep one sticky CTA on mobile that appears only after the hero button scrolls away."
+    ],
+    "donts": [
+      "**Don't** place eyebrow or kicker labels above headings.",
+      "**Don't** use IBM Plex Mono for anything but data labels, spec terms, table headers and the title block.",
+      "**Don't** round cards, buttons, chips or fields.",
+      "**Don't** use glass buttons, gradient-filled buttons or glowing cards.",
+      "**Don't** use Verde Señal for decoration, plain icons or section labels.",
+      "**Don't** show a nav button at ≤760px."
+    ]
+  }
+}
