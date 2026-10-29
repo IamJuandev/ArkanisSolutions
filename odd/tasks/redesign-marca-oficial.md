@@ -19,7 +19,7 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - [x] T1 S1,S6 Brand tokens, fonts, logo assets, theme-color, navbar (4 links + CTA), footer · inline · 0732071
 - [x] T2 S3,S4,S5,S7,S9 Homepage sections + contact form task prefill + sticky mobile CTA · inline · 0732071
 - [x] T3 S8 KomioProduct replaces TheDukesProduct (page, project card, server meta, sitemap) · inline · see next commit
-- [~] T4 S1 Inner pages inherit tokens/fonts; top spacing and back link fixed; full restyle of inner sections pending review
+- [x] T4 S1 Inner pages on brand: square buttons/frames, no eyebrows, no glows, coral only for errors, type floor 12.5px · inline · see commit
 - [x] T5 S11 impeccable finish review (ship after 2 rounds, f5e3ff1) + DESIGN.md/.impeccable/design.json by documenter · subagents
 
 ## Log
@@ -32,3 +32,4 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - L7 (owner): Komio modules claim confirmed ("a"): DIAN e-invoicing, two-factor auth and Excel export all work in the demo today. Finish review round 1: disposition fix, 8 material fixes applied in one batch; verdict pass pending.
 - L8 Finish review: round 1 fix (8 fixes), round 2 fix (sticky CTA, mobile H1, Komio live status), final disposition ship. Sticky CTA uses a scroll listener because the automation tab is hidden; logic verified with a synthetic scroll.
 - L9 DESIGN.md + .impeccable/design.json written from the shipped build. Reported drift (not fixed): inner pages keep rounded cards, eyebrows, glass/gradient buttons and coral; "Sora" still named in .section-cta-headline/.legal-clause-title; AssessmentForm success state uses eyebrow + rounded icon + ghost button; Komio AI chip outlined in green. Next: T4 inner-page restyle.
+- L10 (owner): "dale, pasá las páginas interiores a la marca". T4 done: legacy buttons (brand/glass/ghost) restyled in index.css, 16 eyebrows removed, rounded corners and radial glows removed, decorative coral → grey, tiny text raised, Terrario H1 now names the project, process nodes blue→green. Checked 10 inner routes at 390 and 1440: no overflow, no eyebrows, no rounded panels, no text under 12px. No impeccable finish review run on inner pages.

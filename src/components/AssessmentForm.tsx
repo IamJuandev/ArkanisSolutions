@@ -79,8 +79,8 @@ export default function AssessmentForm() {
                 Pedí tu diagnóstico gratis. Te respondemos con una idea concreta para tu negocio, aunque después no trabajes con nosotros.
               </p>
               <div className="mt-10 space-y-4 border-t border-white/10 pt-7 text-sm text-brand-mist">
-                <p className="flex items-start gap-3"><ShieldCheck className="mt-0.5 shrink-0 text-brand-lime" size={18} /> Tu información se usa únicamente para revisar la solicitud.</p>
-                <a href="mailto:contacto@arkanis.site" className="flex items-center gap-3 transition-colors hover:text-brand-aqua"><Mail className="shrink-0 text-brand-aqua" size={18} /> contacto@arkanis.site</a>
+                <p className="flex items-start gap-3"><ShieldCheck className="mt-0.5 shrink-0 text-brand-gris-medio" size={18} /> Tu información se usa únicamente para revisar la solicitud.</p>
+                <a href="mailto:contacto@arkanis.site" className="flex items-center gap-3 transition-colors hover:text-brand-sand"><Mail className="shrink-0 text-brand-gris-medio" size={18} /> contacto@arkanis.site</a>
               </div>
             </div>
           </div>
@@ -95,9 +95,8 @@ export default function AssessmentForm() {
                   className="flex min-h-[470px] flex-col items-start justify-center"
                   role="status"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-brand-lime/40 bg-brand-lime/10 text-brand-lime"><Check size={26} /></span>
-                  <p className="eyebrow mt-8">Solicitud recibida</p>
-                  <h3 ref={successHeadingRef} tabIndex={-1} className="mt-4 font-display text-3xl font-semibold text-brand-sand">Gracias, {inputs.name.split(' ')[0]}.</h3>
+                  <span className="flex h-14 w-14 items-center justify-center border border-brand-lime/40 bg-brand-lime/10 text-brand-lime"><Check size={26} /></span>
+                  <h3 ref={successHeadingRef} tabIndex={-1} className="mt-8 font-display text-3xl font-semibold text-brand-sand">Gracias, {inputs.name.split(' ')[0]}.</h3>
                   <p className="mt-4 max-w-md text-base leading-7 text-brand-mist">Revisaremos el caso de {inputs.businessName} y te contactaremos al correo que nos compartiste.</p>
                   <button type="button" onClick={resetForm} className="ghost-button mt-8">Enviar otra solicitud</button>
                 </motion.div>

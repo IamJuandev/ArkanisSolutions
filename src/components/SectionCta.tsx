@@ -44,14 +44,13 @@ const COPY_BY_PATH: Record<string, Copy> = {
 };
 
 export default function SectionCta({ path }: { path: string }) {
-  const { eyebrow, headline } = COPY_BY_PATH[path] ?? DEFAULT_COPY;
+  const { headline } = COPY_BY_PATH[path] ?? DEFAULT_COPY;
 
   return (
     <section className="section-cta-band">
       <div className="mx-auto max-w-7xl px-6">
         <div className="section-cta-shell">
           <div className="section-cta-copy">
-            <p className="eyebrow">{eyebrow}</p>
             <p className="section-cta-headline">{headline}</p>
           </div>
           <div className="section-cta-actions">

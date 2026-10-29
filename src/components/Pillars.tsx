@@ -38,7 +38,6 @@ export default function Pillars() {
     <section id="pilares" className="section-space relative">
       <div className="mx-auto max-w-7xl px-6">
         <div className="section-heading grid gap-6 border-b border-white/10 pb-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <p className="eyebrow">Tres formas de construir mejor</p>
           <h2 className="font-display text-3xl font-semibold leading-tight tracking-[-0.035em] text-brand-sand sm:text-5xl">
             Diseñamos experiencias web, automatizamos operaciones y aterrizamos decisiones tecnológicas en sistemas que sí pertenecen a tu empresa.
           </h2>
@@ -66,7 +65,7 @@ export default function Pillars() {
                 </div>
                 <div className="lg:pl-8">
                   <p className="max-w-xl text-sm leading-7 text-brand-mist sm:text-base">{pillar.detail}</p>
-                  <p className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-brand-sand/70">
+                  <p className="mt-5 flex items-center gap-2 font-mono text-[12.5px] uppercase tracking-[0.16em] text-brand-sand/70">
                     <ArrowUpRight size={13} aria-hidden="true" /> {pillar.outcome}
                   </p>
                 </div>

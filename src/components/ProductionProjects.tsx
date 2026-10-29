@@ -32,7 +32,6 @@ export default function ProductionProjects() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-6 lg:grid-cols-[0.65fr_1.35fr] lg:items-end">
           <div>
-            <p className="eyebrow">Proyectos destacados</p>
             <h2 className="mt-5 font-display text-4xl font-semibold leading-tight tracking-[-0.04em] text-brand-sand sm:text-5xl">
               Soluciones construidas para problemas concretos.
             </h2>
@@ -63,9 +62,9 @@ export default function ProductionProjects() {
                   <Icon size={18} className="text-brand-aqua" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-brand-mist">{project.industry}</p>
+                  <p className="font-mono text-[12.5px] uppercase tracking-[0.15em] text-brand-mist">{project.industry}</p>
                   <h3 className="mt-2 font-display text-3xl font-semibold tracking-[-0.03em] text-brand-sand">{project.client}</h3>
-                  <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.12em] text-brand-lime">{project.status}</p>
+                  <p className="mt-2 font-mono text-[12.5px] uppercase tracking-[0.12em] text-brand-lime">{project.status}</p>
                 </div>
                 <div>
                   <p className="text-lg font-medium leading-7 text-brand-sand/90">{project.statement}</p>

@@ -6,28 +6,28 @@ const processSteps = [
     title: 'Escuchar antes de proponer',
     description:
       'Comenzamos con un diagnóstico para entender tu operación, el contexto del equipo y el problema que realmente vale la pena resolver.',
-    accent: 'border-brand-sky/40 bg-brand-sky/10 text-brand-sky',
+    accent: 'border-brand-azul/50 bg-brand-azul/15 text-brand-sand',
   },
   {
     number: '02',
     title: 'Ordenar y priorizar',
     description:
       'Mapeamos procesos, datos y herramientas. Separamos lo urgente de lo importante y definimos una ruta realista.',
-    accent: 'border-brand-aqua/40 bg-brand-aqua/10 text-brand-aqua',
+    accent: 'border-brand-azul/50 bg-brand-azul/15 text-brand-sand',
   },
   {
     number: '03',
     title: 'Diseñar y construir',
     description:
       'Convertimos esa ruta en una experiencia web, automatización o sistema a medida, validando decisiones antes de sumar complejidad.',
-    accent: 'border-brand-lime/40 bg-brand-lime/10 text-brand-lime',
+    accent: 'border-brand-azul/50 bg-brand-azul/15 text-brand-sand',
   },
   {
     number: '04',
     title: 'Entregar y evolucionar',
     description:
       'Ponemos la solución en funcionamiento, documentamos lo esencial y acompañamos los ajustes que aparecen con el uso real.',
-    accent: 'border-brand-coral/40 bg-brand-coral/10 text-brand-coral',
+    accent: 'border-brand-verde/50 bg-brand-verde/15 text-brand-sand',
   },
 ];
 
@@ -44,8 +44,7 @@ export default function ClientProcess() {
       <div className="relative mx-auto max-w-7xl px-6">
         <header className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
-            <p className="eyebrow">Cómo trabajamos</p>
-            <p className="mt-7 max-w-sm font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-brand-mist">
+            <p className="mt-7 max-w-sm font-mono text-[12.5px] uppercase leading-5 tracking-[0.16em] text-brand-mist">
               Una ruta de trabajo compartida, antes de elegir la tecnología.
             </p>
           </div>
@@ -89,7 +88,7 @@ export default function ClientProcess() {
                 }`}
               >
                 <div className={index % 2 === 0 ? 'lg:col-span-5' : 'lg:col-span-5 lg:col-start-2'}>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-mist">
+                  <p className="font-mono text-[12.5px] uppercase tracking-[0.18em] text-brand-mist">
                     Etapa {step.number}
                   </p>
                   <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-3xl">
@@ -114,7 +113,7 @@ export default function ClientProcess() {
           <p className="font-display text-xl font-semibold tracking-[-0.025em] text-brand-sand sm:text-2xl">
             Cada etapa deja una decisión clara. Nada se construye porque sí.
           </p>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-aqua">
+          <span className="font-mono text-[12.5px] uppercase tracking-[0.18em] text-brand-aqua">
             Luego: verlo en acción
           </span>
         </div>

@@ -54,7 +54,6 @@ export default function PrivacyPolicy() {
     <section id="privacidad" className="section-space relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <header className="max-w-3xl">
-          <p className="eyebrow">Protección de datos personales</p>
           <h1 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-[-0.045em] text-brand-sand sm:text-5xl">
             Política de tratamiento de datos personales
           </h1>

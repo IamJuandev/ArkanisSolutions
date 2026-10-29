@@ -44,7 +44,6 @@ export default function AutomationFlow() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="eyebrow">Diagnóstico antes que herramientas</p>
             <h2 className="mt-5 font-display text-4xl font-semibold leading-tight tracking-[-0.04em] text-brand-sand sm:text-5xl">
               Entendemos qué está fallando. Después diseñamos una forma mejor de trabajar.
             </h2>

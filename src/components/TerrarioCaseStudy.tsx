@@ -78,26 +78,24 @@ export default function TerrarioCaseStudy() {
 
       <main className="relative z-10">
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
-          <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_70%_18%,rgba(23,196,110,0.14),transparent_32%),radial-gradient(circle_at_18%_32%,rgba(59,130,246,0.1),transparent_28%)]" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
-              <a href="/proyectos" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
+              <a href="/proyectos" className="inline-flex items-center gap-2 font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
                 <ArrowLeft size={14} aria-hidden="true" />
                 Volver a proyectos
               </a>
 
               <div className="mt-12 flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-brand-lime/30 bg-brand-lime/8 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-brand-lime">
+                <span className="border border-brand-lime/30 bg-brand-lime/8 px-3 py-1.5 font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-lime">
                   Caso real · En uso
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist">
+                <span className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">
                   Hospitalidad y turismo
                 </span>
               </div>
 
-              <p className="mt-8 eyebrow">Directorio Terrario</p>
-              <h1 className="mt-5 max-w-4xl font-display text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-brand-sand sm:text-6xl lg:text-7xl">
-                Una guía local para huéspedes que llegan sin conocer la zona.
+              <h1 className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-brand-sand sm:text-6xl lg:text-7xl">
+                Directorio Terrario: una guía local para huéspedes que llegan sin conocer la zona.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-brand-mist">
                 Diseñamos y desarrollamos un directorio mobile-first que reúne lugares cercanos a cada alojamiento Airbnb y los vuelve accesibles desde un código QR.
@@ -120,30 +118,29 @@ export default function TerrarioCaseStudy() {
 
               <dl className="mt-14 grid max-w-2xl grid-cols-3 gap-3 border-t border-white/10 pt-7">
                 <div>
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.14em] text-brand-mist">Sedes</dt>
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">Sedes</dt>
                   <dd className="mt-2 font-display text-3xl font-semibold text-brand-sand">3</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.14em] text-brand-mist">Lugares</dt>
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">Lugares</dt>
                   <dd className="mt-2 font-display text-3xl font-semibold text-brand-sand">68</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.14em] text-brand-mist">Desarrollo</dt>
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">Desarrollo</dt>
                   <dd className="mt-2 font-display text-3xl font-semibold text-brand-sand">≈ 1 mes</dd>
                 </div>
               </dl>
             </div>
 
             <figure className="relative mx-auto w-full max-w-[34rem]">
-              <div className="absolute inset-8 rounded-full bg-brand-aqua/10 blur-3xl" aria-hidden="true" />
-              <div className="brand-shell relative overflow-hidden rounded-[2rem] border border-white/10 bg-brand-surface/70 p-3">
+              <div className="brand-shell relative overflow-hidden border border-white/10 bg-brand-surface/70 p-3">
                 <img
                   src="/projects/terrario-home.png"
                   alt="Pantalla inicial de Directorio Terrario para la sede Las Acacias, con buscador y categorías."
-                  className="mx-auto h-auto w-full rounded-[1.35rem]"
+                  className="mx-auto h-auto w-full"
                 />
               </div>
-              <figcaption className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.13em] text-brand-mist">
+              <figcaption className="mt-4 text-center font-mono text-[12.5px] uppercase tracking-[0.13em] text-brand-mist">
                 Experiencia móvil · Sede Las Acacias
               </figcaption>
             </figure>
@@ -153,7 +150,6 @@ export default function TerrarioCaseStudy() {
         <section className="border-y border-white/10 bg-brand-surface/35 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
             <div>
-              <p className="eyebrow">El problema</p>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Llegar a un alojamiento no significa conocer lo que hay alrededor.
               </h2>
@@ -162,7 +158,6 @@ export default function TerrarioCaseStudy() {
               </p>
             </div>
             <div>
-              <p className="eyebrow">La solución</p>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Un acceso directo y contextual desde el teléfono.
               </h2>
@@ -176,7 +171,6 @@ export default function TerrarioCaseStudy() {
         <section className="section-space">
           <div className="mx-auto max-w-7xl px-6">
             <div className="max-w-3xl">
-              <p className="eyebrow">Experiencia diseñada mobile-first</p>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand sm:text-5xl">
                 La información correcta, en el momento en que el huésped la necesita.
               </h2>
@@ -184,8 +178,8 @@ export default function TerrarioCaseStudy() {
 
             <div className="mt-12 grid gap-5 md:grid-cols-3">
               {capabilities.map(({ icon: Icon, title, description }) => (
-                <article key={title} className="brand-shell rounded-2xl border border-white/10 bg-brand-surface/45 p-7">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-brand-aqua/25 bg-brand-aqua/8 text-brand-aqua">
+                <article key={title} className="brand-shell border border-white/10 bg-brand-surface/45 p-7">
+                  <span className="grid h-11 w-11 place-items-center border border-brand-aqua/25 bg-brand-aqua/8 text-brand-aqua">
                     <Icon size={20} aria-hidden="true" />
                   </span>
                   <h3 className="mt-8 font-display text-2xl font-semibold tracking-[-0.03em] text-brand-sand">{title}</h3>
@@ -195,16 +189,15 @@ export default function TerrarioCaseStudy() {
             </div>
 
             <div className="mt-16 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-              <figure className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-brand-surface/55 p-3">
+              <figure className="brand-shell overflow-hidden border border-white/10 bg-brand-surface/55 p-3">
                 <img
                   src="/projects/terrario-nearby.png"
                   alt="Listado móvil de lugares cercanos y populares en Directorio Terrario."
-                  className="h-auto w-full rounded-[1.35rem]"
+                  className="h-auto w-full"
                 />
               </figure>
 
               <div>
-                <p className="eyebrow">Evidencia pública</p>
                 <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand">
                   Implementado en 2026 en tres sedes Airbnb de Armenia.
                 </h2>
@@ -219,7 +212,7 @@ export default function TerrarioCaseStudy() {
                     { icon: ImageIcon, text: 'Fichas con imágenes e información útil' },
                     { icon: Database, text: '68 lugares publicados y administrables' },
                   ].map(({ icon: Icon, text }) => (
-                    <div key={text} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm text-brand-mist">
+                    <div key={text} className="flex items-center gap-3 border border-white/10 bg-white/[0.025] p-4 text-sm text-brand-mist">
                       <Icon size={17} className="shrink-0 text-brand-aqua" aria-hidden="true" />
                       <span>{text}</span>
                     </div>
@@ -233,7 +226,6 @@ export default function TerrarioCaseStudy() {
         <section className="border-y border-white/10 bg-brand-surface/30 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
-              <p className="eyebrow">Cobertura actual</p>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Tres sedes, una misma operación.
               </h2>
@@ -251,7 +243,7 @@ export default function TerrarioCaseStudy() {
                   rel="noopener noreferrer"
                   className="group flex items-center gap-5 py-6"
                 >
-                  <span className="font-mono text-[10px] text-brand-mist">0{index + 1}</span>
+                  <span className="font-mono text-[12.5px] text-brand-mist">0{index + 1}</span>
                   <MapPin size={18} className="text-brand-aqua" aria-hidden="true" />
                   <span className="flex-1 font-display text-2xl font-semibold text-brand-sand">{location.name}</span>
                   <ExternalLink size={18} className="text-brand-mist transition-colors group-hover:text-brand-aqua" aria-hidden="true" />
@@ -264,7 +256,6 @@ export default function TerrarioCaseStudy() {
         <section className="section-space">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
-              <p className="eyebrow">Proceso</p>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Del levantamiento al despliegue en aproximadamente un mes.
               </h2>
@@ -273,24 +264,24 @@ export default function TerrarioCaseStudy() {
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {['Levantamiento', 'Diseño mobile-first', 'Desarrollo', 'Despliegue'].map((step, index) => (
-                  <span key={step} className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.12em] text-brand-mist">
+                  <span key={step} className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2 font-mono text-[12.5px] uppercase tracking-[0.12em] text-brand-mist">
                     0{index + 1} · {step}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="brand-shell rounded-2xl border border-white/10 bg-brand-surface/45 p-8">
+            <div className="brand-shell border border-white/10 bg-brand-surface/45 p-8">
               <div className="flex items-center gap-3">
                 <Building2 size={20} className="text-brand-aqua" aria-hidden="true" />
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand-mist">Ficha técnica</p>
+                <p className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">Ficha técnica</p>
               </div>
               <h2 className="mt-6 font-display text-3xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Una aplicación web completa, de la interfaz a producción.
               </h2>
               <div className="mt-8 flex flex-wrap gap-2">
                 {technologies.map((technology) => (
-                  <span key={technology} className="rounded-lg border border-brand-aqua/20 bg-brand-aqua/[0.045] px-3 py-2 text-xs font-medium text-brand-sand/90">
+                  <span key={technology} className=" border border-brand-aqua/20 bg-brand-aqua/[0.045] px-3 py-2 text-xs font-medium text-brand-sand/90">
                     {technology}
                   </span>
                 ))}
@@ -311,8 +302,7 @@ export default function TerrarioCaseStudy() {
 
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="brand-shell overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_85%_20%,rgba(53,199,122,0.12),transparent_28%),linear-gradient(135deg,rgba(13,41,64,0.78),rgba(6,26,46,0.96))] p-8 sm:p-12">
-              <p className="eyebrow">Construyamos sobre evidencia</p>
+            <div className="brand-shell overflow-hidden border border-white/10 bg-brand-bg p-8 sm:p-12">
               <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
                 <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.045em] text-brand-sand sm:text-5xl">
                   Si tu operación necesita una herramienta propia, empecemos por entender el problema.

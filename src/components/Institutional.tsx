@@ -49,7 +49,6 @@ export default function Institutional() {
           transition={{ duration: 0.6 }}
           className="grid gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16"
         >
-          <p className="eyebrow">Quiénes somos</p>
           <div>
             <h2
               id="institutional-heading"
@@ -74,7 +73,7 @@ export default function Institutional() {
             className="relative lg:col-span-7"
           >
             <div className="mb-8 flex items-center gap-4">
-              <span className="font-mono text-[10px] tracking-[0.18em] text-brand-aqua">01</span>
+              <span className="font-mono text-[12.5px] tracking-[0.18em] text-brand-aqua">01</span>
               <span aria-hidden="true" className="h-px flex-1 bg-brand-aqua/30" />
             </div>
             <h3 className="font-display text-3xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-4xl">
@@ -96,7 +95,7 @@ export default function Institutional() {
             className="border-l border-brand-lime/30 pl-6 lg:col-span-4 lg:col-start-9 lg:mt-24 lg:pl-8"
           >
             <div className="mb-8 flex items-center gap-4">
-              <span className="font-mono text-[10px] tracking-[0.18em] text-brand-lime">02</span>
+              <span className="font-mono text-[12.5px] tracking-[0.18em] text-brand-lime">02</span>
               <span aria-hidden="true" className="h-px flex-1 bg-brand-lime/30" />
             </div>
             <h3 className="font-display text-3xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-4xl">
@@ -112,7 +111,6 @@ export default function Institutional() {
 
         <div className="mt-24 grid gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16">
           <div>
-            <p className="eyebrow">Principios de trabajo</p>
           </div>
           <ol className="border-t border-white/12">
             {principles.map((principle, index) => (
@@ -124,7 +122,7 @@ export default function Institutional() {
                 transition={{ duration: 0.45, delay: reduceMotion ? 0 : index * 0.04 }}
                 className="grid gap-3 border-b border-white/10 py-7 sm:grid-cols-[3rem_0.8fr_1fr] sm:items-baseline sm:gap-6"
               >
-                <span className="font-mono text-[10px] tracking-[0.16em] text-brand-mist/70">
+                <span className="font-mono text-[12.5px] tracking-[0.16em] text-brand-mist/70">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <h3 className="font-display text-xl font-semibold tracking-[-0.025em] text-brand-sand">
