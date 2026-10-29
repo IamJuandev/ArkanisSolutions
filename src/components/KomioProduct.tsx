@@ -56,7 +56,6 @@ export default function KomioProduct() {
           <section className="ak-cover" aria-labelledby="komio-title">
             <div className="ak-cover-grid">
               <div className="ak-cover-copy">
-                <span className="ak-status ak-status-dark">Producto en vivo · demo abierta</span>
                 <h1 id="komio-title">Komio: software para restaurantes en Armenia y el Eje Cafetero</h1>
                 <p className="ak-bajada">
                   Comandas desde el celular, mapa de mesas, caja, inventario y facturación electrónica en un solo sistema, configurado
@@ -92,7 +91,7 @@ export default function KomioProduct() {
               <div className="ak-cell">
                 <span className="ak-label">Funciona en</span>
                 <strong>Celular, tablet y computador</strong>
-                <p>Desde el navegador</p>
+                <p>Desde el navegador · demo en vivo</p>
               </div>
               <div className="ak-cell">
                 <span className="ak-label">Facturación</span>
@@ -150,9 +149,8 @@ export default function KomioProduct() {
               <p>No es una suscripción genérica: es tu propia instalación, acompañada por un equipo local.</p>
             </div>
             <ol className="ak-route ak-route-3">
-              {delivery.map((step, index) => (
+              {delivery.map((step) => (
                 <li key={step.name}>
-                  <span className="ak-label">Paso {index + 1}</span>
                   <h3>{step.name}</h3>
                   <p>{step.text}</p>
                 </li>

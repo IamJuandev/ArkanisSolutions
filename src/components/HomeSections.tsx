@@ -1,4 +1,5 @@
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const WHATSAPP_DIAGNOSIS = 'https://wa.me/573138751753?text=' + encodeURIComponent('Hola Arkanis, quiero mi diagnóstico gratis');
 
@@ -31,10 +32,13 @@ export function HomeProjects() {
             </div>
           </div>
           <div className="ak-info">
-            <span className="ak-status">Producto en vivo</span>
             <h3>Komio, el sistema para restaurantes que podés probar hoy</h3>
             <p>Desde la comanda en el celular hasta el cierre de caja, en un solo lugar.</p>
             <dl className="ak-specs">
+              <div>
+                <dt>Estado</dt>
+                <dd className="ak-live">En vivo · demo abierta</dd>
+              </div>
               <div>
                 <dt>Operación</dt>
                 <dd>Comandas, mapa de mesas y caja</dd>
@@ -73,10 +77,13 @@ export function HomeProjects() {
             />
           </div>
           <div className="ak-info">
-            <span className="ak-status">Caso en producción</span>
             <h3>Directorio Terrario: 68 lugares en 3 sedes, a un toque</h3>
             <p>La información estaba dispersa; hoy está ordenada por sede y se encuentra en segundos.</p>
             <dl className="ak-specs">
+              <div>
+                <dt>Estado</dt>
+                <dd className="ak-live">En producción</dd>
+              </div>
               <div>
                 <dt>Problema</dt>
                 <dd>Lugares difíciles de consultar y mantener</dd>
@@ -184,9 +191,8 @@ export function HomeProcess() {
           <p>Empezamos por una tarea, no por un sistema enorme. Cada fase termina con algo que podés usar.</p>
         </div>
         <ol className="ak-route">
-          {phases.map((phase, index) => (
+          {phases.map((phase) => (
             <li key={phase.name}>
-              <span className="ak-label">Fase {index + 1}</span>
               <h3>{phase.name}</h3>
               <p>{phase.text}</p>
             </li>
@@ -270,9 +276,29 @@ export function HomeFaq() {
   );
 }
 
+// Shows the sticky bar only once the page's own primary action has scrolled
+// away, so it never covers the hero's task options on small screens.
 export function MobileCta() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const primary = document.querySelector('.ak-actions .ak-btn');
+    if (!primary) {
+      setVisible(true);
+      return;
+    }
+    const update = () => setVisible(primary.getBoundingClientRect().bottom < 0);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
   return (
-    <a className="ak-btn ak-btn-verde ak-sticky" href="/contacto">
+    <a className="ak-btn ak-btn-verde ak-sticky" href="/contacto" data-visible={visible} aria-hidden={!visible} tabIndex={visible ? undefined : -1}>
       Diagnóstico gratis
     </a>
   );

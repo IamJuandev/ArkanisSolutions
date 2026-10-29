@@ -68,11 +68,9 @@ export default function AssessmentForm() {
 
   return (
     <section id="contacto" className="section-space relative overflow-hidden">
-      <div className="diagnostic-glow" aria-hidden="true" />
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="ak-wrap">
         <div className="diagnostic-shell grid overflow-hidden lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative border-b border-white/10 p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
-            <img src="/brand/symbol-white.svg" alt="" className="absolute -right-12 -top-12 h-56 w-56 opacity-[0.08]" />
             <div className="relative">
               <h2 className="font-display text-4xl font-semibold leading-tight tracking-[-0.03em] text-brand-sand sm:text-5xl">
                 ¿Y si lo que hoy hacés a mano se hiciera solo?
@@ -106,7 +104,7 @@ export default function AssessmentForm() {
               ) : (
                 <motion.form
                   key="form"
-                  initial={reduceMotion ? false : { opacity: 0 }}
+                  initial={false}
                   animate={{ opacity: 1 }}
                   onSubmit={handleSubmit}
                   className="space-y-5"
