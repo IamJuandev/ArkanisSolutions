@@ -260,3 +260,16 @@ a.ak-cell:hover strong { color: var(--ak-verde); }
 @media (prefers-reduced-motion: reduce) {
   .ak-arc-live, .ak-node-luego i, .ak-index a, .ak-faq summary::after, .ak-btn { transition: none; }
 }
+
+/* Komio product page */
+.ak-status-dark { color: var(--ak-verde); margin-bottom: 18px; }
+.ak-shot-cover { border-top: 0; border-image: none; background: transparent; padding: 40px; }
+.ak-shot-wide { padding: 28px; }
+.ak-modules { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ak-hair); border-left: 1px solid var(--ak-hair); }
+.ak-modules article { padding: 28px; border-right: 1px solid var(--ak-hair); border-bottom: 1px solid var(--ak-hair); }
+.ak-modules h3 { font: 600 1.3rem/1.2 var(--font-display); margin-bottom: 10px; }
+.ak-modules p { color: var(--ak-gris); font-size: 16.5px; line-height: 1.55; }
+.ak-route-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px) { .ak-modules { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .ak-modules { grid-template-columns: 1fr; } .ak-shot-cover { padding: 24px 16px 8px; } }
+@media (max-width: 860px) { .ak-route-3 { grid-template-columns: 1fr; } }

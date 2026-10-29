@@ -16,10 +16,10 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - S11 Finish with the full impeccable flow (direction contract, finish reviewer, DESIGN.md) and polish with emil-design-eng / animate.
 
 ## Tasks
-- [ ] T1 S1,S6 Brand tokens, fonts, logo assets, theme-color, navbar (4 links + CTA), footer · inline
-- [ ] T2 S3,S4,S5,S7,S9 Homepage sections + contact form task prefill + sticky mobile CTA · inline
-- [ ] T3 S8 KomioProduct replaces TheDukesProduct (page, project card, server meta, sitemap) · inline
-- [ ] T4 S1 Inner pages and route landings render correctly on the new tokens · inline
+- [x] T1 S1,S6 Brand tokens, fonts, logo assets, theme-color, navbar (4 links + CTA), footer · inline · 0732071
+- [x] T2 S3,S4,S5,S7,S9 Homepage sections + contact form task prefill + sticky mobile CTA · inline · 0732071
+- [x] T3 S8 KomioProduct replaces TheDukesProduct (page, project card, server meta, sitemap) · inline · see next commit
+- [~] T4 S1 Inner pages inherit tokens/fonts; top spacing and back link fixed; full restyle of inner sections pending review
 - [ ] T5 S11 Polish (emil-design-eng, animate), impeccable finish review, DESIGN.md · reviewer/documenter subagents
 
 ## Log
@@ -28,3 +28,4 @@ Branch: `feat/redesign-marca-oficial` (from `main` + 7 rescued SEO commits) · D
 - L3 Rejected: La Comanda world and four exotic mockups. gentle-shell + agy proposals converged on the proposal-cover concept; owner answered the forks (S4–S7). Mockup approved: "si, dale armala con la marca oficial" / "entonces implementemos esta" (note: mobile felt "un poco suave").
 - L4 Branch `feat/redesign-comanda` deleted on owner request after rescuing SEO commits aa0b11b..7d0ca94; La Comanda commits and old DESIGN.md dropped.
 - L5 Komio screenshots captured from http://demo.komio.test (salon desktop + mobile); dashboard skipped (empty sales, negative cash).
+- L6 T1–T3 verified: typecheck + build pass; chooser interaction checked in browser (task, example, WhatsApp text); production server renders new titles/H1 for /, Komio route, /proyectos and 404 for unknown paths. Engram mirror pending: project ambiguous (arkanis vs arkanissolutions), owner to choose.

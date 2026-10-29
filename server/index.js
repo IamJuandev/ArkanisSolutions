@@ -44,9 +44,9 @@ const FIELD_LIMITS = {
 
 const ROUTE_SEO = {
   '/': {
-    heading: 'Tu negocio no es genérico. Tu sistema digital tampoco.',
-    title: 'Desarrollo web y software a la medida en Armenia | Arkanis',
-    description: 'Desarrollo web, software a la medida y automatización de procesos para empresas de Armenia, Quindío y el Eje Cafetero.',
+    heading: 'Desarrollo de software a la medida e integración de IA para pequeños negocios en Armenia',
+    title: 'Software a la medida e integración de IA en Armenia | Arkanis Solutions',
+    description: 'Software a la medida, automatización con IA y desarrollo web para pequeños negocios de Armenia y el Eje Cafetero. Mirá Komio y Directorio Terrario funcionando y pedí tu diagnóstico gratis.',
     canonical: `${SITE_URL}/`,
     image: `${SITE_URL}/og-image.jpg`,
     imageAlt: 'Arkanis Solutions transforma operaciones empresariales con tecnología.',
@@ -108,11 +108,11 @@ const ROUTE_SEO = {
     imageAlt: 'Directorio Terrario muestra lugares útiles para huéspedes desde una experiencia móvil.',
   },
   '/productos/sistema-gestion-restaurantes': {
-    title: 'Sistema de gestión para restaurantes | Arkanis Solutions',
-    description: 'Aplicación web exclusiva y personalizable para administrar la operación completa de un restaurante.',
+    title: 'Komio: software para restaurantes en Armenia | Arkanis Solutions',
+    description: 'Komio, el sistema de gestión para restaurantes de Arkanis: comandas, mesas, caja, inventario y facturación electrónica DIAN. Probá la demo.',
     canonical: `${SITE_URL}/productos/sistema-gestion-restaurantes`,
-    image: `${SITE_URL}/capturas_thedukes/dashboard-escritorio.webp`,
-    imageAlt: 'Dashboard del sistema de gestión para restaurantes desarrollado por Arkanis Solutions.',
+    image: `${SITE_URL}/capturas_komio/salon-escritorio.webp`,
+    imageAlt: 'Zona de pedidos de Komio, el software para restaurantes de Arkanis Solutions.',
   },
 }
 

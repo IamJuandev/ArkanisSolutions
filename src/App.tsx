@@ -14,7 +14,7 @@ import RouteLanding from './components/RouteLanding';
 import ProductionProjects from './components/ProductionProjects';
 import SectionCta from './components/SectionCta';
 import TerrarioCaseStudy from './components/TerrarioCaseStudy';
-import TheDukesProduct from './components/TheDukesProduct';
+import KomioProduct from './components/KomioProduct';
 import { routeLandingByPath } from './content/landings';
 
 const sectionViews: Record<string, ReactNode> = {
@@ -75,7 +75,7 @@ export default function App() {
   }
 
   if (currentPath === '/productos/sistema-gestion-restaurantes') {
-    return <TheDukesProduct />;
+    return <KomioProduct />;
   }
 
   const routeLanding = routeLandingByPath[currentPath];
