@@ -9,36 +9,32 @@ import { ArrowRight, Home } from 'lucide-react';
  * Each section closes with its own line, picking up the argument that section
  * just made — a single repeated sentence reads like boilerplate.
  */
-type Copy = { eyebrow: string; headline: string };
+type Copy = { headline: string };
 
 const DEFAULT_COPY: Copy = {
-  eyebrow: '¿Vemos tu caso?',
   headline: 'Hablemos de dónde aparece la fricción en tu operación y te respondemos con una ruta clara.',
 };
 
 const COPY_BY_PATH: Record<string, Copy> = {
+  '/proyectos/directorio-terrario': {
+    headline: 'Si tu operación necesita una herramienta propia, empecemos por entender el problema.',
+  },
   '/nosotros': {
-    eyebrow: '¿Trabajamos juntos?',
     headline: 'Si compartís esta forma de entender la tecnología, conversemos sobre tu operación.',
   },
   '/que-hacemos': {
-    eyebrow: '¿Cuál es tu prioridad?',
     headline: 'Hablemos del frente que te resulta más urgente y te proponemos por dónde empezar.',
   },
   '/como-trabajamos': {
-    eyebrow: 'El primer paso',
     headline: 'Todo empieza con un diagnóstico. Hablemos de cómo opera tu empresa hoy.',
   },
   '/flujo': {
-    eyebrow: '¿Te resulta conocido?',
     headline: 'Si reconocés este patrón en tu operación, veamos qué se puede ordenar y automatizar.',
   },
   '/proyectos': {
-    eyebrow: 'Tu proyecto',
     headline: 'Cada uno de estos sistemas empezó con una conversación. Hablemos del tuyo.',
   },
   '/privacidad': {
-    eyebrow: '¿Hablamos?',
     headline: 'Si tenés dudas sobre el tratamiento de tus datos o querés proponernos un proyecto, hablemos.',
   },
 };

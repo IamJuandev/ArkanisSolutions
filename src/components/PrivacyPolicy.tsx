@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
             cuánto tiempo los conserva y cómo podés ejercer tus derechos. Se adopta en cumplimiento
             de la Ley 1581 de 2012 y del Decreto 1074 de 2015.
           </p>
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-brand-aqua">
+          <p className="mt-4 text-sm text-brand-mist">
             Vigente desde el {VIGENCIA_DESDE}
           </p>
         </header>

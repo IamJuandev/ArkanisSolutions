@@ -59,12 +59,11 @@ export default function ProductionProjects() {
               >
                 <div className="flex items-center gap-3">
                   <span className="project-index">0{index + 1}</span>
-                  <Icon size={18} className="text-brand-aqua" aria-hidden="true" />
+                  <Icon size={18} className="text-brand-mist" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="font-mono text-[12.5px] uppercase tracking-[0.15em] text-brand-mist">{project.industry}</p>
-                  <h3 className="mt-2 font-display text-3xl font-semibold tracking-[-0.03em] text-brand-sand">{project.client}</h3>
-                  <p className="mt-2 font-mono text-[12.5px] uppercase tracking-[0.12em] text-brand-lime">{project.status}</p>
+                  <h3 className="font-display text-3xl font-semibold tracking-[-0.03em] text-brand-sand">{project.client}</h3>
+                  <p className="mt-2 text-sm text-brand-mist">{project.industry} · <span className="text-brand-verde">{project.status}</span></p>
                 </div>
                 <div>
                   <p className="text-lg font-medium leading-7 text-brand-sand/90">{project.statement}</p>

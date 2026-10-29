@@ -58,8 +58,7 @@ export default function AutomationFlow() {
           <div className="process-comparison">
             <motion.article {...reveal} className="process-pane process-pane-before">
               <div className="process-pane-heading">
-                <p className="process-kicker process-kicker-problem">01 · Lo que encontramos</p>
-                <h3>El trabajo existe, pero el proceso está escondido.</h3>
+                <h3>Hoy: el trabajo existe, pero el proceso está escondido.</h3>
               </div>
 
               <ul className="friction-stack" aria-label="Señales de una operación desordenada">
@@ -89,7 +88,6 @@ export default function AutomationFlow() {
               className="process-diagnosis"
             >
               <div className="diagnosis-mark"><Search size={20} aria-hidden="true" /></div>
-              <p className="process-kicker">Diagnóstico Arkanis</p>
               <h3>No automatizamos el caos.</h3>
               <p className="diagnosis-copy">
                 Primero convertimos el trabajo real en un proceso que todos puedan entender.
@@ -116,8 +114,7 @@ export default function AutomationFlow() {
               className="process-pane process-pane-after"
             >
               <div className="process-pane-heading">
-                <p className="process-kicker process-kicker-result">02 · Cómo la mejoramos</p>
-                <h3>Cada solicitud tiene un recorrido claro.</h3>
+                <h3>Con Arkanis: cada solicitud tiene un recorrido claro.</h3>
               </div>
 
               <div className="ordered-card">
@@ -149,7 +146,6 @@ export default function AutomationFlow() {
           </div>
 
           <div className="process-story-outcome">
-            <p className="process-kicker">El cambio real</p>
             <p>
               Tu equipo deja de recordar cómo mover el trabajo y puede ver qué está pasando,
               quién sigue y dónde intervenir.

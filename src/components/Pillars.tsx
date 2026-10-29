@@ -65,7 +65,7 @@ export default function Pillars() {
                 </div>
                 <div className="lg:pl-8">
                   <p className="max-w-xl text-sm leading-7 text-brand-mist sm:text-base">{pillar.detail}</p>
-                  <p className="mt-5 flex items-center gap-2 font-mono text-[12.5px] uppercase tracking-[0.16em] text-brand-sand/70">
+                  <p className="mt-5 flex items-center gap-2 text-base text-brand-sand/80">
                     <ArrowUpRight size={13} aria-hidden="true" /> {pillar.outcome}
                   </p>
                 </div>

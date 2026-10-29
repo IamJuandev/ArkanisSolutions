@@ -36,18 +36,8 @@ export default function ClientProcess() {
 
   return (
     <section id="proceso" className="section-space relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] border-l border-white/5 bg-brand-surface/20 lg:block"
-        aria-hidden="true"
-      />
-
       <div className="relative mx-auto max-w-7xl px-6">
-        <header className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-          <div>
-            <p className="mt-7 max-w-sm font-mono text-[12.5px] uppercase leading-5 tracking-[0.16em] text-brand-mist">
-              Una ruta de trabajo compartida, antes de elegir la tecnología.
-            </p>
-          </div>
+        <header className="max-w-4xl">
           <div>
             <h2 className="font-display text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-brand-sand sm:text-5xl lg:text-6xl">
               Primero entendemos. Después construimos.
@@ -83,24 +73,15 @@ export default function ClientProcess() {
               </div>
 
               <div
-                className={`grid gap-5 lg:grid-cols-12 lg:items-start ${
-                  index % 2 === 0 ? '' : 'lg:pl-[8%]'
-                }`}
+                className="grid gap-5 lg:grid-cols-12 lg:items-start"
               >
-                <div className={index % 2 === 0 ? 'lg:col-span-5' : 'lg:col-span-5 lg:col-start-2'}>
-                  <p className="font-mono text-[12.5px] uppercase tracking-[0.18em] text-brand-mist">
-                    Etapa {step.number}
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-3xl">
+                <div className="lg:col-span-5">
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-3xl">
                     {step.title}
                   </h3>
                 </div>
                 <p
-                  className={`max-w-xl text-sm leading-7 text-brand-mist sm:text-base ${
-                    index % 2 === 0
-                      ? 'lg:col-span-6 lg:col-start-7'
-                      : 'lg:col-span-5 lg:col-start-8'
-                  }`}
+                  className="max-w-xl text-base leading-7 text-brand-mist lg:col-span-6 lg:col-start-7"
                 >
                   {step.description}
                 </p>
@@ -109,13 +90,13 @@ export default function ClientProcess() {
           ))}
         </ol>
 
-        <div className="mt-9 grid gap-5 border-l-2 border-brand-aqua/60 pl-5 sm:grid-cols-[1fr_auto] sm:items-center sm:pl-7">
+        <div className="mt-9 grid gap-5 border-t border-white/10 pt-7 sm:grid-cols-[1fr_auto] sm:items-center">
           <p className="font-display text-xl font-semibold tracking-[-0.025em] text-brand-sand sm:text-2xl">
             Cada etapa deja una decisión clara. Nada se construye porque sí.
           </p>
-          <span className="font-mono text-[12.5px] uppercase tracking-[0.18em] text-brand-aqua">
-            Luego: verlo en acción
-          </span>
+          <a href="/flujo" className="font-semibold text-brand-sand underline-offset-4 hover:underline">
+            Mirá un flujo en acción →
+          </a>
         </div>
       </div>
     </section>

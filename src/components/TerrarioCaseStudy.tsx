@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import SectionCta from './SectionCta';
 
 const locations = [
   { name: 'Las Acacias', href: 'https://directorioterrario.com/' },
@@ -80,7 +81,7 @@ export default function TerrarioCaseStudy() {
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
           <div className="relative mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
-              <a href="/proyectos" className="inline-flex items-center gap-2 font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist transition-colors hover:text-brand-aqua">
+              <a href="/proyectos" className="inline-flex items-center gap-2 text-base text-brand-mist transition-colors hover:text-brand-sand">
                 <ArrowLeft size={14} aria-hidden="true" />
                 Volver a proyectos
               </a>
@@ -88,9 +89,6 @@ export default function TerrarioCaseStudy() {
               <div className="mt-12 flex flex-wrap items-center gap-3">
                 <span className="border border-brand-lime/30 bg-brand-lime/8 px-3 py-1.5 font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-lime">
                   Caso real · En uso
-                </span>
-                <span className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">
-                  Hospitalidad y turismo
                 </span>
               </div>
 
@@ -140,7 +138,7 @@ export default function TerrarioCaseStudy() {
                   className="mx-auto h-auto w-full"
                 />
               </div>
-              <figcaption className="mt-4 text-center font-mono text-[12.5px] uppercase tracking-[0.13em] text-brand-mist">
+              <figcaption className="mt-4 text-center text-sm text-brand-mist">
                 Experiencia móvil · Sede Las Acacias
               </figcaption>
             </figure>
@@ -176,14 +174,12 @@ export default function TerrarioCaseStudy() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <div className="mt-12 border-t border-white/10">
               {capabilities.map(({ icon: Icon, title, description }) => (
-                <article key={title} className="brand-shell border border-white/10 bg-brand-surface/45 p-7">
-                  <span className="grid h-11 w-11 place-items-center border border-brand-aqua/25 bg-brand-aqua/8 text-brand-aqua">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-8 font-display text-2xl font-semibold tracking-[-0.03em] text-brand-sand">{title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-brand-mist">{description}</p>
+                <article key={title} className="grid gap-3 border-b border-white/10 py-7 md:grid-cols-[auto_0.9fr_1.1fr] md:items-start md:gap-8">
+                  <Icon size={22} className="text-brand-mist" aria-hidden="true" />
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-brand-sand">{title}</h3>
+                  <p className="text-base leading-7 text-brand-mist">{description}</p>
                 </article>
               ))}
             </div>
@@ -213,7 +209,7 @@ export default function TerrarioCaseStudy() {
                     { icon: Database, text: '68 lugares publicados y administrables' },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-3 border border-white/10 bg-white/[0.025] p-4 text-sm text-brand-mist">
-                      <Icon size={17} className="shrink-0 text-brand-aqua" aria-hidden="true" />
+                      <Icon size={17} className="shrink-0 text-brand-mist" aria-hidden="true" />
                       <span>{text}</span>
                     </div>
                   ))}
@@ -244,7 +240,7 @@ export default function TerrarioCaseStudy() {
                   className="group flex items-center gap-5 py-6"
                 >
                   <span className="font-mono text-[12.5px] text-brand-mist">0{index + 1}</span>
-                  <MapPin size={18} className="text-brand-aqua" aria-hidden="true" />
+                  <MapPin size={18} className="text-brand-mist" aria-hidden="true" />
                   <span className="flex-1 font-display text-2xl font-semibold text-brand-sand">{location.name}</span>
                   <ExternalLink size={18} className="text-brand-mist transition-colors group-hover:text-brand-aqua" aria-hidden="true" />
                 </a>
@@ -264,7 +260,7 @@ export default function TerrarioCaseStudy() {
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {['Levantamiento', 'Diseño mobile-first', 'Desarrollo', 'Despliegue'].map((step, index) => (
-                  <span key={step} className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2 font-mono text-[12.5px] uppercase tracking-[0.12em] text-brand-mist">
+                  <span key={step} className="border border-white/10 px-3 py-2 text-sm text-brand-mist">
                     0{index + 1} · {step}
                   </span>
                 ))}
@@ -273,26 +269,25 @@ export default function TerrarioCaseStudy() {
 
             <div className="brand-shell border border-white/10 bg-brand-surface/45 p-8">
               <div className="flex items-center gap-3">
-                <Building2 size={20} className="text-brand-aqua" aria-hidden="true" />
-                <p className="font-mono text-[12.5px] uppercase tracking-[0.14em] text-brand-mist">Ficha técnica</p>
+                <Building2 size={20} className="text-brand-mist" aria-hidden="true" />
               </div>
               <h2 className="mt-6 font-display text-3xl font-semibold tracking-[-0.04em] text-brand-sand">
                 Una aplicación web completa, de la interfaz a producción.
               </h2>
               <div className="mt-8 flex flex-wrap gap-2">
                 {technologies.map((technology) => (
-                  <span key={technology} className=" border border-brand-aqua/20 bg-brand-aqua/[0.045] px-3 py-2 text-xs font-medium text-brand-sand/90">
+                  <span key={technology} className="border border-white/15 px-3 py-2 font-mono text-[12.5px] text-brand-sand/90">
                     {technology}
                   </span>
                 ))}
               </div>
               <div className="mt-8 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
                 <div className="flex items-center gap-3 text-sm text-brand-mist">
-                  <Clock3 size={17} className="text-brand-lime" aria-hidden="true" />
+                  <Clock3 size={17} className="text-brand-mist" aria-hidden="true" />
                   Desarrollo aproximado: 1 mes
                 </div>
                 <div className="flex items-center gap-3 text-sm text-brand-mist">
-                  <Database size={17} className="text-brand-lime" aria-hidden="true" />
+                  <Database size={17} className="text-brand-mist" aria-hidden="true" />
                   Frontend, backend y despliegue
                 </div>
               </div>
@@ -300,21 +295,7 @@ export default function TerrarioCaseStudy() {
           </div>
         </section>
 
-        <section className="pb-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="brand-shell overflow-hidden border border-white/10 bg-brand-bg p-8 sm:p-12">
-              <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-                <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.045em] text-brand-sand sm:text-5xl">
-                  Si tu operación necesita una herramienta propia, empecemos por entender el problema.
-                </h2>
-                <a href="/contacto" className="brand-button brand-button-large">
-                  Cuéntanos tu proyecto
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <SectionCta path="/proyectos/directorio-terrario" />
       </main>
 
       <Footer />

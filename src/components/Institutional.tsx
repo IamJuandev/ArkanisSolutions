@@ -72,10 +72,6 @@ export default function Institutional() {
             transition={{ duration: 0.55 }}
             className="relative lg:col-span-7"
           >
-            <div className="mb-8 flex items-center gap-4">
-              <span className="font-mono text-[12.5px] tracking-[0.18em] text-brand-aqua">01</span>
-              <span aria-hidden="true" className="h-px flex-1 bg-brand-aqua/30" />
-            </div>
             <h3 className="font-display text-3xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-4xl">
               Misión
             </h3>
@@ -92,12 +88,8 @@ export default function Institutional() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-90px' }}
             transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.08 }}
-            className="border-l border-brand-lime/30 pl-6 lg:col-span-4 lg:col-start-9 lg:mt-24 lg:pl-8"
+            className="border-l border-white/10 pl-6 lg:col-span-4 lg:col-start-9 lg:mt-24 lg:pl-8"
           >
-            <div className="mb-8 flex items-center gap-4">
-              <span className="font-mono text-[12.5px] tracking-[0.18em] text-brand-lime">02</span>
-              <span aria-hidden="true" className="h-px flex-1 bg-brand-lime/30" />
-            </div>
             <h3 className="font-display text-3xl font-semibold tracking-[-0.035em] text-brand-sand sm:text-4xl">
               Visión 2030
             </h3>
